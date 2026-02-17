@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compliance & Risk Advisory | Metamorphex</title>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--p:#3B5BDB;--a:#38D9C0;--pu:#8B5CF6;--bg:#fff;--bgl:#F5F3FF;--t:#1A1A2E;--ts:#5A5A7A;--b:#E8E4F3;--gm:linear-gradient(135deg,#3B5BDB,#8B5CF6);--gt:linear-gradient(135deg,#38D9C0,#4FACFE);--gf:linear-gradient(135deg,#38D9C0 0%,#3B5BDB 45%,#8B5CF6 80%,#B39DDB 100%);--sh:0 4px 20px rgba(59,91,219,.1);--shh:0 8px 32px rgba(59,91,219,.2);--fn:'Public Sans',-apple-system,sans-serif;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:var(--fn);background:var(--bg);color:var(--t);line-height:1.6;-webkit-font-smoothing:antialiased;}
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:#1A1A2E;border-bottom:1px solid rgba(255,255,255,.08);box-shadow:0 2px 20px rgba(0,0,0,.3);}
+.nav-container{max-width:1400px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:70px;}
+.logo{display:flex;align-items:center;gap:.5rem;text-decoration:none;color:white;font-size:1.5rem;font-weight:800;}
+.nav-cta{background:var(--gf);color:white;padding:.65rem 1.6rem;border-radius:50px;text-decoration:none;font-weight:700;font-size:.9rem;transition:all .3s;}
+.nav-cta:hover{transform:translateY(-2px);}
+.hero{padding:130px 2rem 70px;background:linear-gradient(160deg,#EEF2FF 0%,#F5F0FF 50%,#F0FDFB 100%);}
+.hero-inner{max-width:1400px;margin:0 auto;}
+.breadcrumb{font-size:.9rem;color:var(--ts);margin-bottom:1.5rem;}
+.breadcrumb a{color:var(--p);text-decoration:none;}
+.hero-icon{font-size:4rem;margin-bottom:1rem;}
+.hero h1{font-size:clamp(2.4rem,5vw,3.8rem);font-weight:800;margin-bottom:1.2rem;line-height:1.1;letter-spacing:-.03em;}
+.hero p{font-size:1.15rem;color:var(--ts);max-width:800px;line-height:1.75;}
+.section{padding:5rem 2rem;}
+.inner{max-width:1400px;margin:0 auto;}
+.lbl{font-size:.8rem;font-weight:700;text-transform:uppercase;background:var(--gm);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:.1em;display:inline-block;margin-bottom:.8rem;}
+.h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;margin-bottom:.8rem;letter-spacing:-.02em;}
+.desc{font-size:1.05rem;color:var(--ts);margin-bottom:2.5rem;line-height:1.7;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:2rem;margin-top:2rem;}
+.card{background:white;border:1px solid var(--b);border-radius:16px;padding:2.5rem;transition:all .3s;}
+.card:hover{transform:translateY(-5px);box-shadow:var(--shh);}
+.tag{display:inline-flex;gap:.6rem;margin-bottom:1.2rem;flex-wrap:wrap;}
+.tag span{padding:.3rem .9rem;background:rgba(59,91,219,.1);border-radius:20px;font-size:.75rem;font-weight:600;color:var(--p);}
+.card h3{font-size:1.25rem;font-weight:700;margin-bottom:.8rem;}
+.card p{color:var(--ts);line-height:1.7;margin-bottom:1.5rem;}
+.results{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;padding-top:1.2rem;border-top:1px solid var(--b);}
+.rnum{font-size:1.6rem;font-weight:800;background:var(--gt);-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:block;}
+.rlbl{font-size:.8rem;color:var(--ts);}
+.clients{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.5rem;margin-top:2rem;}
+.client{background:var(--bgl);border-radius:10px;padding:1.6rem;text-align:center;font-weight:700;font-size:1.1rem;color:var(--ts);transition:all .3s;}
+.client:hover{background:white;color:var(--p);box-shadow:var(--sh);}
+.insights{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;margin-top:2rem;}
+.ins{background:white;border:1px solid var(--b);border-radius:16px;overflow:hidden;transition:all .3s;}
+.ins:hover{transform:translateY(-5px);box-shadow:var(--shh);}
+.ins-top{padding:.9rem 1.8rem;background:var(--gm);color:white;font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.05em;}
+.ins-body{padding:1.8rem;}
+.ins-body h3{font-size:1.15rem;font-weight:700;margin-bottom:.8rem;}
+.ins-body p{color:var(--ts);line-height:1.7;margin-bottom:1.2rem;font-size:.95rem;}
+.ins-link{color:var(--p);text-decoration:none;font-weight:700;font-size:.9rem;}
+.cta-sec{background:var(--gf);color:white;padding:5rem 2rem;text-align:center;}
+.cta-sec h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:1rem;}
+.cta-sec p{font-size:1.15rem;margin-bottom:2rem;opacity:.95;}
+.btn{padding:.9rem 2rem;border-radius:50px;font-weight:700;font-size:.95rem;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;background:white;color:var(--p);transition:all .3s;}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,.2);}
+@media(max-width:768px){.cards,.insights{grid-template-columns:1fr;}.clients{grid-template-columns:repeat(2,1fr);}}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="../index.html" class="logo">
+      <img src="../metamorphex-logo.png" alt="Metamorphex" style="height:38px;width:auto;">
+      <span style="background:var(--gf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Metamorphex</span>
+    </a>
+    <a href="../index.html#contact" class="nav-cta">Contact Us</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../index.html#services">Services</a> / Compliance & Risk Advisory</div>
+    <div class="hero-icon">🛡️</div>
+    <h1>Compliance & Risk Advisory</h1>
+    <p>We navigate complex regulatory landscapes — RBI, SEBI, GDPR, ISO, SOC 2, PCI-DSS — designing and implementing compliance programmes that protect your business and satisfy auditors.</p>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bgl);">
+  <div class="inner">
+    <div class="lbl">Case Studies</div>
+    <h2 class="h2">What We've Delivered</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="tag"><span>Regulatory Compliance</span></div>
+        <h3>Multi-Jurisdiction Compliance Programme</h3>
+        <p>Designed and executed a compliance programme covering RBI IT Risk, SEBI CSCRF, and ISO 27001 simultaneously for a capital-markets firm — avoiding duplicate controls and saving 30% in compliance costs.</p>
+        <div class="results"><div><span class="rnum">3</span><span class="rlbl">Frameworks in One Programme</span></div><div><span class="rnum">30%</span><span class="rlbl">Compliance Cost Saving</span></div></div>
+      </div>
+      <div class="card">
+        <div class="tag"><span>Multi-Jurisdiction</span></div>
+        <h3>PCI-DSS Level 1 Certification for Payments Business</h3>
+        <p>To Level 1 Certification</p>
+        <div class="results"><div><span class="rnum">Zero</span><span class="rlbl">Critical Findings at QSA Audit</span></div><div><span class="rnum">PCI-DSS Level 1 in 8 Months: A Programme Manager's Account</span><span class="rlbl"></span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="inner">
+    <div class="lbl">Insights & Resources</div>
+    <h2 class="h2">Knowledge Centre</h2>
+    <p class="desc">Whitepapers, case studies, and expert articles on Compliance & Risk Advisory</p>
+    <div class="insights">
+      <div class="ins"><div class="ins-top">Whitepaper</div><div class="ins-body"><h3>8 months</h3><p>A CISO's Guide to Multi-Framework Compliance</p><a href="#" class="ins-link">Download PDF →</a></div></div>
+      <div class="ins"><div class="ins-top">Case Study</div><div class="ins-body"><h3></h3><p>A detailed look at how we tackled a complex Compliance & Risk Advisory engagement and delivered measurable outcomes for the client.</p><a href="#" class="ins-link">Read Case Study →</a></div></div>
+      <div class="ins"><div class="ins-top">Blog Post</div><div class="ins-body"><h3>Trends in Compliance & Risk Advisory for 2026</h3><p>Our consultants share the latest developments, emerging best practices, and what decision-makers need to know going into 2026.</p><a href="#" class="ins-link">Read Article →</a></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-sec">
+  <h2>Ready to Get Started with Compliance & Risk Advisory?</h2>
+  <p>Let's scope your engagement and put together a tailored plan.</p>
+  <a href="../index.html#contact" class="btn">Schedule a Consultation →</a>
+</section>
+</body>
+</html>
