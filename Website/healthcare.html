@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Healthcare | Metamorphex</title>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-primary: #0066FF;
+  --color-primary-dark: #0052CC;
+  --color-accent: #00D9B4;
+  --color-purple: #7B61FF;
+  --color-orange: #FF6B35;
+  --color-bg: #FFFFFF;
+  --color-bg-light: #F8F9FA;
+  --color-text: #1A1A1A;
+  --color-text-secondary: #5A5A5A;
+  --color-border: #E8E8E8;
+  
+  --font-primary: 'Public Sans', -apple-system, sans-serif;
+  --shadow: 0 4px 20px rgba(0,0,0,0.08);
+  --shadow-hover: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-primary);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--color-text);
+  text-decoration: none;
+}
+.logo span {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-cta {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-purple));
+  color: white;
+  padding: 0.7rem 1.8rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+}
+
+.hero {
+  padding: 140px 2rem 80px;
+  background: linear-gradient(135deg, #F0F7FF 0%, #FFFFFF 100%);
+}
+
+.hero-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.breadcrumb {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 2rem;
+}
+
+.breadcrumb a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+}
+
+.hero-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: var(--color-text-secondary);
+  max-width: 800px;
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+.section {
+  padding: 5rem 2rem;
+}
+
+.section-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.section-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.section-description {
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 3rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.stat-card {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.project-card {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 2.5rem;
+  transition: all 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.project-meta {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.project-tag {
+  padding: 0.4rem 1rem;
+  background: rgba(0,102,255,0.1);
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.project-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.project-card p {
+  color: var(--color-text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.project-results {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.result-item .number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  display: block;
+}
+
+.result-item .label {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
+
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.client-card {
+  background: var(--color-bg-light);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  transition: all 0.3s;
+}
+
+.client-card:hover {
+  background: white;
+  color: var(--color-primary);
+  box-shadow: var(--shadow);
+}
+
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.insight-card {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.insight-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.insight-type {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-purple));
+  color: white;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.insight-content {
+  padding: 2rem;
+}
+
+.insight-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.insight-card p {
+  color: var(--color-text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.insight-link {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: gap 0.3s;
+}
+
+.insight-card:hover .insight-link {
+  gap: 1rem;
+}
+
+.cta {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-purple));
+  color: white;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.cta h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+}
+
+.cta p {
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  opacity: 0.95;
+}
+
+.btn {
+  padding: 1rem 2.2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: all 0.3s;
+  background: white;
+  color: var(--color-primary);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 968px) {
+  .projects-grid,
+  .insights-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="../index.html" class="logo">Meta<span>morphex</span></a>
+    <a href="../index.html#contact" class="nav-cta">Contact Us</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-container">
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a> / <a href="../index.html#expertise">Industries</a> / Healthcare
+    </div>
+    <div class="hero-icon">🏥</div>
+    <h1>Healthcare IT Consulting</h1>
+    <p>
+      We help hospitals, clinics, pharmaceutical companies, and healthtech startups implement EMR/EHR systems, ensure HIPAA compliance, build telemedicine platforms, and leverage AI for clinical decision support. From patient data management to healthcare analytics, we deliver solutions that improve care delivery and operational efficiency.
+    </p>
+  </div>
+</section>
+
+<section class="section" style="background: var(--color-bg-light);">
+  <div class="section-container">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-number">30+</span>
+        <span class="stat-label">Healthcare Projects</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">2M+</span>
+        <span class="stat-label">Patient Records Migrated</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">100%</span>
+        <span class="stat-label">HIPAA Compliance</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">99.95%</span>
+        <span class="stat-label">System Availability</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-container">
+    <div class="section-label">Case Studies</div>
+    <h2 class="section-title">Key Healthcare Projects</h2>
+    <p class="section-description">
+      Transforming healthcare delivery through technology
+    </p>
+    
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="project-tag">EMR Implementation</span>
+          <span class="project-tag">Cloud Migration</span>
+        </div>
+        <h3>Multi-Hospital EMR System Implementation</h3>
+        <p>
+          Deployed Epic EMR system across a 5-hospital network serving 500K+ patients. Migrated legacy patient records, integrated with lab systems, and trained 2,000+ healthcare staff.
+        </p>
+        <div class="project-results">
+          <div class="result-item">
+            <span class="number">82%</span>
+            <span class="label">Faster Patient Processing</span>
+          </div>
+          <div class="result-item">
+            <span class="number">$3.2M</span>
+            <span class="label">Annual Cost Savings</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="project-tag">Telemedicine</span>
+          <span class="project-tag">Mobile Health</span>
+        </div>
+        <h3>National Telemedicine Platform</h3>
+        <p>
+          Built a scalable telemedicine platform for a healthcare provider with video consultations, e-prescriptions, and integrated payment gateway. Handles 50K+ consultations monthly.
+        </p>
+        <div class="project-results">
+          <div class="result-item">
+            <span class="number">50K+</span>
+            <span class="label">Monthly Consultations</span>
+          </div>
+          <div class="result-item">
+            <span class="number">4.8/5</span>
+            <span class="label">Patient Satisfaction</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="project-tag">AI/ML</span>
+          <span class="project-tag">Clinical Analytics</span>
+        </div>
+        <h3>AI-Powered Clinical Decision Support</h3>
+        <p>
+          Developed machine learning models for early detection of sepsis, reducing mortality rates by 25%. Integrated with hospital's EMR for real-time patient monitoring and alerts.
+        </p>
+        <div class="project-results">
+          <div class="result-item">
+            <span class="number">25%</span>
+            <span class="label">Mortality Reduction</span>
+          </div>
+          <div class="result-item">
+            <span class="number">89%</span>
+            <span class="label">Detection Accuracy</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background: var(--color-bg-light);">
+  <div class="section-container">
+    <div class="section-label">Our Clients</div>
+    <h2 class="section-title">Trusted by Healthcare Leaders</h2>
+    
+    <div class="clients-grid">
+      <div class="client-card">Apollo Hospitals</div>
+      <div class="client-card">Fortis Healthcare</div>
+      <div class="client-card">Max Healthcare</div>
+      <div class="client-card">Manipal Hospitals</div>
+      <div class="client-card">Practo</div>
+      <div class="client-card">1mg</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-container">
+    <div class="section-label">Insights & Resources</div>
+    <h2 class="section-title">Healthcare Technology Insights</h2>
+    <p class="section-description">
+      Expert perspectives on healthcare IT transformation
+    </p>
+    
+    <div class="insights-grid">
+      <div class="insight-card">
+        <div class="insight-type">Whitepaper</div>
+        <div class="insight-content">
+          <h3>HIPAA Compliance in Cloud: A Complete Implementation Guide</h3>
+          <p>
+            Comprehensive framework for maintaining HIPAA compliance when migrating healthcare data to cloud platforms including AWS, Azure, and Google Cloud.
+          </p>
+          <a href="#" class="insight-link">Download PDF →</a>
+        </div>
+      </div>
+      
+      <div class="insight-card">
+        <div class="insight-type">Case Study</div>
+        <div class="insight-content">
+          <h3>Hospital Goes Paperless: A Digital Transformation Journey</h3>
+          <p>
+            How we helped a 500-bed hospital eliminate paper records, implement EMR, and achieve 100% digital documentation in 6 months.
+          </p>
+          <a href="#" class="insight-link">Read Case Study →</a>
+        </div>
+      </div>
+      
+      <div class="insight-card">
+        <div class="insight-type">Blog Post</div>
+        <div class="insight-content">
+          <h3>AI in Healthcare: Beyond Hype to Real Clinical Value</h3>
+          <p>
+            Exploring proven AI applications in healthcare from diagnostic imaging to predictive analytics and personalized treatment plans.
+          </p>
+          <a href="#" class="insight-link">Read Article →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Ready to Transform Healthcare Delivery?</h2>
+  <p>Let's discuss how we can help you improve patient care through technology.</p>
+  <a href="../index.html#contact" class="btn">Schedule Consultation →</a>
+</section>
+
+</body>
+</html>

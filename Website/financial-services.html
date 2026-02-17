@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Services | Metamorphex</title>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-primary: #0066FF;
+  --color-primary-dark: #0052CC;
+  --color-accent: #00D9B4;
+  --color-purple: #7B61FF;
+  --color-orange: #FF6B35;
+  --color-bg: #FFFFFF;
+  --color-bg-light: #F8F9FA;
+  --color-text: #1A1A1A;
+  --color-text-secondary: #5A5A5A;
+  --color-border: #E8E8E8;
+  
+  --font-primary: 'Public Sans', -apple-system, sans-serif;
+  --shadow: 0 4px 20px rgba(0,0,0,0.08);
+  --shadow-hover: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-primary);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Navigation - Same as main site */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--color-text);
+  text-decoration: none;
+}
+.logo span {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-cta {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-purple));
+  color: white;
+  padding: 0.7rem 1.8rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+}
+
+/* Hero */
+.hero {
+  padding: 140px 2rem 80px;
+  background: linear-gradient(135deg, #F0F7FF 0%, #FFFFFF 100%);
+}
+
+.hero-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.breadcrumb {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 2rem;
+}
+
+.breadcrumb a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+}
+
+.hero-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: var(--color-text-secondary);
+  max-width: 800px;
+  margin-bottom: 2rem;
+}
+
+/* Section */
+.section {
+  padding: 5rem 2rem;
+}
+
+.section-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.section-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.section-description {
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 3rem;
+}
+
+/* Stats */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.stat-card {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Projects Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.project-card {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 2.5rem;
+  transition: all 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.project-meta {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-tag {
+  padding: 0.4rem 1rem;
+  background: rgba(0,102,255,0.1);
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.project-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.project-card p {
+  color: var(--color-text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.project-results {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.result-item .number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  display: block;
+}
+
+.result-item .label {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
+
+/* Clients */
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.client-card {
+  background: var(--color-bg-light);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  transition: all 0.3s;
+}
+
+.client-card:hover {
+  background: white;
+  color: var(--color-primary);
+  box-shadow: var(--shadow);
+}
+
+/* Insights */
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.insight-card {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.insight-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.insight-type {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-purple));
+  color: white;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.insight-content {
+  padding: 2rem;
+}
+
+.insight-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.insight-card p {
+  color: var(--color-text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.insight-link {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: gap 0.3s;
+}
+
+.insight-card:hover .insight-link {
+  gap: 1rem;
+}
+
+/* CTA */
+.cta {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-purple));
+  color: white;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.cta h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+}
+
+.cta p {
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  opacity: 0.95;
+}
+
+.btn {
+  padding: 1rem 2.2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: all 0.3s;
+  background: white;
+  color: var(--color-primary);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .projects-grid,
+  .insights-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="../index.html" class="logo">Meta<span>morphex</span></a>
+    <a href="../index.html#contact" class="nav-cta">Contact Us</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-container">
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a> / <a href="../index.html#expertise">Industries</a> / Financial Services
+    </div>
+    <div class="hero-icon">🏦</div>
+    <h1>Financial Services Consulting</h1>
+    <p>
+      We help banks, insurance companies, and fintech firms modernize core systems, adopt cloud infrastructure, implement AI-powered analytics, and navigate complex regulatory requirements. From digital banking transformation to risk management platforms, we deliver solutions that drive growth while ensuring compliance.
+    </p>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="section" style="background: var(--color-bg-light);">
+  <div class="section-container">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-number">25+</span>
+        <span class="stat-label">Financial Services Projects</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">$850M+</span>
+        <span class="stat-label">Transaction Volume Managed</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">99.99%</span>
+        <span class="stat-label">System Uptime Delivered</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">100%</span>
+        <span class="stat-label">Compliance Achievement</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEY PROJECTS -->
+<section class="section">
+  <div class="section-container">
+    <div class="section-label">Case Studies</div>
+    <h2 class="section-title">Key Financial Services Projects</h2>
+    <p class="section-description">
+      Real results from our financial services engagements
+    </p>
+    
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="project-tag">Digital Banking</span>
+          <span class="project-tag">Cloud Migration</span>
+        </div>
+        <h3>Regional Bank Digital Transformation</h3>
+        <p>
+          Led the modernization of a 50-year-old regional bank's core banking system. Migrated to cloud-native architecture, implemented real-time analytics, and launched mobile banking platform serving 500K+ customers.
+        </p>
+        <div class="project-results">
+          <div class="result-item">
+            <span class="number">75%</span>
+            <span class="label">Cost Reduction</span>
+          </div>
+          <div class="result-item">
+            <span class="number">3x</span>
+            <span class="label">Transaction Speed</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="project-tag">Risk Management</span>
+          <span class="project-tag">AI/ML</span>
+        </div>
+        <h3>AI-Powered Fraud Detection System</h3>
+        <p>
+          Implemented machine learning-based fraud detection for a payment processor handling $2B+ in annual transactions. Reduced false positives by 60% while detecting 95% of fraudulent transactions.
+        </p>
+        <div class="project-results">
+          <div class="result-item">
+            <span class="number">$8M</span>
+            <span class="label">Annual Savings</span>
+          </div>
+          <div class="result-item">
+            <span class="number">95%</span>
+            <span class="label">Fraud Detection Rate</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="project-tag">Compliance</span>
+          <span class="project-tag">Governance</span>
+        </div>
+        <h3>Multi-Country Compliance Framework</h3>
+        <p>
+          Designed and implemented a unified compliance framework for an insurance company operating across 8 countries. Automated reporting, risk assessment, and audit trail management.
+        </p>
+        <div class="project-results">
+          <div class="result-item">
+            <span class="number">80%</span>
+            <span class="label">Faster Reporting</span>
+          </div>
+          <div class="result-item">
+            <span class="number">Zero</span>
+            <span class="label">Compliance Violations</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section class="section" style="background: var(--color-bg-light);">
+  <div class="section-container">
+    <div class="section-label">Our Clients</div>
+    <h2 class="section-title">Trusted by Leading Financial Institutions</h2>
+    
+    <div class="clients-grid">
+      <div class="client-card">HDFC Bank</div>
+      <div class="client-card">ICICI Securities</div>
+      <div class="client-card">Axis Bank</div>
+      <div class="client-card">SBI Life Insurance</div>
+      <div class="client-card">Paytm</div>
+      <div class="client-card">PhonePe</div>
+    </div>
+  </div>
+</section>
+
+<!-- INSIGHTS -->
+<section class="section">
+  <div class="section-container">
+    <div class="section-label">Insights & Resources</div>
+    <h2 class="section-title">Financial Services Insights</h2>
+    <p class="section-description">
+      Whitepapers, case studies, and thought leadership on financial services technology
+    </p>
+    
+    <div class="insights-grid">
+      <div class="insight-card">
+        <div class="insight-type">Whitepaper</div>
+        <div class="insight-content">
+          <h3>Cloud Migration Strategy for Banks: A Compliance-First Approach</h3>
+          <p>
+            A comprehensive guide to migrating banking infrastructure to the cloud while maintaining RBI compliance, data sovereignty, and security standards.
+          </p>
+          <a href="#" class="insight-link">Download PDF →</a>
+        </div>
+      </div>
+      
+      <div class="insight-card">
+        <div class="insight-type">Case Study</div>
+        <div class="insight-content">
+          <h3>How We Helped a Fintech Achieve PCI-DSS Compliance</h3>
+          <p>
+            A detailed look at implementing end-to-end security controls, tokenization, and encrypted data storage for payment processing compliance.
+          </p>
+          <a href="#" class="insight-link">Read Case Study →</a>
+        </div>
+      </div>
+      
+      <div class="insight-card">
+        <div class="insight-type">Blog Post</div>
+        <div class="insight-content">
+          <h3>AI in Banking: Beyond Chatbots to Predictive Analytics</h3>
+          <p>
+            Exploring real-world AI applications in banking — from credit risk modeling to customer lifetime value prediction and fraud detection.
+          </p>
+          <a href="#" class="insight-link">Read Article →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Ready to Transform Your Financial Services Operations?</h2>
+  <p>Let's discuss how we can help accelerate your digital transformation while ensuring compliance.</p>
+  <a href="../index.html#contact" class="btn">Schedule Consultation →</a>
+</section>
+
+</body>
+</html>
