@@ -4,115 +4,1026 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cybersecurity Consulting | Metamorphex</title>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="description" content="End-to-end cybersecurity consulting — from zero trust architecture and cloud security to penetration testing, incident response, and CISO advisory services.">
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--p:#3B5BDB;--a:#38D9C0;--pu:#8B5CF6;--bg:#fff;--bgl:#F5F3FF;--t:#1A1A2E;--ts:#5A5A7A;--b:#E8E4F3;--gm:linear-gradient(135deg,#3B5BDB,#8B5CF6);--gt:linear-gradient(135deg,#38D9C0,#4FACFE);--gf:linear-gradient(135deg,#38D9C0 0%,#3B5BDB 45%,#8B5CF6 80%,#B39DDB 100%);--sh:0 4px 20px rgba(59,91,219,.1);--shh:0 8px 32px rgba(59,91,219,.2);--fn:'Public Sans',-apple-system,sans-serif;}
-*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
-body{font-family:var(--fn);background:var(--bg);color:var(--t);line-height:1.6;-webkit-font-smoothing:antialiased;}
-.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:#1A1A2E;border-bottom:1px solid rgba(255,255,255,.08);box-shadow:0 2px 20px rgba(0,0,0,.3);}
-.nav-container{max-width:1400px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:70px;}
-.logo{display:flex;align-items:center;gap:.5rem;text-decoration:none;color:white;font-size:1.5rem;font-weight:800;}
-.nav-cta{background:var(--gf);color:white;padding:.65rem 1.6rem;border-radius:50px;text-decoration:none;font-weight:700;font-size:.9rem;transition:all .3s;}
-.nav-cta:hover{transform:translateY(-2px);}
-.hero{padding:130px 2rem 70px;background:linear-gradient(160deg,#EEF2FF 0%,#F5F0FF 50%,#F0FDFB 100%);}
-.hero-inner{max-width:1400px;margin:0 auto;}
-.breadcrumb{font-size:.9rem;color:var(--ts);margin-bottom:1.5rem;}
-.breadcrumb a{color:var(--p);text-decoration:none;}
-.hero-icon{font-size:4rem;margin-bottom:1rem;}
-.hero h1{font-size:clamp(2.4rem,5vw,3.8rem);font-weight:800;margin-bottom:1.2rem;line-height:1.1;letter-spacing:-.03em;}
-.hero p{font-size:1.15rem;color:var(--ts);max-width:800px;line-height:1.75;}
-.section{padding:5rem 2rem;}
-.inner{max-width:1400px;margin:0 auto;}
-.lbl{font-size:.8rem;font-weight:700;text-transform:uppercase;background:var(--gm);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:.1em;display:inline-block;margin-bottom:.8rem;}
-.h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;margin-bottom:.8rem;letter-spacing:-.02em;}
-.desc{font-size:1.05rem;color:var(--ts);margin-bottom:2.5rem;line-height:1.7;}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:2rem;margin-top:2rem;}
-.card{background:white;border:1px solid var(--b);border-radius:16px;padding:2.5rem;transition:all .3s;}
-.card:hover{transform:translateY(-5px);box-shadow:var(--shh);}
-.tag{display:inline-flex;gap:.6rem;margin-bottom:1.2rem;flex-wrap:wrap;}
-.tag span{padding:.3rem .9rem;background:rgba(59,91,219,.1);border-radius:20px;font-size:.75rem;font-weight:600;color:var(--p);}
-.card h3{font-size:1.25rem;font-weight:700;margin-bottom:.8rem;}
-.card p{color:var(--ts);line-height:1.7;margin-bottom:1.5rem;}
-.results{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;padding-top:1.2rem;border-top:1px solid var(--b);}
-.rnum{font-size:1.6rem;font-weight:800;background:var(--gt);-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:block;}
-.rlbl{font-size:.8rem;color:var(--ts);}
-.clients{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.5rem;margin-top:2rem;}
-.client{background:var(--bgl);border-radius:10px;padding:1.6rem;text-align:center;font-weight:700;font-size:1.1rem;color:var(--ts);transition:all .3s;}
-.client:hover{background:white;color:var(--p);box-shadow:var(--sh);}
-.insights{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;margin-top:2rem;}
-.ins{background:white;border:1px solid var(--b);border-radius:16px;overflow:hidden;transition:all .3s;}
-.ins:hover{transform:translateY(-5px);box-shadow:var(--shh);}
-.ins-top{padding:.9rem 1.8rem;background:var(--gm);color:white;font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.05em;}
-.ins-body{padding:1.8rem;}
-.ins-body h3{font-size:1.15rem;font-weight:700;margin-bottom:.8rem;}
-.ins-body p{color:var(--ts);line-height:1.7;margin-bottom:1.2rem;font-size:.95rem;}
-.ins-link{color:var(--p);text-decoration:none;font-weight:700;font-size:.9rem;}
-.cta-sec{background:var(--gf);color:white;padding:5rem 2rem;text-align:center;}
-.cta-sec h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:1rem;}
-.cta-sec p{font-size:1.15rem;margin-bottom:2rem;opacity:.95;}
-.btn{padding:.9rem 2rem;border-radius:50px;font-weight:700;font-size:.95rem;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;background:white;color:var(--p);transition:all .3s;}
-.btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,.2);}
-@media(max-width:768px){.cards,.insights{grid-template-columns:1fr;}.clients{grid-template-columns:repeat(2,1fr);}}
+:root {
+  --accent:       #3EC9E8;
+  --accent-dim:   rgba(62,201,232,0.18);
+  --accent-glow:  rgba(62,201,232,0.35);
+  --bg:           #07080D;
+  --bg-surface:   #0D0F17;
+  --border:       rgba(255,255,255,0.07);
+  --border-lit:   rgba(62,201,232,0.25);
+  --text:         #FFFFFF;
+  --text-dim:     rgba(255,255,255,0.55);
+  --text-dimmer:  rgba(255,255,255,0.30);
+  --font:         'Exo 2', -apple-system, sans-serif;
+  --radius:       12px;
+  --max:          1400px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+body::before {
+  content:''; position:fixed; inset:0;
+  background-image:
+    radial-gradient(1px 1px at 20% 15%, rgba(255,255,255,0.45) 0%, transparent 100%),
+    radial-gradient(1px 1px at 80% 25%, rgba(255,255,255,0.3)  0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 45% 60%, rgba(255,255,255,0.25) 0%, transparent 100%),
+    radial-gradient(1px 1px at 65% 80%, rgba(255,255,255,0.35) 0%, transparent 100%),
+    radial-gradient(1px 1px at 10% 70%, rgba(255,255,255,0.2)  0%, transparent 100%),
+    radial-gradient(1px 1px at 90% 55%, rgba(255,255,255,0.28) 0%, transparent 100%),
+    radial-gradient(1px 1px at 52% 40%, rgba(62,201,232,0.3)   0%, transparent 100%);
+  pointer-events:none; z-index:0;
+}
+
+/* ── NAVBAR ── */
+.navbar {
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  background:rgba(7,8,13,0.88);
+  backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.nav-container {
+  max-width:var(--max); margin:0 auto; padding:0 2.5rem;
+  display:flex; align-items:center; justify-content:space-between; height:68px;
+}
+.logo { display:flex; align-items:center; gap:0; text-decoration:none; transition:opacity 0.2s; }
+.logo:hover { opacity:0.82; }
+.logo-mark { height:42px; width:auto; display:block; flex-shrink:0; }
+.logo-sep { width:1px; height:26px; background:rgba(255,255,255,0.13); margin:0 18px; flex-shrink:0; }
+.logo-wordmark { display:flex; align-items:baseline; line-height:1; }
+.logo-wordmark-text {
+  font-family:'Exo 2',sans-serif; font-weight:200; font-size:18px;
+  letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.88); white-space:nowrap;
+}
+.logo-wordmark-x { display:inline-block; position:relative; }
+.logo-wordmark-x svg { display:block; overflow:visible; position:absolute; bottom:0; left:0; }
+.nav-menu { display:flex; align-items:center; gap:2.2rem; list-style:none; }
+.nav-item { position:relative; }
+.nav-link {
+  color:var(--text-dim); text-decoration:none; font-size:0.88rem; font-weight:500;
+  letter-spacing:0.04em; padding:0.5rem 0;
+  display:flex; align-items:center; gap:0.4rem; cursor:pointer; transition:color 0.2s;
+}
+.nav-link:hover { color:var(--text); }
+.nav-link .arrow { font-size:0.6rem; transition:transform 0.3s; }
+.nav-item.open .arrow { transform:rotate(180deg); }
+.mega-menu {
+  position:absolute; top:calc(100% + 1rem); left:50%; transform:translateX(-50%);
+  background:rgba(10,12,20,0.97); border:1px solid var(--border);
+  border-radius:var(--radius); min-width:300px; padding:0.5rem 0;
+  opacity:0; visibility:hidden; pointer-events:none;
+  transition:all 0.25s cubic-bezier(0.4,0,0.2,1);
+  box-shadow:0 24px 60px rgba(0,0,0,0.7), 0 0 0 1px rgba(62,201,232,0.1); z-index:100;
+}
+.nav-item.open .mega-menu { opacity:1; visibility:visible; pointer-events:all; top:calc(100% + 0.4rem); }
+.dropdown-item {
+  display:block; padding:0.65rem 1.5rem; color:var(--text-dim); text-decoration:none;
+  font-size:0.85rem; font-weight:400; transition:all 0.2s; border-left:2px solid transparent;
+}
+.dropdown-item:hover { background:rgba(62,201,232,0.06); border-left-color:var(--accent); color:var(--text); padding-left:1.8rem; }
+.dropdown-item.active { border-left-color:var(--accent); color:var(--accent); }
+.nav-cta {
+  background:transparent; color:var(--accent); border:1px solid var(--accent);
+  padding:0.55rem 1.5rem; border-radius:4px; text-decoration:none;
+  font-weight:600; font-size:0.85rem; letter-spacing:0.06em; text-transform:uppercase; transition:all 0.25s;
+}
+.nav-cta:hover { background:var(--accent); color:var(--bg); box-shadow:0 0 20px var(--accent-glow); }
+
+/* ── BREADCRUMB ── */
+.breadcrumb { position:relative; z-index:1; padding:96px 2.5rem 0; max-width:var(--max); margin:0 auto; }
+.breadcrumb-inner {
+  display:flex; align-items:center; gap:0.6rem;
+  font-size:0.75rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-dimmer);
+}
+.breadcrumb-inner a { color:var(--text-dimmer); text-decoration:none; transition:color 0.2s; }
+.breadcrumb-inner a:hover { color:var(--accent); }
+.breadcrumb-inner .sep { opacity:0.4; }
+.breadcrumb-inner .current { color:var(--accent); }
+
+/* ── HERO ── */
+.hero { position:relative; z-index:1; padding:48px 2.5rem 80px; max-width:var(--max); margin:0 auto; }
+.hero-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+.hero-eyebrow {
+  display:inline-flex; align-items:center; gap:0.7rem;
+  background:rgba(62,201,232,0.08); border:1px solid rgba(62,201,232,0.22);
+  border-radius:3px; padding:0.4rem 1rem;
+  font-size:0.7rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase;
+  color:var(--accent); margin-bottom:1.8rem;
+}
+.hero-eyebrow .dot { width:6px; height:6px; border-radius:50%; background:var(--accent); animation:pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1;box-shadow:0 0 0 0 var(--accent-glow);} 50%{opacity:0.6;box-shadow:0 0 0 5px transparent;} }
+.hero h1 {
+  font-family:'Exo 2',sans-serif; font-weight:200;
+  font-size:clamp(2.8rem,4.5vw,4.4rem);
+  letter-spacing:0.06em; text-transform:uppercase; line-height:1.08; margin-bottom:1.6rem;
+}
+.hero h1 em { font-style:normal; color:var(--accent); }
+.hero-lead { font-size:1.08rem; color:var(--text-dim); font-weight:300; line-height:1.75; margin-bottom:2.4rem; max-width:520px; }
+.hero-actions { display:flex; gap:0.9rem; flex-wrap:wrap; }
+.btn {
+  display:inline-flex; align-items:center; gap:0.6rem; padding:0.85rem 2rem; border-radius:4px;
+  font-family:var(--font); font-size:0.85rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase;
+  text-decoration:none; cursor:pointer; border:1px solid transparent; transition:all 0.25s;
+}
+.btn-primary { background:var(--accent); color:var(--bg); border-color:var(--accent); box-shadow:0 0 24px var(--accent-glow); }
+.btn-primary:hover { background:#5BD7F2; box-shadow:0 0 40px rgba(62,201,232,0.5); transform:translateY(-2px); }
+.btn-ghost { background:transparent; color:var(--text); border-color:var(--border); }
+.btn-ghost:hover { border-color:rgba(255,255,255,0.25); background:rgba(255,255,255,0.04); transform:translateY(-2px); }
+.btn-alert { background:transparent; color:#FF6B6B; border-color:rgba(255,107,107,0.5); }
+.btn-alert:hover { background:rgba(255,107,107,0.08); border-color:#FF6B6B; transform:translateY(-2px); }
+
+.hero-panel { background:var(--bg-surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
+.hero-panel-header { padding:1.6rem 2rem; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:1rem; }
+.service-icon-lg {
+  width:52px; height:52px; border-radius:10px;
+  background:var(--accent-dim); border:1px solid var(--border-lit);
+  display:flex; align-items:center; justify-content:center; font-size:1.6rem; flex-shrink:0;
+}
+.hero-panel-header h3 { font-family:'Exo 2',sans-serif; font-weight:300; font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-dim); }
+.hero-panel-header p { font-size:0.98rem; font-weight:500; color:var(--text); margin-top:0.2rem; }
+.panel-stats { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); }
+.panel-stat { padding:1.6rem 2rem; background:var(--bg-surface); transition:background 0.25s; }
+.panel-stat:hover { background:rgba(62,201,232,0.04); }
+.panel-stat-num { font-family:'Exo 2',sans-serif; font-weight:700; font-size:2.2rem; color:var(--accent); line-height:1; display:block; margin-bottom:0.35rem; }
+.panel-stat-label { font-size:0.76rem; color:var(--text-dim); font-weight:300; letter-spacing:0.04em; }
+.panel-tags { padding:1.4rem 2rem; border-top:1px solid var(--border); display:flex; flex-wrap:wrap; gap:0.5rem; }
+.fw-tag {
+  padding:0.3rem 0.75rem; background:rgba(255,255,255,0.04); border:1px solid var(--border);
+  border-radius:3px; font-size:0.68rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-dim);
+}
+
+/* ── INCIDENT BANNER ── */
+.incident-banner {
+  position:relative; z-index:1;
+  background:rgba(255,107,107,0.06); border-top:1px solid rgba(255,107,107,0.2); border-bottom:1px solid rgba(255,107,107,0.2);
+  padding:1.1rem 2.5rem;
+}
+.incident-banner-inner {
+  max-width:var(--max); margin:0 auto;
+  display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap;
+}
+.incident-banner-text {
+  display:flex; align-items:center; gap:0.9rem;
+}
+.incident-dot { width:9px; height:9px; border-radius:50%; background:#FF6B6B; flex-shrink:0; animation:pulse-red 1.5s ease-in-out infinite; }
+@keyframes pulse-red { 0%,100%{box-shadow:0 0 0 0 rgba(255,107,107,0.5);} 50%{box-shadow:0 0 0 6px transparent;} }
+.incident-banner-text p { font-size:0.84rem; color:rgba(255,180,180,0.9); font-weight:400; }
+.incident-banner-text p strong { color:#FF6B6B; font-weight:700; }
+.btn-incident {
+  display:inline-flex; align-items:center; gap:0.5rem;
+  padding:0.5rem 1.2rem; border-radius:4px; text-decoration:none;
+  font-size:0.78rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
+  color:#FF6B6B; border:1px solid rgba(255,107,107,0.5); background:transparent;
+  transition:all 0.2s; white-space:nowrap;
+}
+.btn-incident:hover { background:rgba(255,107,107,0.1); border-color:#FF6B6B; }
+
+/* ── SECTIONS ── */
+.section { position:relative; z-index:1; padding:6rem 2.5rem; }
+.section + .section { border-top:1px solid var(--border); }
+.section.bg-surface { background:var(--bg-surface); }
+.wrap { max-width:var(--max); margin:0 auto; }
+.section-eyebrow { font-size:0.7rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin-bottom:1rem; display:block; }
+.section-title {
+  font-family:'Exo 2',sans-serif; font-weight:200;
+  font-size:clamp(1.9rem,3vw,2.8rem); letter-spacing:0.06em; text-transform:uppercase; line-height:1.15; margin-bottom:1rem;
+}
+.section-sub { font-size:1rem; color:var(--text-dim); font-weight:300; line-height:1.75; max-width:600px; }
+
+/* ── OVERVIEW ── */
+.overview-grid { display:grid; grid-template-columns:1.1fr 1fr; gap:5rem; align-items:start; margin-top:3.5rem; }
+.overview-body p { font-size:1rem; color:var(--text-dim); font-weight:300; line-height:1.8; margin-bottom:1.2rem; }
+.overview-body p:last-child { margin-bottom:0; }
+.overview-body strong { color:var(--text); font-weight:500; }
+.who-card { background:var(--bg-surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; position:sticky; top:88px; }
+.who-card-header { padding:1.2rem 1.6rem; border-bottom:1px solid var(--border); font-size:0.7rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent); }
+.who-list { list-style:none; }
+.who-list li { padding:1rem 1.6rem; border-bottom:1px solid var(--border); display:flex; align-items:flex-start; gap:0.85rem; transition:background 0.2s; }
+.who-list li:last-child { border-bottom:none; }
+.who-list li:hover { background:rgba(62,201,232,0.04); }
+.who-icon { font-size:1.2rem; flex-shrink:0; margin-top:0.1rem; }
+.who-list li h4 { font-size:0.88rem; font-weight:600; margin-bottom:0.2rem; }
+.who-list li p { font-size:0.78rem; color:var(--text-dim); font-weight:300; line-height:1.5; }
+
+/* ── CAPABILITIES ── */
+.cap-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+  background:var(--border); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; margin-top:3.5rem;
+}
+.cap-card { background:var(--bg-surface); padding:2.4rem 2rem; position:relative; overflow:hidden; transition:background 0.3s; }
+.cap-card::after {
+  content:''; position:absolute; bottom:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg,var(--accent),transparent);
+  transform:scaleX(0); transform-origin:left; transition:transform 0.4s;
+}
+.cap-card:hover { background:rgba(62,201,232,0.04); }
+.cap-card:hover::after { transform:scaleX(1); }
+.cap-num { font-family:'Exo 2',sans-serif; font-weight:700; font-size:2.5rem; color:rgba(62,201,232,0.12); line-height:1; margin-bottom:1.2rem; letter-spacing:-0.02em; }
+.cap-card h3 { font-size:0.95rem; font-weight:600; letter-spacing:0.04em; color:var(--text); margin-bottom:0.7rem; }
+.cap-card p { font-size:0.84rem; color:var(--text-dim); font-weight:300; line-height:1.65; margin-bottom:1.2rem; }
+.cap-list { list-style:none; display:flex; flex-direction:column; gap:0.45rem; }
+.cap-list li { font-size:0.78rem; color:var(--text-dim); font-weight:300; display:flex; align-items:flex-start; gap:0.6rem; }
+.cap-list li::before { content:''; width:5px; height:5px; border-radius:50%; background:var(--accent); opacity:0.6; flex-shrink:0; margin-top:0.42rem; }
+
+/* ── SECURITY MODEL ── */
+.model-grid { display:grid; grid-template-columns:1fr 1.6fr; gap:4rem; align-items:start; margin-top:3.5rem; }
+.model-intro p { font-size:1rem; color:var(--text-dim); font-weight:300; line-height:1.8; margin-bottom:1.2rem; }
+.model-intro strong { color:var(--text); font-weight:500; }
+.model-layers { display:flex; flex-direction:column; gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
+.model-layer { background:var(--bg-surface); padding:1.8rem 2.2rem; display:grid; grid-template-columns:auto 1fr; align-items:start; gap:1.6rem; transition:background 0.25s; }
+.model-layer:hover { background:rgba(62,201,232,0.04); }
+.layer-badge {
+  font-family:'Exo 2',sans-serif; font-weight:700; font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--accent); background:var(--accent-dim); border:1px solid rgba(62,201,232,0.25);
+  border-radius:3px; padding:0.3rem 0.7rem; white-space:nowrap; margin-top:3px;
+}
+.layer-body h4 { font-size:0.9rem; font-weight:600; color:var(--text); margin-bottom:0.3rem; }
+.layer-body p { font-size:0.8rem; color:var(--text-dim); font-weight:300; line-height:1.55; margin-bottom:0.6rem; }
+.layer-tags { display:flex; flex-wrap:wrap; gap:0.35rem; }
+.layer-tag { font-size:0.62rem; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; padding:0.2rem 0.5rem; background:rgba(255,255,255,0.04); border:1px solid var(--border); border-radius:2px; color:var(--text-dimmer); }
+
+/* ── PROCESS ── */
+.process-timeline {
+  margin-top:3.5rem; display:grid; grid-template-columns:repeat(5,1fr); gap:1px;
+  background:var(--border); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden;
+}
+.process-step { background:var(--bg-surface); padding:2.2rem 1.8rem; transition:background 0.3s; }
+.process-step:hover { background:rgba(62,201,232,0.04); }
+.step-number {
+  width:44px; height:44px; border-radius:50%; border:1px solid rgba(62,201,232,0.3);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Exo 2',sans-serif; font-weight:700; font-size:0.9rem;
+  color:var(--accent); margin-bottom:1.2rem; transition:background 0.3s, box-shadow 0.3s;
+}
+.process-step:hover .step-number { background:var(--accent-dim); box-shadow:0 0 20px var(--accent-dim); }
+.process-step h4 { font-size:0.88rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--text); margin-bottom:0.6rem; }
+.process-step p { font-size:0.8rem; color:var(--text-dim); font-weight:300; line-height:1.6; }
+
+/* ── FRAMEWORKS ── */
+.frameworks-grid {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+  background:var(--border); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; margin-top:3.5rem;
+}
+.framework-card { background:var(--bg-surface); padding:2rem 1.8rem; transition:background 0.3s; display:flex; flex-direction:column; gap:0.8rem; }
+.framework-card:hover { background:rgba(62,201,232,0.04); }
+.framework-logo { font-family:'Exo 2',sans-serif; font-weight:700; font-size:1.2rem; color:var(--accent); letter-spacing:0.04em; line-height:1; }
+.framework-card h4 { font-size:0.85rem; font-weight:600; color:var(--text); }
+.framework-card p { font-size:0.78rem; color:var(--text-dim); font-weight:300; line-height:1.55; }
+
+/* ── OUTCOMES ── */
+.outcomes-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; margin-top:3.5rem; }
+.outcomes-visual {
+  display:grid; grid-template-columns:1fr 1fr; gap:1px;
+  background:var(--border); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden;
+}
+.outcome-stat { background:var(--bg-surface); padding:2.2rem 2rem; text-align:center; transition:background 0.3s; }
+.outcome-stat:hover { background:rgba(62,201,232,0.04); }
+.outcome-num { font-family:'Exo 2',sans-serif; font-weight:700; font-size:2.8rem; color:var(--accent); line-height:1; display:block; margin-bottom:0.5rem; }
+.outcome-label { font-size:0.78rem; color:var(--text-dim); font-weight:300; line-height:1.4; }
+.outcomes-list { display:flex; flex-direction:column; gap:1.2rem; }
+.outcome-item {
+  display:flex; align-items:flex-start; gap:1.2rem; padding:1.4rem 1.6rem;
+  background:var(--bg-surface); border:1px solid var(--border); border-radius:8px; transition:border-color 0.25s, background 0.25s;
+}
+.outcome-item:hover { border-color:var(--border-lit); background:rgba(62,201,232,0.03); }
+.outcome-check {
+  width:30px; height:30px; border-radius:6px; background:var(--accent-dim); border:1px solid rgba(62,201,232,0.3);
+  display:flex; align-items:center; justify-content:center; color:var(--accent); font-size:0.85rem; font-weight:700; flex-shrink:0; margin-top:1px;
+}
+.outcome-item h4 { font-size:0.9rem; font-weight:600; margin-bottom:0.25rem; color:var(--text); }
+.outcome-item p { font-size:0.82rem; color:var(--text-dim); font-weight:300; line-height:1.55; }
+
+/* ── RELATED ── */
+.related-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+  background:var(--border); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; margin-top:2.5rem;
+}
+.related-card { background:var(--bg-surface); padding:2rem; text-decoration:none; display:block; transition:background 0.3s; position:relative; overflow:hidden; }
+.related-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:1px; background:var(--accent); transform:scaleX(0); transform-origin:left; transition:transform 0.35s; }
+.related-card:hover { background:rgba(62,201,232,0.04); }
+.related-card:hover::after { transform:scaleX(1); }
+.related-icon { font-size:1.6rem; margin-bottom:0.8rem; display:block; }
+.related-card h4 { font-size:0.9rem; font-weight:600; color:var(--text); margin-bottom:0.4rem; }
+.related-card p { font-size:0.8rem; color:var(--text-dim); font-weight:300; line-height:1.55; }
+.related-arrow { color:var(--accent); font-size:0.8rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; margin-top:1rem; display:block; transition:letter-spacing 0.3s; }
+.related-card:hover .related-arrow { letter-spacing:0.12em; }
+
+/* ── CTA ── */
+.cta-section { position:relative; z-index:1; background:var(--bg-surface); border-top:1px solid var(--border); padding:6rem 2.5rem; overflow:hidden; }
+.cta-section::before {
+  content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:700px; height:400px; background:radial-gradient(ellipse, rgba(62,201,232,0.07) 0%, transparent 65%); pointer-events:none;
+}
+.cta-inner { max-width:760px; margin:0 auto; text-align:center; position:relative; z-index:1; }
+.cta-inner h2 { font-family:'Exo 2',sans-serif; font-weight:200; font-size:clamp(2rem,4vw,3rem); letter-spacing:0.08em; text-transform:uppercase; line-height:1.1; margin-bottom:1.2rem; }
+.cta-inner h2 em { font-style:normal; color:var(--accent); }
+.cta-inner p { font-size:1rem; color:var(--text-dim); font-weight:300; line-height:1.7; margin-bottom:2.4rem; }
+.cta-buttons { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+
+/* ── FOOTER ── */
+.footer { background:var(--bg-surface); border-top:1px solid var(--border); color:white; padding:5rem 2.5rem 2.5rem; position:relative; z-index:1; }
+.footer-container { max-width:var(--max); margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:4rem; margin-bottom:3rem; }
+.footer-brand p { color:var(--text-dim); font-size:0.9rem; line-height:1.7; font-weight:300; max-width:280px; }
+.footer-col h4 { font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:var(--text-dimmer); margin-bottom:1.2rem; }
+.footer-col ul { list-style:none; }
+.footer-col ul li { margin-bottom:0.7rem; }
+.footer-col ul li a { color:var(--text-dim); text-decoration:none; font-size:0.88rem; font-weight:300; transition:color 0.2s; }
+.footer-col ul li a:hover { color:var(--text); }
+.footer-bottom { max-width:var(--max); margin:0 auto; padding-top:2rem; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; color:var(--text-dimmer); font-size:0.8rem; letter-spacing:0.04em; }
+
+/* ── REVEAL ── */
+.reveal { opacity:0; transform:translateY(22px); transition:opacity 0.6s ease-out, transform 0.6s ease-out; }
+.reveal.active { opacity:1; transform:translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px) {
+  .hero-grid, .overview-grid, .outcomes-grid, .model-grid { grid-template-columns:1fr; gap:3rem; }
+  .who-card { position:static; }
+  .cap-grid { grid-template-columns:1fr 1fr; }
+  .frameworks-grid { grid-template-columns:1fr 1fr; }
+  .process-timeline { grid-template-columns:repeat(3,1fr); }
+  .related-grid { grid-template-columns:1fr 1fr; }
+  .footer-container { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:640px) {
+  .section { padding:4rem 1.5rem; }
+  .breadcrumb { padding:96px 1.5rem 0; }
+  .hero { padding:32px 1.5rem 60px; }
+  .hero h1 { font-size:2.4rem; }
+  .nav-menu { display:none; }
+  .cap-grid, .related-grid { grid-template-columns:1fr; }
+  .frameworks-grid { grid-template-columns:1fr 1fr; }
+  .process-timeline { grid-template-columns:1fr 1fr; }
+  .panel-stats, .outcomes-visual { grid-template-columns:1fr 1fr; }
+  .model-layer { grid-template-columns:1fr; }
+  .incident-banner-inner { flex-direction:column; align-items:flex-start; gap:0.8rem; }
+}
 </style>
 </head>
 <body>
+
+<!-- ── NAVBAR ── -->
 <nav class="navbar">
   <div class="nav-container">
     <a href="../index.html" class="logo">
-      <img src="../metamorphex-logo.png" alt="Metamorphex" style="height:38px;width:auto;">
-      <span style="background:var(--gf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Metamorphex</span>
+      <img class="logo-mark" src="../metamorphex-logo.png" alt="Metamorphex">
+      <div class="logo-sep"></div>
+      <div class="logo-wordmark">
+        <span class="logo-wordmark-text" id="nav-wt">METAMORPHE</span>
+        <span class="logo-wordmark-x" id="nav-wx"></span>
+      </div>
     </a>
-    <a href="../index.html#contact" class="nav-cta">Contact Us</a>
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a class="nav-link">Services <span class="arrow">▼</span></a>
+        <div class="mega-menu">
+          <a href="cloud-consulting.html" class="dropdown-item">Cloud Consulting & Implementation</a>
+          <a href="ai-ml.html" class="dropdown-item">AI & ML Advisory</a>
+          <a href="analytics.html" class="dropdown-item">Data Analytics Strategy</a>
+          <a href="project-management.html" class="dropdown-item">Project Management Services</a>
+          <a href="policy-governance.html" class="dropdown-item">Policy & Governance</a>
+          <a href="compliance-risk.html" class="dropdown-item">Compliance & Risk Advisory</a>
+          <a href="risk-assessment.html" class="dropdown-item">Risk Assessment & Intelligence</a>
+          <a href="it-infrastructure.html" class="dropdown-item">IT Infrastructure Consulting</a>
+          <a href="digital-transformation.html" class="dropdown-item">Digital Transformation</a>
+          <a href="strategic-advisory.html" class="dropdown-item">Strategic IT Advisory</a>
+          <a href="enterprise-applications.html" class="dropdown-item">Enterprise Applications</a>
+          <a href="cybersecurity.html" class="dropdown-item active">Cybersecurity Consulting</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">Industries <span class="arrow">▼</span></a>
+        <div class="mega-menu">
+          <a href="../industries/financial-services.html" class="dropdown-item">Financial Services</a>
+          <a href="../industries/healthcare.html" class="dropdown-item">Healthcare</a>
+          <a href="../industries/retail.html" class="dropdown-item">Retail & E-commerce</a>
+          <a href="../industries/manufacturing.html" class="dropdown-item">Manufacturing</a>
+          <a href="../industries/public-sector.html" class="dropdown-item">Public Sector</a>
+          <a href="../industries/technology.html" class="dropdown-item">Technology</a>
+          <a href="../industries/energy.html" class="dropdown-item">Energy & Utilities</a>
+          <a href="../industries/telecom.html" class="dropdown-item">Telecommunications</a>
+        </div>
+      </li>
+      <li class="nav-item"><a href="../index.html#case-studies" class="nav-link">Insights</a></li>
+      <li class="nav-item"><a href="../index.html#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <a href="../index.html#contact" class="nav-cta">Get Started</a>
   </div>
 </nav>
 
+<!-- ── INCIDENT RESPONSE BANNER ── -->
+<div class="incident-banner">
+  <div class="incident-banner-inner">
+    <div class="incident-banner-text">
+      <div class="incident-dot"></div>
+      <p><strong>Active incident?</strong> Our incident response team is available 24/7. Don't wait — every hour matters in a breach.</p>
+    </div>
+    <a href="mailto:incident@metamorphex.tech" class="btn-incident">Contact IR Team →</a>
+  </div>
+</div>
+
+<!-- ── BREADCRUMB ── -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="../index.html">Home</a>
+    <span class="sep">/</span>
+    <a href="../index.html#services">Services</a>
+    <span class="sep">/</span>
+    <span class="current">Cybersecurity Consulting</span>
+  </div>
+</div>
+
+<!-- ── HERO ── -->
 <section class="hero">
-  <div class="hero-inner">
-    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../index.html#services">Services</a> / Cybersecurity Consulting</div>
-    <div class="hero-icon">🔐</div>
-    <h1>Cybersecurity Consulting</h1>
-    <p>We assess, design, and strengthen your security posture — from penetration testing and threat modelling to Zero Trust architecture, SOC setup, and incident response planning.</p>
-  </div>
-</section>
-
-<section class="section" style="background:var(--bgl);">
-  <div class="inner">
-    <div class="lbl">Case Studies</div>
-    <h2 class="h2">What We've Delivered</h2>
-    <div class="cards">
-      <div class="card">
-        <div class="tag"><span>Penetration Testing</span></div>
-        <h3>Security Architecture Overhaul for a Bank</h3>
-        <p>Conducted a red-team engagement and subsequently designed a Zero Trust network architecture for a private bank — implementing micro-segmentation, identity-based access, and continuous verification across 3,000 endpoints.</p>
-        <div class="results"><div><span class="rnum">3,000</span><span class="rlbl">Endpoints Secured</span></div><div><span class="rnum">Zero Trust</span><span class="rlbl">Architecture Implemented</span></div></div>
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow"><span class="dot"></span>Cybersecurity Consulting</div>
+      <h1>Defend What<br>Your Business<br><em>Depends On.</em></h1>
+      <p class="hero-lead">
+        Cyber threats are not a technology problem — they are a business risk. We design, implement, and operate security programmes that protect what matters most: your data, your operations, your reputation, and your customers' trust.
+      </p>
+      <div class="hero-actions">
+        <a href="../index.html#contact" class="btn btn-primary">Book a Security Review →</a>
+        <a href="#capabilities" class="btn btn-ghost">See Capabilities</a>
       </div>
-      <div class="card">
-        <div class="tag"><span>Zero Trust</span></div>
-        <h3>SOC Build for a Listed Conglomerate</h3>
-        <p>SOC Operational in</p>
-        <div class="results"><div><span class="rnum">90%</span><span class="rlbl">Alert Triage Automation</span></div><div><span class="rnum">Building an In-House SOC: What We Learned Standing One Up in 6 Months</span><span class="rlbl"></span></div></div>
+    </div>
+
+    <div class="hero-panel reveal">
+      <div class="hero-panel-header">
+        <div class="service-icon-lg">🔐</div>
+        <div>
+          <h3>Service Overview</h3>
+          <p>Cybersecurity Consulting</p>
+        </div>
+      </div>
+      <div class="panel-stats">
+        <div class="panel-stat">
+          <span class="panel-stat-num">72 hrs</span>
+          <span class="panel-stat-label">Average GDPR/regulatory breach notification window — we help you meet it</span>
+        </div>
+        <div class="panel-stat">
+          <span class="panel-stat-num">60%</span>
+          <span class="panel-stat-label">Of breaches involve compromised credentials — identity is your perimeter</span>
+        </div>
+        <div class="panel-stat">
+          <span class="panel-stat-num">Zero Trust</span>
+          <span class="panel-stat-label">Architecture standard for all security programmes we design</span>
+        </div>
+        <div class="panel-stat">
+          <span class="panel-stat-num">24/7</span>
+          <span class="panel-stat-label">Incident response coverage for active breach situations</span>
+        </div>
+      </div>
+      <div class="panel-tags">
+        <span class="fw-tag">Zero Trust</span>
+        <span class="fw-tag">NIST CSF 2.0</span>
+        <span class="fw-tag">ISO 27001</span>
+        <span class="fw-tag">Pen Testing</span>
+        <span class="fw-tag">SIEM / SOC</span>
+        <span class="fw-tag">Cloud Security</span>
+        <span class="fw-tag">IAM / PAM</span>
+        <span class="fw-tag">DPDPA 2023</span>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="inner">
-    <div class="lbl">Insights & Resources</div>
-    <h2 class="h2">Knowledge Centre</h2>
-    <p class="desc">Whitepapers, case studies, and expert articles on Cybersecurity Consulting</p>
-    <div class="insights">
-      <div class="ins"><div class="ins-top">Whitepaper</div><div class="ins-body"><h3>6 months</h3><p>Zero Trust Architecture: A Practical Implementation Guide for Enterprises</p><a href="#" class="ins-link">Download PDF →</a></div></div>
-      <div class="ins"><div class="ins-top">Case Study</div><div class="ins-body"><h3></h3><p>A detailed look at how we tackled a complex Cybersecurity Consulting engagement and delivered measurable outcomes for the client.</p><a href="#" class="ins-link">Read Case Study →</a></div></div>
-      <div class="ins"><div class="ins-top">Blog Post</div><div class="ins-body"><h3>Trends in Cybersecurity Consulting for 2026</h3><p>Our consultants share the latest developments, emerging best practices, and what decision-makers need to know going into 2026.</p><a href="#" class="ins-link">Read Article →</a></div></div>
+<!-- ── OVERVIEW ── -->
+<section class="section bg-surface reveal">
+  <div class="wrap">
+    <span class="section-eyebrow">01 — Overview</span>
+    <h2 class="section-title">What Cybersecurity Consulting<br>Means at Metamorphex</h2>
+    <div class="overview-grid">
+      <div class="overview-body">
+        <p>
+          Security that gets in the way of the business will eventually be worked around. Security that is invisible to the end user but impenetrable to an attacker is the standard we design toward. The gap between these two outcomes is almost always architectural — not a matter of spending more on tools.
+        </p>
+        <p>
+          Our cybersecurity practice is built on three principles. First, <strong>security architecture precedes security products</strong> — we design the control environment before recommending technology. Second, <strong>threat-informed defence</strong> — controls are calibrated against real threats facing your sector, not a generic compliance checklist. Third, <strong>security must be measurable</strong> — every programme we build includes the metrics, KRIs, and reporting structures that give leadership genuine visibility into security posture.
+        </p>
+        <p>
+          We cover the full security lifecycle: from initial posture assessment and architecture design through to ISMS implementation, penetration testing, cloud security hardening, identity and access management, SOC design, and incident response. We also bring deep expertise in <strong>AI-driven security analytics</strong> — including anomaly detection models, behavioural analysis, and the application of Graph Neural Networks to insider threat and account takeover detection.
+        </p>
+        <p>
+          In regulated markets — particularly Indian financial services under RBI IT Risk and SEBI CSCRF, and international contexts under ISO 27001 and DPDPA 2023 — we understand the specific control requirements and can map your security programme to regulatory expectations without building a framework-for-framework's-sake.
+        </p>
+      </div>
+
+      <div class="who-card">
+        <div class="who-card-header">Who this service is for</div>
+        <ul class="who-list">
+          <li>
+            <span class="who-icon">🏦</span>
+            <div>
+              <h4>Financial Services & FinTech</h4>
+              <p>Banks, NBFCs, and payment companies meeting RBI IT Risk, SEBI CSCRF, and PCI DSS requirements — and those building genuine security capability beyond compliance.</p>
+            </div>
+          </li>
+          <li>
+            <span class="who-icon">☁️</span>
+            <div>
+              <h4>Cloud-Native & SaaS Companies</h4>
+              <p>Technology companies securing cloud infrastructure, implementing DevSecOps, and meeting customer security due diligence requirements for enterprise procurement.</p>
+            </div>
+          </li>
+          <li>
+            <span class="who-icon">🏛️</span>
+            <div>
+              <h4>Public Sector & International Orgs</h4>
+              <p>Governments and multilateral bodies managing sensitive data across complex, distributed environments — often with legacy infrastructure and field-mission constraints.</p>
+            </div>
+          </li>
+          <li>
+            <span class="who-icon">🏥</span>
+            <div>
+              <h4>Healthcare & Life Sciences</h4>
+              <p>Health systems and health-tech companies securing patient data under HIPAA, DPDPA, and GDPR while managing the clinical availability requirements that constrain traditional security controls.</p>
+            </div>
+          </li>
+          <li>
+            <span class="who-icon">🏭</span>
+            <div>
+              <h4>Manufacturing & Critical Infrastructure</h4>
+              <p>Industrial operators managing the convergence of IT and OT environments — where a security incident can have physical safety consequences, not just data exposure.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="cta-sec">
-  <h2>Ready to Get Started with Cybersecurity Consulting?</h2>
-  <p>Let's scope your engagement and put together a tailored plan.</p>
-  <a href="../index.html#contact" class="btn">Schedule a Consultation →</a>
+<!-- ── CAPABILITIES ── -->
+<section class="section reveal" id="capabilities">
+  <div class="wrap">
+    <span class="section-eyebrow">02 — Capabilities</span>
+    <h2 class="section-title">What We Do</h2>
+    <p class="section-sub">Six core capability areas — each delivered as a focused engagement or combined into a comprehensive security transformation programme.</p>
+
+    <div class="cap-grid">
+
+      <div class="cap-card">
+        <div class="cap-num">01</div>
+        <h3>Security Architecture & Zero Trust Design</h3>
+        <p>Security architecture that assumes breach and eliminates implicit trust — designed for hybrid cloud environments where the traditional perimeter no longer exists.</p>
+        <ul class="cap-list">
+          <li>Zero Trust Architecture (ZTA) design across identity, device, network, and application layers</li>
+          <li>Current-state security architecture assessment and gap analysis</li>
+          <li>Micro-segmentation and least-privilege access model design</li>
+          <li>Security reference architecture and technology roadmap</li>
+          <li>Cloud security architecture review (AWS, Azure, GCP)</li>
+        </ul>
+      </div>
+
+      <div class="cap-card">
+        <div class="cap-num">02</div>
+        <h3>ISMS Implementation & ISO 27001 Certification</h3>
+        <p>End-to-end Information Security Management System design, implementation, and certification readiness — built to be operationally effective, not just audit-passable.</p>
+        <ul class="cap-list">
+          <li>ISMS scope definition, context, and stakeholder analysis</li>
+          <li>ISO 27001:2022 Annex A control selection and implementation</li>
+          <li>Information security policy library and procedure design</li>
+          <li>Statement of Applicability (SoA) development</li>
+          <li>Internal audit programme and certification readiness review</li>
+        </ul>
+      </div>
+
+      <div class="cap-card">
+        <div class="cap-num">03</div>
+        <h3>Penetration Testing & Red Team Operations</h3>
+        <p>Adversary-simulated testing that finds real weaknesses in your defences — not a vulnerability scan dressed up as a pentest. We attack the way real attackers do.</p>
+        <ul class="cap-list">
+          <li>External and internal network penetration testing</li>
+          <li>Web application and API penetration testing (OWASP Top 10)</li>
+          <li>Cloud configuration and privilege escalation testing</li>
+          <li>Social engineering and phishing simulation campaigns</li>
+          <li>Red team operations with full kill-chain simulation</li>
+        </ul>
+      </div>
+
+      <div class="cap-card">
+        <div class="cap-num">04</div>
+        <h3>Identity & Access Management (IAM/PAM)</h3>
+        <p>Identity is the new perimeter — and most breaches begin with a compromised credential. We design and implement IAM and PAM programmes that control access without creating friction.</p>
+        <ul class="cap-list">
+          <li>Identity architecture design and SSO/MFA implementation</li>
+          <li>Privileged Access Management (PAM) programme design and deployment</li>
+          <li>Role-based and attribute-based access control (RBAC/ABAC) design</li>
+          <li>Identity governance and access review automation</li>
+          <li>Zero Trust identity broker and conditional access policy design</li>
+        </ul>
+      </div>
+
+      <div class="cap-card">
+        <div class="cap-num">05</div>
+        <h3>SOC Design & Threat Detection Engineering</h3>
+        <p>Security operations capability design — from SIEM architecture and use case development to detection engineering, alert triage, and SOC operating model design.</p>
+        <ul class="cap-list">
+          <li>SIEM platform selection, architecture, and deployment (Splunk, Microsoft Sentinel, OpenSearch)</li>
+          <li>Detection use case library design and MITRE ATT&CK coverage mapping</li>
+          <li>SOAR playbook design and alert automation</li>
+          <li>SOC operating model: roles, tiers, escalation, and SLAs</li>
+          <li>Threat hunting programme design and initial hunt execution</li>
+        </ul>
+      </div>
+
+      <div class="cap-card">
+        <div class="cap-num">06</div>
+        <h3>Incident Response & Digital Forensics</h3>
+        <p>Structured incident response — from preparation and playbook design through to active breach containment, forensic investigation, regulatory notification, and post-incident review.</p>
+        <ul class="cap-list">
+          <li>Incident response plan and playbook design (ransomware, data breach, insider threat)</li>
+          <li>Tabletop exercise design and facilitation for leadership and technical teams</li>
+          <li>Active incident containment and eradication support (24/7)</li>
+          <li>Digital forensics and root cause analysis</li>
+          <li>Regulatory breach notification support (GDPR, DPDPA, RBI, SEBI)</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
 </section>
+
+<!-- ── ZERO TRUST MODEL ── -->
+<section class="section bg-surface reveal">
+  <div class="wrap">
+    <span class="section-eyebrow">03 — Our Security Design Principle</span>
+    <h2 class="section-title">Zero Trust: Never Trust,<br>Always Verify</h2>
+
+    <div class="model-grid">
+      <div class="model-intro">
+        <p>
+          The traditional security model assumed a trusted internal network and an untrusted external one. Cloud adoption, remote work, and sophisticated attackers have made that model obsolete. Zero Trust assumes breach — every request is authenticated, authorised, and validated regardless of where it originates.
+        </p>
+        <p>
+          We design Zero Trust architectures across <strong>five control planes</strong>, each reinforcing the others. An attacker who compromises one layer faces full friction at the next — dramatically raising the cost and complexity of a successful attack.
+        </p>
+      </div>
+
+      <div class="model-layers">
+        <div class="model-layer">
+          <div class="layer-badge">Identity</div>
+          <div class="layer-body">
+            <h4>Verify Every User, Every Time</h4>
+            <p>Strong authentication, continuous session validation, and risk-based conditional access policies ensure identity is never assumed — even for privileged accounts inside the network.</p>
+            <div class="layer-tags">
+              <span class="layer-tag">MFA / Passwordless</span>
+              <span class="layer-tag">SSO</span>
+              <span class="layer-tag">PAM</span>
+              <span class="layer-tag">Conditional Access</span>
+            </div>
+          </div>
+        </div>
+        <div class="model-layer">
+          <div class="layer-badge">Device</div>
+          <div class="layer-body">
+            <h4>Trust No Endpoint by Default</h4>
+            <p>Device health validation, compliance enforcement, and endpoint detection ensure only managed, secure devices can access sensitive systems — regardless of network location.</p>
+            <div class="layer-tags">
+              <span class="layer-tag">MDM / EDR</span>
+              <span class="layer-tag">Device Compliance</span>
+              <span class="layer-tag">Certificate Auth</span>
+            </div>
+          </div>
+        </div>
+        <div class="model-layer">
+          <div class="layer-badge">Network</div>
+          <div class="layer-body">
+            <h4>Eliminate Implicit Network Trust</h4>
+            <p>Micro-segmentation, encrypted traffic, and software-defined perimeter replace the flat network model — limiting lateral movement even if an attacker gains initial access.</p>
+            <div class="layer-tags">
+              <span class="layer-tag">Micro-segmentation</span>
+              <span class="layer-tag">ZTNA</span>
+              <span class="layer-tag">SD-WAN</span>
+              <span class="layer-tag">mTLS</span>
+            </div>
+          </div>
+        </div>
+        <div class="model-layer">
+          <div class="layer-badge">Application</div>
+          <div class="layer-body">
+            <h4>Secure Every Application Interface</h4>
+            <p>Application-layer controls — API security, WAF, secrets management, and secure development practices — ensure that application vulnerabilities cannot be weaponised to bypass identity and network controls.</p>
+            <div class="layer-tags">
+              <span class="layer-tag">WAF / API Gateway</span>
+              <span class="layer-tag">Secrets Mgmt</span>
+              <span class="layer-tag">DevSecOps</span>
+            </div>
+          </div>
+        </div>
+        <div class="model-layer">
+          <div class="layer-badge">Data</div>
+          <div class="layer-body">
+            <h4>Protect the Asset That Actually Matters</h4>
+            <p>Data classification, encryption at rest and in transit, DLP controls, and data access governance ensure that even if perimeter controls fail, the data itself remains protected.</p>
+            <div class="layer-tags">
+              <span class="layer-tag">Data Classification</span>
+              <span class="layer-tag">Encryption</span>
+              <span class="layer-tag">DLP</span>
+              <span class="layer-tag">Data Access Governance</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESS ── -->
+<section class="section reveal">
+  <div class="wrap">
+    <span class="section-eyebrow">04 — How We Work</span>
+    <h2 class="section-title">Our Engagement Process</h2>
+    <p class="section-sub">A threat-informed, five-phase approach that moves from current-state posture to a fully operational, continuously improving security programme.</p>
+
+    <div class="process-timeline">
+      <div class="process-step">
+        <div class="step-number">01</div>
+        <h4>Assess</h4>
+        <p>Security posture assessment — architecture review, vulnerability scanning, policy and process gap analysis, threat landscape profiling for your sector, and maturity scoring against NIST CSF or ISO 27001.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-number">02</div>
+        <h4>Architect</h4>
+        <p>Target security architecture design — Zero Trust blueprint, control framework selection, technology stack recommendation, and a prioritised security roadmap with risk-reduction impact scoring per initiative.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-number">03</div>
+        <h4>Implement</h4>
+        <p>Security control implementation — IAM, SIEM, endpoint protection, cloud security hardening, network segmentation, and ISMS documentation. Delivered in phased sprints, highest-risk controls first.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-number">04</div>
+        <h4>Validate</h4>
+        <p>Penetration testing and red team operations to validate that implemented controls are effective under adversarial conditions — not just technically present. Findings fed directly into remediation backlog.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-number">05</div>
+        <h4>Operate</h4>
+        <p>Security operations programme launch — SOC activation, detection use case tuning, incident response rehearsal, and continuous monitoring. KRIs and dashboards delivered to CISO and board reporting cadence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FRAMEWORKS ── -->
+<section class="section bg-surface reveal">
+  <div class="wrap">
+    <span class="section-eyebrow">05 — Standards & Frameworks</span>
+    <h2 class="section-title">How We Anchor Our Work</h2>
+    <p class="section-sub">We are fluent in every major security framework and select the right combination for your regulatory context, risk profile, and maturity level.</p>
+
+    <div class="frameworks-grid">
+      <div class="framework-card">
+        <div class="framework-logo">NIST CSF</div>
+        <h4>NIST CSF 2.0</h4>
+        <p>The updated framework adds the Govern function, making cybersecurity governance a board-level accountability. We use it as a maturity baseline and security programme design framework.</p>
+      </div>
+      <div class="framework-card">
+        <div class="framework-logo">ISO 27001</div>
+        <h4>ISO/IEC 27001:2022</h4>
+        <p>Internationally recognised ISMS standard — updated in 2022 with new controls for cloud security, threat intelligence, and data masking. Our certification pathway is typically 6–9 months.</p>
+      </div>
+      <div class="framework-card">
+        <div class="framework-logo">Zero Trust</div>
+        <h4>NIST SP 800-207 Zero Trust</h4>
+        <p>The definitive Zero Trust Architecture standard — we use it as the structural basis for all security architecture engagements, adapted for cloud and hybrid environments.</p>
+      </div>
+      <div class="framework-card">
+        <div class="framework-logo">MITRE</div>
+        <h4>MITRE ATT&CK</h4>
+        <p>The adversary tactics and techniques knowledge base that underpins our threat-informed defence design — used for detection coverage mapping, red team planning, and control gap analysis.</p>
+      </div>
+      <div class="framework-card">
+        <div class="framework-logo">RBI</div>
+        <h4>RBI IT Risk Framework</h4>
+        <p>Indian banking sector cybersecurity requirements — Master Direction on IT, cyber security framework for banks, and RBI guidelines on IS audit. Essential for any Indian financial institution.</p>
+      </div>
+      <div class="framework-card">
+        <div class="framework-logo">SEBI CSCRF</div>
+        <h4>SEBI Cybersecurity Framework</h4>
+        <p>SEBI's Cyber Security and Cyber Resilience Framework for regulated entities including stock exchanges, depositories, and market intermediaries operating in Indian capital markets.</p>
+      </div>
+      <div class="framework-card">
+        <div class="framework-logo">DPDPA</div>
+        <h4>DPDPA 2023</h4>
+        <p>India's Digital Personal Data Protection Act — security obligations for data fiduciaries and processors, including breach notification, consent management, and data localisation requirements.</p>
+      </div>
+      <div class="framework-card">
+        <div class="framework-logo">CIS</div>
+        <h4>CIS Controls v8</h4>
+        <p>The 18 CIS Controls provide a prioritised, implementation-group-based approach to basic cyber hygiene — particularly useful for organisations building foundational security capability efficiently.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── OUTCOMES ── -->
+<section class="section reveal">
+  <div class="wrap">
+    <span class="section-eyebrow">06 — Outcomes</span>
+    <h2 class="section-title">What You Walk Away With</h2>
+
+    <div class="outcomes-grid">
+      <div class="outcomes-visual">
+        <div class="outcome-stat">
+          <span class="outcome-num">80%</span>
+          <span class="outcome-label">Reduction in critical vulnerability exposure after architecture hardening</span>
+        </div>
+        <div class="outcome-stat">
+          <span class="outcome-num">6–9 mo</span>
+          <span class="outcome-label">Typical ISO 27001 certification timeline from engagement start</span>
+        </div>
+        <div class="outcome-stat">
+          <span class="outcome-num">&lt;1 hr</span>
+          <span class="outcome-label">Mean time to detect (MTTD) target for SOC programmes we design</span>
+        </div>
+        <div class="outcome-stat">
+          <span class="outcome-num">24/7</span>
+          <span class="outcome-label">Incident response coverage during and after programme implementation</span>
+        </div>
+      </div>
+
+      <div class="outcomes-list">
+        <div class="outcome-item">
+          <div class="outcome-check">✓</div>
+          <div>
+            <h4>A Security Posture You Can Measure and Report</h4>
+            <p>A live security dashboard with KRIs, control effectiveness metrics, and trend data that gives your CISO, CRO, and board a genuine, accurate picture of security posture — not a qualitative assessment once a year.</p>
+          </div>
+        </div>
+        <div class="outcome-item">
+          <div class="outcome-check">✓</div>
+          <div>
+            <h4>Architecture That Slows Attackers Down</h4>
+            <p>A Zero Trust control environment that raises the cost of attack dramatically — not just for commodity threats, but for targeted, sophisticated adversaries operating with patience and inside knowledge.</p>
+          </div>
+        </div>
+        <div class="outcome-item">
+          <div class="outcome-check">✓</div>
+          <div>
+            <h4>Regulatory Confidence Without Compliance Theatre</h4>
+            <p>A security programme that satisfies RBI, SEBI, ISO 27001, and DPDPA requirements because the controls are genuinely effective — not because the documentation says they are.</p>
+          </div>
+        </div>
+        <div class="outcome-item">
+          <div class="outcome-check">✓</div>
+          <div>
+            <h4>An Incident Response Capability Ready Before It's Needed</h4>
+            <p>Documented playbooks, a rehearsed team, and tested communication plans that allow your organisation to respond to a breach with confidence and speed — dramatically limiting business and reputational impact.</p>
+          </div>
+        </div>
+        <div class="outcome-item">
+          <div class="outcome-check">✓</div>
+          <div>
+            <h4>Security That the Business Can Live With</h4>
+            <p>Controls designed in collaboration with business and engineering stakeholders — usable, proportionate, and integrated into workflows rather than bolted on as friction. Security that gets followed because it makes sense.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── RELATED ── -->
+<section class="section bg-surface reveal">
+  <div class="wrap">
+    <span class="section-eyebrow">07 — Related Services</span>
+    <h2 class="section-title">Often Paired With</h2>
+    <p class="section-sub">Cybersecurity is most effective when anchored to a risk-informed governance structure and integrated with compliance obligations.</p>
+
+    <div class="related-grid">
+      <a href="risk-assessment.html" class="related-card">
+        <span class="related-icon">🎯</span>
+        <h4>Risk Assessment & Intelligence</h4>
+        <p>Threat-informed security architecture requires continuous risk intelligence — the real-time view of what adversaries are doing and where your exposures lie.</p>
+        <span class="related-arrow">Explore →</span>
+      </a>
+      <a href="compliance-risk.html" class="related-card">
+        <span class="related-icon">🛡️</span>
+        <h4>Compliance & Risk Advisory</h4>
+        <p>Security controls map directly to regulatory obligations — we design them once and maintain alignment across ISO 27001, RBI, SEBI, and DPDPA simultaneously.</p>
+        <span class="related-arrow">Explore →</span>
+      </a>
+      <a href="policy-governance.html" class="related-card">
+        <span class="related-icon">📜</span>
+        <h4>Policy & Governance</h4>
+        <p>Security policies, governance structures, and board-level reporting that translate technical security posture into language and accountability that the board can act on.</p>
+        <span class="related-arrow">Explore →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section reveal">
+  <div class="cta-inner">
+    <h2>Ready to Know<br>Where You Actually<br><em>Stand?</em></h2>
+    <p>Book a no-obligation security posture review. We'll assess your current control environment against your real threat landscape, identify your critical exposures, and outline the highest-priority actions — in a single session.</p>
+    <div class="cta-buttons">
+      <a href="../index.html#contact" class="btn btn-primary">Book a Security Review →</a>
+      <a href="mailto:incident@metamorphex.tech" class="btn btn-ghost">Active Incident? Contact Us Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <div style="display:flex;align-items:center;gap:0;margin-bottom:1.2rem;">
+        <img src="../metamorphex-logo.png" alt="Metamorphex Logo" style="height:38px;width:auto;">
+        <div style="width:1px;height:22px;background:rgba(255,255,255,0.1);margin:0 16px;"></div>
+        <div style="display:flex;align-items:baseline;">
+          <span id="footer-wt" style="font-family:'Exo 2',sans-serif;font-weight:200;font-size:16px;letter-spacing:0.20em;text-transform:uppercase;color:rgba(255,255,255,0.85);">METAMORPHE</span>
+          <span id="footer-wx" style="display:inline-block;position:relative;"></span>
+        </div>
+      </div>
+      <p>Expert IT consulting and implementation services for enterprise digital transformation.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="cloud-consulting.html">Cloud Consulting</a></li>
+        <li><a href="ai-ml.html">AI & ML Advisory</a></li>
+        <li><a href="compliance-risk.html">Compliance & Risk</a></li>
+        <li><a href="digital-transformation.html">Digital Transformation</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="../index.html#expertise">Expertise</a></li>
+        <li><a href="../index.html#case-studies">Case Studies</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="https://www.linkedin.com/company/metamorphex/">LinkedIn</a></li>
+        <li><a href="mailto:contact@metamorphex.tech">Email</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Metamorphex. All rights reserved.</p>
+    <p>IT Consulting & Implementation Services · Noida, India</p>
+  </div>
+</footer>
+
+<script>
+function buildLogoX(textId, xId) {
+  const t = document.getElementById(textId);
+  const x = document.getElementById(xId);
+  if (!t || !x) return;
+  const fs   = parseFloat(getComputedStyle(t).fontSize);
+  const ls   = parseFloat(getComputedStyle(t).letterSpacing) || 0;
+  const capH = Math.round(fs * 0.73);
+  const xW   = Math.round(fs * 0.64);
+  const thin  = Math.max(1.2, fs * 0.042);
+  const thick = Math.max(3.5, fs * 0.134);
+  x.style.cssText = `display:inline-block;position:relative;width:${xW+ls}px;height:${capH}px;vertical-align:baseline;`;
+  x.innerHTML = `<svg viewBox="0 0 ${xW} ${capH}" width="${xW}" height="${capH}"
+    style="display:block;overflow:visible;position:absolute;bottom:0;left:0;">
+    <line x1="1" y1="1" x2="${xW-1}" y2="${capH-1}" stroke="rgba(220,232,245,0.75)" stroke-width="${thin}" stroke-linecap="round"/>
+    <line x1="1" y1="${capH-1}" x2="${xW-1}" y2="1" stroke="#3EC9E8" stroke-width="${thick}" stroke-linecap="round"/>
+  </svg>`;
+}
+(document.fonts ? document.fonts.ready : Promise.resolve())
+  .then(() => { buildLogoX('nav-wt','nav-wx'); buildLogoX('footer-wt','footer-wx'); });
+
+document.querySelectorAll('.nav-item').forEach(item => {
+  const link = item.querySelector('.nav-link');
+  const menu = item.querySelector('.mega-menu');
+  if (!menu) return;
+  link.addEventListener('click', e => {
+    e.preventDefault(); e.stopPropagation();
+    document.querySelectorAll('.nav-item').forEach(o => { if (o !== item) o.classList.remove('open'); });
+    item.classList.toggle('open');
+  });
+});
+document.addEventListener('click', e => {
+  if (!e.target.closest('.nav-item')) document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('open'));
+});
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('active'); obs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
 </body>
 </html>
