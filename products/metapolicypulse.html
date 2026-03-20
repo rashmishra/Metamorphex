@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PolicyPulse — Compliance Automation for Indian Financial Services | Metamorphex</title>
+<meta name="description" content="PolicyPulse automates regulatory compliance across RBI, SEBI, ISO 27001, and DPDPA 2023 for Indian mid-market financial institutions. Register for early access.">
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --accent:#3EC9E8;--accent-dim:rgba(62,201,232,0.18);--accent-glow:rgba(62,201,232,0.35);
+  --bg:#07080D;--bg-surface:#0D0F17;--bg-card:#111420;
+  --border:rgba(255,255,255,0.07);--border-lit:rgba(62,201,232,0.25);
+  --text:#FFFFFF;--text-dim:rgba(255,255,255,0.55);--text-dimmer:rgba(255,255,255,0.30);
+  --font:'Exo 2',-apple-system,sans-serif;--radius:12px;--max:1400px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+
+/* star field */
+body::before{content:'';position:fixed;inset:0;
+  background-image:
+    radial-gradient(1px 1px at 12% 18%,rgba(255,255,255,0.5) 0%,transparent 100%),
+    radial-gradient(1px 1px at 78% 22%,rgba(255,255,255,0.35) 0%,transparent 100%),
+    radial-gradient(1.5px 1.5px at 42% 55%,rgba(255,255,255,0.28) 0%,transparent 100%),
+    radial-gradient(1px 1px at 63% 78%,rgba(255,255,255,0.4) 0%,transparent 100%),
+    radial-gradient(1px 1px at 8%  72%,rgba(255,255,255,0.22) 0%,transparent 100%),
+    radial-gradient(1px 1px at 88% 58%,rgba(255,255,255,0.3)  0%,transparent 100%),
+    radial-gradient(1px 1px at 50% 38%,rgba(62,201,232,0.35)  0%,transparent 100%),
+    radial-gradient(1px 1px at 25% 90%,rgba(255,255,255,0.2)  0%,transparent 100%),
+    radial-gradient(1px 1px at 95% 10%,rgba(255,255,255,0.25) 0%,transparent 100%);
+  pointer-events:none;z-index:0;}
+
+/* radial hero glow */
+body::after{content:'';position:fixed;top:-10%;left:50%;transform:translateX(-50%);
+  width:900px;height:600px;
+  background:radial-gradient(ellipse at center top,rgba(62,201,232,0.06) 0%,transparent 65%);
+  pointer-events:none;z-index:0;}
+
+/* ── NAVBAR ── */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(7,8,13,0.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-container{max-width:var(--max);margin:0 auto;padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.logo{display:flex;align-items:center;gap:0;text-decoration:none;transition:opacity 0.2s;}.logo:hover{opacity:0.82;}
+.logo-mark{height:42px;width:auto;display:block;flex-shrink:0;}
+.logo-sep{width:1px;height:26px;background:rgba(255,255,255,0.13);margin:0 18px;flex-shrink:0;}
+.logo-wordmark{display:flex;align-items:baseline;line-height:1;}
+.logo-wordmark-text{font-family:'Exo 2',sans-serif;font-weight:200;font-size:18px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.88);white-space:nowrap;}
+.logo-wordmark-x{display:inline-block;position:relative;}.logo-wordmark-x svg{display:block;overflow:visible;position:absolute;bottom:0;left:0;}
+.nav-right{display:flex;align-items:center;gap:1.5rem;}
+.nav-back{color:var(--text-dim);text-decoration:none;font-size:0.82rem;font-weight:500;letter-spacing:0.04em;transition:color 0.2s;display:flex;align-items:center;gap:0.5rem;}
+.nav-back:hover{color:var(--text);}
+.nav-cta{background:transparent;color:var(--accent);border:1px solid var(--accent);padding:0.55rem 1.5rem;border-radius:4px;text-decoration:none;font-weight:600;font-size:0.85rem;letter-spacing:0.06em;text-transform:uppercase;transition:all 0.25s;}
+.nav-cta:hover{background:var(--accent);color:var(--bg);box-shadow:0 0 20px var(--accent-glow);}
+
+/* ── HERO ── */
+.hero{position:relative;z-index:1;padding:140px 2.5rem 80px;max-width:var(--max);margin:0 auto;text-align:center;}
+
+.product-badge{
+  display:inline-flex;align-items:center;gap:0.8rem;
+  background:rgba(62,201,232,0.06);border:1px solid rgba(62,201,232,0.2);
+  border-radius:100px;padding:0.45rem 1.2rem 0.45rem 0.6rem;
+  font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--text-dim);margin-bottom:2.4rem;cursor:default;
+}
+.badge-pill{background:var(--accent);color:var(--bg);font-size:0.65rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.7rem;border-radius:100px;}
+
+.product-wordmark{
+  display:flex;align-items:baseline;justify-content:center;gap:0;
+  margin-bottom:1.4rem;
+}
+.pw-policy{font-family:'Exo 2',sans-serif;font-weight:200;font-size:clamp(3.5rem,7vw,6rem);letter-spacing:0.04em;text-transform:uppercase;color:var(--text);}
+.pw-pulse{font-family:'Exo 2',sans-serif;font-weight:800;font-size:clamp(3.5rem,7vw,6rem);letter-spacing:0.04em;text-transform:uppercase;color:var(--accent);position:relative;}
+.pw-pulse::after{
+  content:'';position:absolute;bottom:-4px;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--accent),rgba(62,201,232,0.2));border-radius:2px;
+}
+
+.hero-tagline{font-size:clamp(1.1rem,2vw,1.4rem);color:var(--text-dim);font-weight:300;line-height:1.6;max-width:600px;margin:0 auto 1rem;letter-spacing:0.01em;}
+.hero-sub{font-size:0.92rem;color:var(--text-dimmer);font-weight:300;max-width:480px;margin:0 auto 3rem;}
+
+/* beta form */
+.beta-form-wrap{max-width:520px;margin:0 auto 1.6rem;}
+.beta-form{display:flex;gap:0;background:var(--bg-surface);border:1px solid var(--border);border-radius:6px;overflow:hidden;transition:border-color 0.3s;}
+.beta-form:focus-within{border-color:var(--border-lit);box-shadow:0 0 0 3px rgba(62,201,232,0.08);}
+.beta-input{flex:1;background:transparent;border:none;outline:none;padding:0.95rem 1.4rem;font-family:var(--font);font-size:0.9rem;font-weight:400;color:var(--text);letter-spacing:0.02em;}
+.beta-input::placeholder{color:var(--text-dimmer);}
+.beta-btn{background:var(--accent);color:var(--bg);border:none;padding:0.95rem 1.8rem;font-family:var(--font);font-size:0.82rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:all 0.25s;white-space:nowrap;flex-shrink:0;}
+.beta-btn:hover{background:#5BD7F2;box-shadow:0 0 20px var(--accent-glow);}
+.beta-btn:disabled{opacity:0.6;cursor:not-allowed;}
+.form-note{font-size:0.72rem;color:var(--text-dimmer);font-weight:300;text-align:center;}
+.form-note a{color:var(--text-dim);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.15);transition:color 0.2s;}.form-note a:hover{color:var(--text);}
+
+/* success state */
+.success-msg{display:none;text-align:center;padding:1.2rem 2rem;background:rgba(62,201,232,0.06);border:1px solid rgba(62,201,232,0.25);border-radius:8px;max-width:520px;margin:0 auto 1.6rem;}
+.success-msg h4{font-size:0.9rem;font-weight:600;color:var(--accent);margin-bottom:0.3rem;}
+.success-msg p{font-size:0.8rem;color:var(--text-dim);font-weight:300;}
+
+/* scroll hint */
+.scroll-hint{display:flex;flex-direction:column;align-items:center;gap:0.5rem;color:var(--text-dimmer);font-size:0.7rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;margin-top:4rem;animation:bob 2.5s ease-in-out infinite;}
+@keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(6px);}}
+.scroll-hint svg{opacity:0.4;}
+
+/* ── PROBLEM STRIP ── */
+.problem-strip{position:relative;z-index:1;background:var(--bg-surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem 2.5rem;overflow:hidden;}
+.problem-strip-inner{max-width:var(--max);margin:0 auto;display:flex;align-items:center;gap:3rem;flex-wrap:wrap;justify-content:center;}
+.ps-item{display:flex;align-items:center;gap:0.8rem;flex-shrink:0;}
+.ps-num{font-family:'Exo 2',sans-serif;font-weight:800;font-size:1.8rem;color:var(--accent);line-height:1;}
+.ps-text{font-size:0.78rem;color:var(--text-dim);font-weight:300;line-height:1.4;max-width:160px;}
+.ps-sep{width:1px;height:36px;background:var(--border);flex-shrink:0;}
+
+/* ── SECTIONS ── */
+.section{position:relative;z-index:1;padding:6rem 2.5rem;}
+.section+.section{border-top:1px solid var(--border);}
+.section.bg-surface{background:var(--bg-surface);}
+.wrap{max-width:var(--max);margin:0 auto;}
+.section-eyebrow{font-size:0.7rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;display:block;text-align:center;}
+.section-title{font-family:'Exo 2',sans-serif;font-weight:200;font-size:clamp(1.9rem,3vw,2.8rem);letter-spacing:0.06em;text-transform:uppercase;line-height:1.15;margin-bottom:1rem;text-align:center;}
+.section-sub{font-size:1rem;color:var(--text-dim);font-weight:300;line-height:1.75;max-width:560px;margin:0 auto;text-align:center;}
+
+/* ── WHAT IT IS ── */
+.what-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-top:4rem;}
+.what-body p{font-size:1rem;color:var(--text-dim);font-weight:300;line-height:1.8;margin-bottom:1.3rem;}.what-body p:last-child{margin-bottom:0;}.what-body strong{color:var(--text);font-weight:500;}
+.what-visual{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+.framework-row{background:var(--bg-surface);padding:1.3rem 1.8rem;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1.2rem;transition:background 0.25s;}.framework-row:hover{background:rgba(62,201,232,0.04);}
+.fw-name{font-family:'Exo 2',sans-serif;font-weight:800;font-size:0.85rem;color:var(--accent);letter-spacing:0.04em;white-space:nowrap;}
+.fw-desc{font-size:0.78rem;color:var(--text-dim);font-weight:300;}
+.fw-controls{font-family:'Exo 2',sans-serif;font-weight:700;font-size:0.78rem;color:var(--text-dimmer);white-space:nowrap;}
+.fw-row-total{background:rgba(62,201,232,0.04);border-top:1px solid var(--border-lit);padding:1.1rem 1.8rem;display:flex;justify-content:space-between;align-items:center;}
+.fw-row-total span{font-size:0.75rem;color:var(--text-dim);font-weight:500;letter-spacing:0.06em;text-transform:uppercase;}
+.fw-row-total strong{font-family:'Exo 2',sans-serif;font-weight:800;font-size:1.1rem;color:var(--accent);}
+
+/* ── CAPABILITIES ── */
+.cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:3.5rem;}
+.cap-card{background:var(--bg-surface);padding:2.4rem 2rem;position:relative;overflow:hidden;transition:background 0.3s;}
+.cap-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);transform:scaleX(0);transform-origin:left;transition:transform 0.4s;}
+.cap-card:hover{background:rgba(62,201,232,0.04);}.cap-card:hover::after{transform:scaleX(1);}
+.cap-icon{font-size:1.8rem;margin-bottom:1rem;display:block;}
+.cap-card h3{font-size:0.92rem;font-weight:600;color:var(--text);margin-bottom:0.6rem;letter-spacing:0.03em;}
+.cap-card p{font-size:0.82rem;color:var(--text-dim);font-weight:300;line-height:1.65;}
+.cap-tag{display:inline-block;margin-top:0.9rem;font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);background:var(--accent-dim);border:1px solid rgba(62,201,232,0.2);border-radius:3px;padding:0.2rem 0.6rem;}
+
+/* ── WHO IT'S FOR ── */
+.who-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:3.5rem;}
+.who-card{background:var(--bg-surface);padding:2rem 1.6rem;transition:background 0.3s;}.who-card:hover{background:rgba(62,201,232,0.04);}
+.who-icon{font-size:1.6rem;margin-bottom:0.7rem;display:block;}
+.who-card h4{font-size:0.88rem;font-weight:600;color:var(--text);margin-bottom:0.4rem;}
+.who-card p{font-size:0.76rem;color:var(--text-dim);font-weight:300;line-height:1.55;}
+
+/* ── EARLY ACCESS ── */
+.ea-wrap{max-width:700px;margin:3.5rem auto 0;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+.ea-header{padding:2rem 2.4rem;border-bottom:1px solid var(--border);}
+.ea-header h3{font-family:'Exo 2',sans-serif;font-weight:300;font-size:1.3rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text);margin-bottom:0.4rem;}
+.ea-header p{font-size:0.85rem;color:var(--text-dim);font-weight:300;}
+.ea-perks{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);}
+.ea-perk{padding:1.4rem 2rem;background:var(--bg-surface);display:flex;align-items:flex-start;gap:0.85rem;}
+.ea-perk-check{width:24px;height:24px;border-radius:5px;background:var(--accent-dim);border:1px solid rgba(62,201,232,0.3);display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:1px;}
+.ea-perk h5{font-size:0.83rem;font-weight:600;color:var(--text);margin-bottom:0.2rem;}
+.ea-perk p{font-size:0.74rem;color:var(--text-dim);font-weight:300;line-height:1.45;}
+.ea-form{padding:2rem 2.4rem;}
+.ea-form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
+.ea-field{display:flex;flex-direction:column;gap:0.4rem;}
+.ea-field label{font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dimmer);}
+.ea-field input,.ea-field select{background:var(--bg-surface);border:1px solid var(--border);border-radius:6px;padding:0.7rem 1rem;font-family:var(--font);font-size:0.86rem;font-weight:400;color:var(--text);outline:none;transition:border-color 0.25s,box-shadow 0.25s;-webkit-appearance:none;}
+.ea-field input:focus,.ea-field select:focus{border-color:var(--border-lit);box-shadow:0 0 0 3px rgba(62,201,232,0.08);}
+.ea-field input::placeholder{color:var(--text-dimmer);}
+.ea-field select option{background:#1a1c28;color:var(--text);}
+.ea-checkbox{display:flex;align-items:flex-start;gap:0.75rem;margin-bottom:1.4rem;}
+.ea-checkbox input[type=checkbox]{width:16px;height:16px;flex-shrink:0;margin-top:2px;accent-color:var(--accent);cursor:pointer;}
+.ea-checkbox label{font-size:0.78rem;color:var(--text-dim);font-weight:300;line-height:1.5;cursor:pointer;}
+.ea-checkbox label a{color:var(--accent);text-decoration:none;}.ea-checkbox label a:hover{text-decoration:underline;}
+.ea-submit{width:100%;padding:1rem;background:var(--accent);color:var(--bg);border:none;border-radius:6px;font-family:var(--font);font-size:0.88rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:all 0.25s;box-shadow:0 0 24px var(--accent-glow);}
+.ea-submit:hover{background:#5BD7F2;box-shadow:0 0 40px rgba(62,201,232,0.5);transform:translateY(-1px);}
+.ea-submit:disabled{opacity:0.6;cursor:not-allowed;transform:none;}
+.ea-success{display:none;padding:2rem 2.4rem;text-align:center;}
+.ea-success .big-check{font-size:3rem;margin-bottom:1rem;display:block;}
+.ea-success h4{font-family:'Exo 2',sans-serif;font-weight:300;font-size:1.2rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem;}
+.ea-success p{font-size:0.88rem;color:var(--text-dim);font-weight:300;line-height:1.6;}
+
+/* ── FOOTER ── */
+.footer{position:relative;z-index:1;background:var(--bg-surface);border-top:1px solid var(--border);padding:3rem 2.5rem;text-align:center;}
+.footer-inner{max-width:var(--max);margin:0 auto;}
+.footer-brand-row{display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:1.2rem;}
+.footer-logo-sep{width:1px;height:20px;background:rgba(255,255,255,0.1);}
+.product-by{font-size:0.72rem;color:var(--text-dimmer);font-weight:300;letter-spacing:0.08em;text-transform:uppercase;}
+.product-by a{color:var(--text-dim);text-decoration:none;transition:color 0.2s;}.product-by a:hover{color:var(--accent);}
+.footer-links{display:flex;gap:2rem;justify-content:center;margin-bottom:1.2rem;}
+.footer-links a{font-size:0.78rem;color:var(--text-dimmer);text-decoration:none;transition:color 0.2s;}.footer-links a:hover{color:var(--text);}
+.footer-copy{font-size:0.72rem;color:var(--text-dimmer);font-weight:300;}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.6s ease-out,transform 0.6s ease-out;}
+.reveal.active{opacity:1;transform:translateY(0);}
+
+@media(max-width:1024px){
+  .what-grid{grid-template-columns:1fr;gap:3rem;}
+  .cap-grid{grid-template-columns:1fr 1fr;}
+  .who-grid{grid-template-columns:1fr 1fr;}
+  .ea-form-row{grid-template-columns:1fr;}
+  .ea-perks{grid-template-columns:1fr;}
+}
+@media(max-width:640px){
+  .hero{padding:120px 1.5rem 60px;}
+  .pw-policy,.pw-pulse{font-size:3rem;}
+  .section{padding:4rem 1.5rem;}
+  .beta-form{flex-direction:column;border-radius:var(--radius);}
+  .beta-input{border-bottom:1px solid var(--border);border-radius:0;}
+  .beta-btn{border-radius:0;}
+  .cap-grid,.who-grid{grid-template-columns:1fr;}
+  .problem-strip-inner{flex-direction:column;gap:1.5rem;}
+  .ps-sep{display:none;}
+  .ea-form{padding:1.5rem;}
+  .ea-header{padding:1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <img class="logo-mark" src="metamorphex-logo.png" alt="Metamorphex">
+      <div class="logo-sep"></div>
+      <div class="logo-wordmark">
+        <span class="logo-wordmark-text" id="nav-wt">METAMORPHE</span>
+        <span class="logo-wordmark-x" id="nav-wx"></span>
+      </div>
+    </a>
+    <div class="nav-right">
+      <a href="index.html" class="nav-back">← Back to Metamorphex</a>
+      <a href="#early-access" class="nav-cta">Get Early Access</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="product-badge">
+    <span class="badge-pill">Coming Soon</span>
+    A Metamorphex Product
+  </div>
+
+  <div class="product-wordmark">
+    <span class="pw-policy">Policy</span><span class="pw-pulse">Pulse</span>
+  </div>
+
+  <p class="hero-tagline">Compliance automation for Indian financial services — built for the regulated, not the resourcing-rich.</p>
+  <p class="hero-sub">One platform. Four regulatory frameworks. Every control mapped, evidenced, and audit-ready — without a team of consultants.</p>
+
+  <div class="beta-form-wrap">
+    <div class="beta-form" id="heroForm">
+      <input type="email" class="beta-input" id="heroEmail" placeholder="your@company.com" autocomplete="email">
+      <button class="beta-btn" onclick="handleHeroSubmit()">Request Access</button>
+    </div>
+  </div>
+  <div class="success-msg" id="heroSuccess">
+    <h4>You're on the list.</h4>
+    <p>We'll be in touch before beta opens. Check your inbox for a confirmation.</p>
+  </div>
+  <p class="form-note">No spam. No sales calls until you ask for one. <a href="mailto:policypulse@metamorphex.tech">Questions?</a></p>
+
+  <div class="scroll-hint">
+    <svg width="16" height="24" viewBox="0 0 16 24" fill="none"><rect x="1" y="1" width="14" height="22" rx="7" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="8" r="2" fill="currentColor"><animate attributeName="cy" values="8;14;8" dur="1.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0.3;1" dur="1.8s" repeatCount="indefinite"/></circle></svg>
+    Scroll to learn more
+  </div>
+</section>
+
+<!-- PROBLEM STRIP -->
+<div class="problem-strip">
+  <div class="problem-strip-inner">
+    <div class="ps-item">
+      <div class="ps-num">4</div>
+      <div class="ps-text">Regulatory frameworks. One control library. No duplication.</div>
+    </div>
+    <div class="ps-sep"></div>
+    <div class="ps-item">
+      <div class="ps-num">84+</div>
+      <div class="ps-text">Controls mapped across RBI, ISO 27001, SEBI, and DPDPA today.</div>
+    </div>
+    <div class="ps-sep"></div>
+    <div class="ps-item">
+      <div class="ps-num">72 hr</div>
+      <div class="ps-text">DPDPA breach notification window — we help you meet it automatically.</div>
+    </div>
+    <div class="ps-sep"></div>
+    <div class="ps-item">
+      <div class="ps-num">∞</div>
+      <div class="ps-text">Audit cycles you can run without a consulting team on retainer.</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT IT IS -->
+<section class="section reveal">
+  <div class="wrap">
+    <span class="section-eyebrow">What It Is</span>
+    <h2 class="section-title">The Compliance Stack.<br>Without the Compliance Stack Cost.</h2>
+
+    <div class="what-grid">
+      <div class="what-body">
+        <p>Every Indian financial institution operating under RBI, SEBI, ISO 27001, or DPDPA 2023 knows the problem: <strong>regulatory requirements overlap, contradict, and change faster than internal teams can track them</strong>. Implementing controls for each framework separately is expensive, redundant, and produces four siloed evidence trails that auditors still have to be walked through manually.</p>
+        <p>PolicyPulse is a <strong>compliance automation platform purpose-built for Indian mid-market financial services</strong> — banks, NBFCs, payment companies, stock brokers, and FinTechs operating under the regulatory stack that governs Indian financial markets.</p>
+        <p>Instead of treating each framework as a separate project, PolicyPulse maintains a <strong>unified control library</strong> that maps your implemented controls to every applicable regulatory obligation simultaneously. One control implementation. Four compliance postures updated in real time. Evidence collected continuously, not scrambled before the audit.</p>
+        <p>We built PolicyPulse because we spent years implementing compliance programmes inside regulated financial environments — and every engagement began with the same diagnosis: too many frameworks, not enough people, and no technology designed specifically for this regulatory context.</p>
+      </div>
+
+      <div class="what-visual">
+        <div class="framework-row">
+          <div class="fw-name">RBI</div>
+          <div class="fw-desc">Master Direction on IT Risk & Cybersecurity</div>
+          <div class="fw-controls">23 controls</div>
+        </div>
+        <div class="framework-row">
+          <div class="fw-name">ISO 27001</div>
+          <div class="fw-desc">Information Security Management :2022</div>
+          <div class="fw-controls">27 controls</div>
+        </div>
+        <div class="framework-row">
+          <div class="fw-name">SEBI CSCRF</div>
+          <div class="fw-desc">Cyber Security & Cyber Resilience Framework</div>
+          <div class="fw-controls">19 controls</div>
+        </div>
+        <div class="framework-row">
+          <div class="fw-name">DPDPA</div>
+          <div class="fw-desc">Digital Personal Data Protection Act 2023</div>
+          <div class="fw-controls">15 controls</div>
+        </div>
+        <div class="fw-row-total">
+          <span>Unified control library</span>
+          <strong>84 controls</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section class="section bg-surface reveal">
+  <div class="wrap">
+    <span class="section-eyebrow">What It Does</span>
+    <h2 class="section-title">Built for the Audit Cycle<br>You Actually Face</h2>
+    <p class="section-sub">Six capabilities designed around the real workflow of a compliance team in an Indian financial institution — not a generic GRC platform adapted from another market.</p>
+
+    <div class="cap-grid">
+      <div class="cap-card">
+        <span class="cap-icon">🗂️</span>
+        <h3>Unified Control Library</h3>
+        <p>A single library of 84+ controls, each tagged to its applicable frameworks. Implement a control once, satisfy all relevant regulatory requirements simultaneously. No duplication, no drift between framework versions.</p>
+        <span class="cap-tag">Core Engine</span>
+      </div>
+      <div class="cap-card">
+        <span class="cap-icon">📋</span>
+        <h3>Automated Evidence Collection</h3>
+        <p>Continuous evidence collection from connected systems — policies, access logs, vulnerability scan reports, training records, and audit artefacts — automatically linked to the controls they evidence. Evidence exists before the auditor asks for it.</p>
+        <span class="cap-tag">Automation</span>
+      </div>
+      <div class="cap-card">
+        <span class="cap-icon">📊</span>
+        <h3>Real-Time Compliance Posture</h3>
+        <p>Live compliance dashboard showing control effectiveness, evidence freshness, and gap status across all frameworks simultaneously. Board-ready reporting, CISO reporting, and auditor-facing evidence packages generated on demand.</p>
+        <span class="cap-tag">Visibility</span>
+      </div>
+      <div class="cap-card">
+        <span class="cap-icon">🔔</span>
+        <h3>Regulatory Change Tracking</h3>
+        <p>Automatic monitoring of RBI, SEBI, and DPDPA regulatory updates — with impact assessment identifying which controls in your library are affected and what changes are required. No more discovering a circular after your audit window.</p>
+        <span class="cap-tag">Intelligence</span>
+      </div>
+      <div class="cap-card">
+        <span class="cap-icon">⚠️</span>
+        <h3>Breach & Incident Response</h3>
+        <p>Built-in breach notification workflow designed around DPDPA's 72-hour window — automated stakeholder notifications, regulatory filing checklists, incident documentation, and post-incident review templates. Calm when it matters most.</p>
+        <span class="cap-tag">Response</span>
+      </div>
+      <div class="cap-card">
+        <span class="cap-icon">🤝</span>
+        <h3>Third-Party Risk Management</h3>
+        <p>Vendor and third-party risk assessment workflows aligned with RBI's outsourcing guidelines and ISO 27001 supplier relationship controls. Automated assessment questionnaires, risk scoring, and continuous monitoring of critical vendor compliance posture.</p>
+        <span class="cap-tag">Risk</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="section reveal">
+  <div class="wrap">
+    <span class="section-eyebrow">Who It's For</span>
+    <h2 class="section-title">Designed for Mid-Market<br>Indian Financial Services</h2>
+    <p class="section-sub">PolicyPulse is built for regulated entities that are serious about compliance but do not have the internal compliance team size of a top-5 bank. The organisations who need to do this well with the people they actually have.</p>
+
+    <div class="who-grid">
+      <div class="who-card">
+        <span class="who-icon">🏦</span>
+        <h4>NBFCs & Small Finance Banks</h4>
+        <p>Mid-tier lending institutions navigating RBI IT Risk, DPDPA, and ISO 27001 requirements with compliance teams of 2–8 people.</p>
+      </div>
+      <div class="who-card">
+        <span class="who-icon">📈</span>
+        <h4>Stock Brokers & Intermediaries</h4>
+        <p>SEBI-regulated brokers, depositories, and market intermediaries subject to CSCRF annual audit requirements.</p>
+      </div>
+      <div class="who-card">
+        <span class="who-icon">💳</span>
+        <h4>Payment Companies & FinTechs</h4>
+        <p>Payment aggregators, wallets, and FinTech platforms managing RBI prepaid instrument guidelines, PCI DSS, and DPDPA obligations across a fast-growing business.</p>
+      </div>
+      <div class="who-card">
+        <span class="who-icon">🛡️</span>
+        <h4>InsurTech & Health Finance</h4>
+        <p>Insurance and health finance companies navigating IRDAI cybersecurity guidelines alongside DPDPA's specific health data obligations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EARLY ACCESS FORM -->
+<section class="section bg-surface reveal" id="early-access">
+  <div class="wrap">
+    <span class="section-eyebrow">Early Access</span>
+    <h2 class="section-title">Be First. Shape It.</h2>
+    <p class="section-sub">Beta access is limited to a cohort of 25 financial institutions. Early access members get discounted pricing locked in permanently, direct input into the product roadmap, and hands-on onboarding from the team that built the regulatory frameworks PolicyPulse is based on.</p>
+
+    <div class="ea-wrap">
+      <div class="ea-header">
+        <h3>Register for Beta Access</h3>
+        <p>We review every application. You'll hear from us within 5 working days.</p>
+      </div>
+      <div class="ea-perks">
+        <div class="ea-perk"><div class="ea-perk-check">✓</div><div><h5>Founding Member Pricing</h5><p>Discounted rate locked in for life — never increases regardless of public pricing.</p></div></div>
+        <div class="ea-perk"><div class="ea-perk-check">✓</div><div><h5>Product Roadmap Input</h5><p>Direct line to the product team. Your compliance pain points become our next features.</p></div></div>
+        <div class="ea-perk"><div class="ea-perk-check">✓</div><div><h5>Free Control Library Audit</h5><p>We map your current controls against all four frameworks at no cost before you decide.</p></div></div>
+        <div class="ea-perk"><div class="ea-perk-check">✓</div><div><h5>White-Glove Onboarding</h5><p>Personalised onboarding from the compliance practitioners who built the platform.</p></div></div>
+      </div>
+      <div class="ea-form" id="eaFormWrap">
+        <div class="ea-form-row">
+          <div class="ea-field"><label>First Name</label><input type="text" id="firstName" placeholder="Priya"></div>
+          <div class="ea-field"><label>Last Name</label><input type="text" id="lastName" placeholder="Sharma"></div>
+        </div>
+        <div class="ea-form-row">
+          <div class="ea-field"><label>Work Email</label><input type="email" id="eaEmail" placeholder="priya@company.com"></div>
+          <div class="ea-field"><label>Company Name</label><input type="text" id="company" placeholder="NBFC / Bank / FinTech"></div>
+        </div>
+        <div class="ea-form-row">
+          <div class="ea-field"><label>Entity Type</label>
+            <select id="entityType">
+              <option value="" disabled selected>Select entity type</option>
+              <option>NBFC</option>
+              <option>Small Finance Bank</option>
+              <option>Scheduled Commercial Bank</option>
+              <option>Stock Broker / Intermediary</option>
+              <option>Payment Aggregator / Wallet</option>
+              <option>FinTech Platform</option>
+              <option>Insurance Company</option>
+              <option>Other Financial Institution</option>
+            </select>
+          </div>
+          <div class="ea-field"><label>Team Size (Compliance / Risk)</label>
+            <select id="teamSize">
+              <option value="" disabled selected>Select size</option>
+              <option>1–2 people</option>
+              <option>3–5 people</option>
+              <option>6–10 people</option>
+              <option>11–20 people</option>
+              <option>20+ people</option>
+            </select>
+          </div>
+        </div>
+        <div class="ea-form-row" style="grid-template-columns:1fr;">
+          <div class="ea-field"><label>Primary Compliance Challenge (optional)</label>
+            <input type="text" id="challenge" placeholder="e.g. Managing RBI and DPDPA simultaneously, audit evidence collection...">
+          </div>
+        </div>
+        <div class="ea-checkbox">
+          <input type="checkbox" id="consent">
+          <label for="consent">I agree to be contacted by the PolicyPulse team about early access. I understand my data will be processed in accordance with <a href="mailto:policypulse@metamorphex.tech">Metamorphex's privacy policy</a> and DPDPA 2023 requirements.</label>
+        </div>
+        <button class="ea-submit" id="eaSubmitBtn" onclick="handleEASubmit()">Apply for Beta Access →</button>
+      </div>
+      <div class="ea-success" id="eaSuccess">
+        <span class="big-check">✅</span>
+        <h4>Application Received</h4>
+        <p>Thank you for applying. We review every application personally and will be in touch within 5 working days. If you have an urgent compliance deadline, email us directly at <a href="mailto:policypulse@metamorphex.tech" style="color:var(--accent)">policypulse@metamorphex.tech</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand-row">
+      <span class="pw-policy" style="font-size:1.1rem;letter-spacing:0.03em;">Policy</span><span class="pw-pulse" style="font-size:1.1rem;letter-spacing:0.03em;">Pulse</span>
+      <div class="footer-logo-sep"></div>
+      <span class="product-by">A product by <a href="index.html">Metamorphex Technologies</a></span>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Metamorphex</a>
+      <a href="services/compliance-risk.html">Compliance Services</a>
+      <a href="mailto:policypulse@metamorphex.tech">Contact</a>
+    </div>
+    <p class="footer-copy">© 2026 Metamorphex Technologies. PolicyPulse is a product in development. Features subject to change.</p>
+  </div>
+</footer>
+
+<script>
+/* Logo X */
+function buildLogoX(t,x){const el=document.getElementById(t),xel=document.getElementById(x);if(!el||!xel)return;const fs=parseFloat(getComputedStyle(el).fontSize),ls=parseFloat(getComputedStyle(el).letterSpacing)||0,capH=Math.round(fs*0.73),xW=Math.round(fs*0.64),thin=Math.max(1.2,fs*0.042),thick=Math.max(3.5,fs*0.134);xel.style.cssText=`display:inline-block;position:relative;width:${xW+ls}px;height:${capH}px;vertical-align:baseline;`;xel.innerHTML=`<svg viewBox="0 0 ${xW} ${capH}" width="${xW}" height="${capH}" style="display:block;overflow:visible;position:absolute;bottom:0;left:0;"><line x1="1" y1="1" x2="${xW-1}" y2="${capH-1}" stroke="rgba(220,232,245,0.75)" stroke-width="${thin}" stroke-linecap="round"/><line x1="1" y1="${capH-1}" x2="${xW-1}" y2="1" stroke="#3EC9E8" stroke-width="${thick}" stroke-linecap="round"/></svg>`;}
+(document.fonts?document.fonts.ready:Promise.resolve()).then(()=>buildLogoX('nav-wt','nav-wx'));
+
+/* Hero email CTA */
+function handleHeroSubmit(){
+  const email=document.getElementById('heroEmail').value.trim();
+  if(!email||!email.includes('@')){document.getElementById('heroEmail').style.borderColor='rgba(255,100,100,0.5)';return;}
+  document.getElementById('heroForm').style.display='none';
+  document.getElementById('heroSuccess').style.display='block';
+  console.log('Hero beta signup:',email);
+}
+document.getElementById('heroEmail').addEventListener('keydown',e=>{if(e.key==='Enter')handleHeroSubmit();});
+
+/* Full EA form */
+function handleEASubmit(){
+  const email=document.getElementById('eaEmail').value.trim();
+  const first=document.getElementById('firstName').value.trim();
+  const consent=document.getElementById('consent').checked;
+  if(!first){document.getElementById('firstName').focus();return;}
+  if(!email||!email.includes('@')){document.getElementById('eaEmail').focus();return;}
+  if(!consent){alert('Please confirm consent to be contacted.');return;}
+  const btn=document.getElementById('eaSubmitBtn');
+  btn.disabled=true;btn.textContent='Submitting...';
+  setTimeout(()=>{
+    document.getElementById('eaFormWrap').style.display='none';
+    document.getElementById('eaSuccess').style.display='block';
+    console.log('EA application:',{first,email,company:document.getElementById('company').value,entity:document.getElementById('entityType').value});
+  },800);
+}
+
+/* Scroll reveal */
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('active');obs.unobserve(e.target);}});},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

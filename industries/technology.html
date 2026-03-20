@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Healthcare IT Consulting | Metamorphex</title>
-<meta name="description" content="Technology consulting for hospitals, health systems, and health-tech companies — clinical data platforms, interoperability, AI diagnostics governance, cybersecurity, and HIPAA/DPDPA compliance.">
+<title>Technology Companies IT Consulting | Metamorphex</title>
+<meta name="description" content="Technology consulting for SaaS, FinTech, and product companies — cloud architecture, AI strategy, DevSecOps, data platforms, and the governance foundations that let engineering teams move fast without accumulating unmanageable risk.">
 <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--accent:#3EC9E8;--accent-dim:rgba(62,201,232,0.18);--accent-glow:rgba(62,201,232,0.35);--bg:#07080D;--bg-surface:#0D0F17;--border:rgba(255,255,255,0.07);--border-lit:rgba(62,201,232,0.25);--text:#FFFFFF;--text-dim:rgba(255,255,255,0.55);--text-dimmer:rgba(255,255,255,0.30);--font:'Exo 2',-apple-system,sans-serif;--radius:12px;--max:1400px;}
@@ -75,22 +75,24 @@ body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(
 .help-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);transform:scaleX(0);transform-origin:left;transition:transform 0.4s;}
 .help-card:hover{background:rgba(62,201,232,0.04);}.help-card:hover::after{transform:scaleX(1);}
 .help-card-icon{font-size:1.6rem;margin-bottom:1rem;display:block;}
-.help-card h3{font-size:0.92rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;}
+.help-card h3{font-size:0.92rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;letter-spacing:0.03em;}
 .help-card .problem{font-size:0.76rem;color:var(--accent);font-weight:500;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:0.7rem;}
 .help-card p{font-size:0.82rem;color:var(--text-dim);font-weight:300;line-height:1.65;margin-bottom:1rem;}
 .help-link{font-size:0.75rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--accent);text-decoration:none;transition:letter-spacing 0.3s;display:inline-block;}
 .help-link:hover{letter-spacing:0.12em;}
 
-/* clinical data flow — unique section */
-.dataflow-grid{display:grid;grid-template-columns:1fr 1.7fr;gap:4rem;align-items:start;margin-top:3.5rem;}
-.dataflow-intro p{font-size:1rem;color:var(--text-dim);font-weight:300;line-height:1.8;margin-bottom:1.2rem;}.dataflow-intro strong{color:var(--text);font-weight:500;}
-.dataflow-layers{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
-.df-layer{background:var(--bg-surface);padding:1.5rem 2rem;display:grid;grid-template-columns:auto 1fr;align-items:start;gap:1.4rem;transition:background 0.25s;}.df-layer:hover{background:rgba(62,201,232,0.04);}
-.df-badge{font-family:'Exo 2',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);background:var(--accent-dim);border:1px solid rgba(62,201,232,0.25);border-radius:3px;padding:0.28rem 0.65rem;white-space:nowrap;margin-top:3px;}
-.df-body h4{font-size:0.87rem;font-weight:600;color:var(--text);margin-bottom:0.25rem;}
-.df-body p{font-size:0.77rem;color:var(--text-dim);font-weight:300;line-height:1.5;margin-bottom:0.55rem;}
-.df-pills{display:flex;flex-wrap:wrap;gap:0.35rem;}
-.df-pill{font-size:0.62rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;padding:0.2rem 0.5rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:2px;color:var(--text-dimmer);}
+/* Growth stage matrix — unique to tech page */
+.stage-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:3.5rem;}
+.stage-card{background:var(--bg-surface);padding:2.2rem 1.8rem;transition:background 0.3s;position:relative;overflow:hidden;}
+.stage-card:hover{background:rgba(62,201,232,0.04);}
+.stage-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 0.4s;}
+.stage-card:hover::after{transform:scaleX(1);}
+.stage-label{font-family:'Exo 2',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:0.6rem;}
+.stage-name{font-size:1rem;font-weight:600;color:var(--text);margin-bottom:0.8rem;}
+.stage-desc{font-size:0.78rem;color:var(--text-dim);font-weight:300;line-height:1.6;margin-bottom:1rem;}
+.stage-needs{display:flex;flex-direction:column;gap:0.3rem;}
+.stage-need{font-size:0.72rem;color:var(--text-dim);font-weight:300;display:flex;align-items:flex-start;gap:0.5rem;}
+.stage-need::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--accent);opacity:0.5;flex-shrink:0;margin-top:0.45rem;}
 
 .standards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:3.5rem;}
 .std-card{background:var(--bg-surface);padding:2rem 1.8rem;transition:background 0.3s;}.std-card:hover{background:rgba(62,201,232,0.04);}
@@ -131,17 +133,16 @@ body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(
 .footer-bottom{max-width:var(--max);margin:0 auto;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;color:var(--text-dimmer);font-size:0.8rem;letter-spacing:0.04em;}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity 0.6s ease-out,transform 0.6s ease-out;}.reveal.active{opacity:1;transform:translateY(0);}
 @media(max-width:1024px){
-  .hero-grid,.context-grid,.dataflow-grid{grid-template-columns:1fr;gap:3rem;}
+  .hero-grid,.context-grid{grid-template-columns:1fr;gap:3rem;}
   .help-grid{grid-template-columns:1fr 1fr;}.standards-grid{grid-template-columns:1fr 1fr;}
-  .proof-grid{grid-template-columns:1fr 1fr;}.related-grid{grid-template-columns:1fr 1fr;}
-  .footer-container{grid-template-columns:1fr 1fr;}
+  .stage-grid{grid-template-columns:1fr 1fr;}.proof-grid{grid-template-columns:1fr 1fr;}
+  .related-grid{grid-template-columns:1fr 1fr;}.footer-container{grid-template-columns:1fr 1fr;}
 }
 @media(max-width:640px){
   .section{padding:4rem 1.5rem;}.breadcrumb{padding:96px 1.5rem 0;}.hero{padding:32px 1.5rem 60px;}
   .hero h1{font-size:2.4rem;}.nav-menu{display:none;}
-  .help-grid,.related-grid,.standards-grid{grid-template-columns:1fr;}
+  .help-grid,.related-grid,.standards-grid,.stage-grid{grid-template-columns:1fr;}
   .proof-grid{grid-template-columns:1fr 1fr;}.panel-stats{grid-template-columns:1fr 1fr;}
-  .df-layer{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -179,11 +180,11 @@ body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(
         <a class="nav-link">Industries <span class="arrow">▼</span></a>
         <div class="mega-menu">
           <a href="financial-services.html" class="dropdown-item">Financial Services</a>
-          <a href="healthcare.html" class="dropdown-item active">Healthcare</a>
+          <a href="healthcare.html" class="dropdown-item">Healthcare</a>
           <a href="retail.html" class="dropdown-item">Retail & E-commerce</a>
           <a href="manufacturing.html" class="dropdown-item">Manufacturing</a>
           <a href="public-sector.html" class="dropdown-item">Public Sector</a>
-          <a href="technology.html" class="dropdown-item">Technology</a>
+          <a href="technology.html" class="dropdown-item active">Technology</a>
           <a href="energy.html" class="dropdown-item">Energy & Utilities</a>
           <a href="telecom.html" class="dropdown-item">Telecommunications</a>
         </div>
@@ -206,7 +207,7 @@ body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(
   <div class="breadcrumb-inner">
     <a href="../../index.html">Home</a><span class="sep">/</span>
     <span>Industries</span><span class="sep">/</span>
-    <span class="current">Healthcare & Life Sciences</span>
+    <span class="current">Technology</span>
   </div>
 </div>
 
@@ -214,28 +215,28 @@ body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(
 <section class="hero">
   <div class="hero-grid">
     <div>
-      <div class="hero-eyebrow"><span class="dot"></span>Industry — Healthcare & Life Sciences</div>
-      <h1>Technology That<br>Serves Patients<br><em>First.</em></h1>
-      <p class="hero-lead">Healthcare technology operates under a constraint no other sector faces: a system outage or data breach is not just a business problem — it is a patient safety event. We design and implement technology for health systems, hospitals, and health-tech companies with that constraint at the centre of every architectural decision.</p>
+      <div class="hero-eyebrow"><span class="dot"></span>Industry — Technology</div>
+      <h1>Ship Faster.<br>Scale Cleaner.<br>Govern <em>Smarter.</em></h1>
+      <p class="hero-lead">Technology companies face a particular tension: the speed that makes them competitive creates the architectural debt, security gaps, and governance deficits that eventually slow them down. We help product and engineering teams build the infrastructure, platforms, and operational discipline that let them keep moving fast — at scale, and under enterprise customer scrutiny.</p>
       <div class="hero-actions">
-        <a href="../../index.html#contact" class="btn btn-primary">Talk to Our Healthcare Team →</a>
+        <a href="../../index.html#contact" class="btn btn-primary">Talk to Our Tech Industry Team →</a>
         <a href="#how-we-help" class="btn btn-ghost">See What We Do</a>
       </div>
     </div>
     <div class="hero-panel reveal">
       <div class="hero-panel-header">
-        <div class="industry-icon-lg">🏥</div>
-        <div><h3>Industry Focus</h3><p>Healthcare & Life Sciences</p></div>
+        <div class="industry-icon-lg">💻</div>
+        <div><h3>Industry Focus</h3><p>Technology Companies</p></div>
       </div>
       <div class="panel-stats">
-        <div class="panel-stat"><span class="panel-stat-num">$10.9M</span><span class="panel-stat-label">Average cost of a healthcare data breach — the highest of any industry for 13 consecutive years</span></div>
-        <div class="panel-stat"><span class="panel-stat-num">FHIR R4</span><span class="panel-stat-label">Interoperability standard expertise — the API layer that connects EHRs, payers, and health-tech platforms</span></div>
-        <div class="panel-stat"><span class="panel-stat-num">72 hrs</span><span class="panel-stat-label">DPDPA breach notification requirement — healthcare entities face the tightest regulatory window</span></div>
-        <div class="panel-stat"><span class="panel-stat-num">AI-governed</span><span class="panel-stat-label">Clinical AI governance frameworks designed to meet emerging EU AI Act and FDA SaMD requirements</span></div>
+        <div class="panel-stat"><span class="panel-stat-num">SOC 2</span><span class="panel-stat-label">The enterprise sales unlock — we build the security and compliance programme that gets you through customer security review</span></div>
+        <div class="panel-stat"><span class="panel-stat-num">40%</span><span class="panel-stat-label">Average cloud cost reduction after FinOps engagement — the spend optimisation most scaling SaaS companies need</span></div>
+        <div class="panel-stat"><span class="panel-stat-num">DevSecOps</span><span class="panel-stat-label">Security embedded in CI/CD from the start — not bolted on when the enterprise prospect asks for a pentest</span></div>
+        <div class="panel-stat"><span class="panel-stat-num">Fractional CTO</span><span class="panel-stat-label">Senior technical leadership advisory for scaling companies that need executive-calibre guidance without the full-time hire</span></div>
       </div>
       <div class="panel-tags">
-        <span class="fw-tag">HIPAA</span><span class="fw-tag">DPDPA</span><span class="fw-tag">HL7 FHIR</span>
-        <span class="fw-tag">EHR Integration</span><span class="fw-tag">Clinical AI</span><span class="fw-tag">ISO 27001</span><span class="fw-tag">SaMD</span>
+        <span class="fw-tag">SOC 2 Type II</span><span class="fw-tag">ISO 27001</span><span class="fw-tag">Cloud Architecture</span>
+        <span class="fw-tag">DevSecOps</span><span class="fw-tag">FinOps</span><span class="fw-tag">AI Strategy</span><span class="fw-tag">Product Analytics</span>
       </div>
     </div>
   </div>
@@ -245,40 +246,40 @@ body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(
 <section class="section bg-surface reveal">
   <div class="wrap">
     <span class="section-eyebrow">01 — Industry Context</span>
-    <h2 class="section-title">The Constraints That Make<br>Healthcare IT Different</h2>
+    <h2 class="section-title">The Tension Every<br>Tech Company Knows</h2>
     <div class="context-grid">
       <div class="context-body">
-        <p>Healthcare is the most demanding technology environment most IT consultants never properly understand. The availability requirements are stricter than financial services — clinical systems that go down during an emergency can directly harm patients. The data sensitivity is higher than government — a health record contains information people would rather lose their bank account than expose. And the regulatory environment is among the most complex in any sector, spanning clinical, privacy, cybersecurity, and medical device frameworks simultaneously.</p>
-        <p>The attack surface is also uniquely vulnerable. Healthcare organisations operate enormous, heterogeneous device estates — from modern workstations to decades-old medical devices running Windows XP that cannot be patched without clinical validation — alongside consumer-facing patient portals and mobile applications. <strong>Healthcare is the most consistently targeted sector for ransomware</strong>, precisely because operational disruption creates immediate patient safety pressure that makes payment more likely.</p>
-        <p>The digital health opportunity is correspondingly significant. <strong>Clinical AI</strong> — from diagnostic imaging analysis to sepsis prediction, medication reconciliation, and clinical decision support — is transitioning from research to production at scale. <strong>Interoperability</strong>, driven by FHIR R4 mandates from regulators, is finally making the patient data portability that clinicians and patients have needed for decades technically feasible. <strong>Remote patient monitoring</strong> is generating continuous clinical data streams that health systems do not yet have the analytics infrastructure to use.</p>
-        <p>We work with <strong>hospital groups and health systems, primary care networks, diagnostic chains, health insurance companies, digital health startups, and pharmaceutical and life sciences organisations</strong> — building the technology foundations that let them deliver better care more safely, while satisfying the regulators that hold them accountable for doing so.</p>
+        <p>The technology companies that win are those that ship fastest — but the ones that survive at scale are those that built their foundations well enough to sustain velocity. These are not opposing forces, but most engineering teams treat them as if they are: moving fast and building clean are seen as a trade-off, when in practice the technical debt accumulated from moving carelessly is what eventually makes it impossible to move at all.</p>
+        <p>The inflection points are predictable. At Series A, cloud costs start becoming visible. At Series B, enterprise customers start running security questionnaires and asking about SOC 2. At Series C, the engineering organisation has grown to the point where architecture decisions made at 10 engineers are creating coordination problems at 100. Post-IPO, governance and control expectations intensify dramatically. <strong>Each of these stages demands a different type of technical investment</strong> — and most companies arrive at each unprepared.</p>
+        <p>The AI layer adds a new dimension. Every technology company is now evaluating AI integration across product, operations, and internal tooling. The decisions being made in the next 12–18 months — which models, which architectures, which data strategies, which governance structures — will determine competitive positioning for years. <strong>Most engineering teams are making these decisions without a framework for evaluating them</strong>, and without the AI governance structures that enterprise customers and regulators will soon require.</p>
+        <p>We work with <strong>SaaS platforms, FinTech companies, B2B software vendors, marketplace businesses, developer tools companies, and AI-native startups</strong> — across all growth stages, from pre-Series A architecture reviews to post-IPO governance remediation.</p>
       </div>
       <div class="challenges-card">
         <div class="challenges-header">The challenges we hear most</div>
         <ul class="challenge-list">
           <li class="challenge-item">
-            <span class="challenge-icon">🔗</span>
-            <div><h4>Fragmented Clinical Data Across Systems</h4><p>Patient records split across EHRs, PACS, laboratory systems, pharmacy systems, and patient portals that do not communicate — preventing the unified clinical view that safe, efficient care requires.</p></div>
+            <span class="challenge-icon">🏗️</span>
+            <div><h4>Architecture Debt Slowing Engineering</h4><p>Early architectural decisions — monolithic codebase, no service boundaries, tightly coupled data — that were fine at launch but are now creating deployment friction, reliability incidents, and onboarding problems at scale.</p></div>
           </li>
           <li class="challenge-item">
             <span class="challenge-icon">🔐</span>
-            <div><h4>Ransomware and Clinical Continuity</h4><p>The specific ransomware threat profile of healthcare — where an attack does not just encrypt data but forces clinical staff to revert to paper processes, creates medication errors, and may divert emergency patients to other facilities.</p></div>
+            <div><h4>Security Review Blocking Enterprise Sales</h4><p>Prospects asking for SOC 2 reports, penetration test results, and security questionnaire responses that the company cannot yet provide — stalling deals in the sales cycle and requiring expensive, rushed remediation.</p></div>
+          </li>
+          <li class="challenge-item">
+            <span class="challenge-icon">💸</span>
+            <div><h4>Cloud Spend Growing Faster Than Revenue</h4><p>Cloud costs scaling faster than the business — often because early infrastructure choices prioritised speed over cost efficiency, and nobody owns the FinOps function that would identify and address the waste.</p></div>
+          </li>
+          <li class="challenge-item">
+            <span class="challenge-icon">📊</span>
+            <div><h4>Data Architecture That Can't Support the Product</h4><p>A data layer built for the original product that can't support the analytics, personalisation, and ML capabilities the product roadmap now requires — without a rebuild that engineering says will take a year.</p></div>
           </li>
           <li class="challenge-item">
             <span class="challenge-icon">🤖</span>
-            <div><h4>AI Adoption Without Governance</h4><p>Clinical AI tools being deployed — diagnostic support, risk scoring, workflow automation — without the governance frameworks, bias assessment, clinical validation processes, or regulatory compliance that responsible clinical AI deployment requires.</p></div>
+            <div><h4>AI Strategy Without a Framework</h4><p>Pressure from board and leadership to "do more with AI" without a structured framework for evaluating opportunities, selecting approaches, managing model risk, or building the governance structures that enterprise customers are starting to require.</p></div>
           </li>
           <li class="challenge-item">
-            <span class="challenge-icon">📱</span>
-            <div><h4>Legacy Medical Device Security</h4><p>An estate of networked medical devices — infusion pumps, imaging equipment, monitoring systems — running operating systems that cannot be updated, communicating over protocols with no authentication, and impossible to isolate without clinical disruption.</p></div>
-          </li>
-          <li class="challenge-item">
-            <span class="challenge-icon">⚖️</span>
-            <div><h4>HIPAA and DPDPA Compliance Complexity</h4><p>Privacy obligations that span clinical operations, digital health products, research programmes, and third-party vendor relationships — each with different consent, access control, and breach notification requirements that internal teams struggle to manage consistently.</p></div>
-          </li>
-          <li class="challenge-item">
-            <span class="challenge-icon">☁️</span>
-            <div><h4>Cloud Adoption Under Clinical Constraints</h4><p>Wanting the scalability and economics of cloud for imaging archives, analytics, and patient-facing applications — while navigating data residency requirements, clinical validation obligations for cloud-hosted software, and the availability SLAs that clinical systems require.</p></div>
+            <span class="challenge-icon">📐</span>
+            <div><h4>Engineering Organisation Outgrowing Its Processes</h4><p>Engineering practices, tooling, and governance that worked at 15 engineers creating coordination failures, deployment problems, and reliability incidents as the team scales to 50, 100, or 200.</p></div>
           </li>
         </ul>
       </div>
@@ -291,170 +292,170 @@ body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(
   <div class="wrap">
     <span class="section-eyebrow">02 — How We Help</span>
     <h2 class="section-title">Services Mapped to<br>Your Actual Problems</h2>
-    <p class="section-sub">Six capabilities matched directly to the specific challenges that health systems, hospitals, and health-tech companies face — with the clinical context awareness that determines whether technology implementations actually succeed.</p>
+    <p class="section-sub">Six capabilities matched directly to the challenges technology companies face at each stage of growth — with the engineering credibility to be taken seriously in a room full of technical people.</p>
     <div class="help-grid">
       <div class="help-card">
-        <span class="help-card-icon">🔗</span>
-        <div class="problem">Fragmented Clinical Data</div>
-        <h3>Health Data Platform & Interoperability</h3>
-        <p>FHIR R4-based interoperability architecture — connecting EHRs, laboratory systems, imaging platforms, and patient-facing applications into a unified clinical data platform. Enabling the longitudinal patient record and population health analytics that fragmented systems prevent.</p>
-        <a href="../analytics.html" class="help-link">Data Analytics →</a>
+        <span class="help-card-icon">🏗️</span>
+        <div class="problem">Architecture Debt</div>
+        <h3>Cloud Architecture & Modernisation</h3>
+        <p>Architecture review and modernisation roadmap — identifying the specific structural decisions that are creating friction, and sequencing the modernisation work (service decomposition, data architecture, deployment pipeline) that restores engineering velocity without a big-bang rebuild.</p>
+        <a href="../cloud-consulting.html" class="help-link">Cloud Consulting →</a>
       </div>
       <div class="help-card">
         <span class="help-card-icon">🔐</span>
-        <div class="problem">Ransomware and Clinical Continuity</div>
-        <h3>Healthcare Cybersecurity</h3>
-        <p>Security architecture designed for the specific constraints of clinical environments — network segmentation that isolates medical devices without disrupting clinical workflows, ransomware-resilient backup architecture, and incident response playbooks that maintain clinical continuity during an active attack.</p>
+        <div class="problem">Security Blocking Enterprise Sales</div>
+        <h3>SOC 2 & Security Programme</h3>
+        <p>End-to-end SOC 2 Type II readiness — security control implementation, policy documentation, evidence collection, and audit preparation. The complete programme that turns a stalled enterprise deal into a signed contract. Typically 4–6 months from engagement start to audit completion.</p>
         <a href="../cybersecurity.html" class="help-link">Cybersecurity Consulting →</a>
       </div>
       <div class="help-card">
+        <span class="help-card-icon">💸</span>
+        <div class="problem">Cloud Spend Scaling Too Fast</div>
+        <h3>FinOps & Cloud Optimisation</h3>
+        <p>Cloud cost visibility, tagging, right-sizing, and FinOps operating model design — typically identifying 30–40% cost reduction opportunity within the first two weeks. Engineering and finance aligned around a shared, real-time view of cloud spend.</p>
+        <a href="../cloud-consulting.html" class="help-link">Cloud Consulting →</a>
+      </div>
+      <div class="help-card">
+        <span class="help-card-icon">📊</span>
+        <div class="problem">Data Architecture Limitations</div>
+        <h3>Product & Growth Analytics</h3>
+        <p>Modern data stack design — event tracking, warehouse architecture, dbt transformation layer, and the BI and ML layer that supports product analytics, user segmentation, growth experimentation, and the personalisation features on the roadmap.</p>
+        <a href="../analytics.html" class="help-link">Data Analytics →</a>
+      </div>
+      <div class="help-card">
         <span class="help-card-icon">🤖</span>
-        <div class="problem">AI Adoption Without Governance</div>
-        <h3>Clinical AI Governance</h3>
-        <p>Governance frameworks for clinical AI deployment — covering model validation methodology, clinical performance monitoring, bias assessment across patient populations, explainability requirements for clinical staff, and the regulatory compliance pathway for Software as a Medical Device (SaMD) classification.</p>
+        <div class="problem">AI Strategy Without a Framework</div>
+        <h3>AI Strategy & Governance</h3>
+        <p>Structured AI strategy — opportunity identification, build vs buy vs fine-tune decision framework, MLOps architecture, and the AI governance and risk management structures that enterprise customers and regulators are beginning to require. Strategy that can survive a board Q&A.</p>
         <a href="../ai-ml.html" class="help-link">AI & ML Advisory →</a>
       </div>
       <div class="help-card">
-        <span class="help-card-icon">📱</span>
-        <div class="problem">Legacy Medical Device Security</div>
-        <h3>Medical Device Network Security</h3>
-        <p>Network architecture that isolates legacy medical devices — VLAN segmentation, firewall policy design, and network monitoring configured for the specific protocols (HL7, DICOM, MQTT) that medical devices use — without requiring device replacement or clinical workflow disruption.</p>
-        <a href="../it-infrastructure.html" class="help-link">IT Infrastructure →</a>
-      </div>
-      <div class="help-card">
-        <span class="help-card-icon">⚖️</span>
-        <div class="problem">HIPAA and DPDPA Compliance</div>
-        <h3>Privacy & Compliance Programme</h3>
-        <p>Healthcare privacy compliance programme design — HIPAA Security Rule and Privacy Rule controls, DPDPA obligations for health data processors, consent management architecture, and the business associate agreement governance that manages third-party risk across the care ecosystem.</p>
-        <a href="../compliance-risk.html" class="help-link">Compliance & Risk →</a>
-      </div>
-      <div class="help-card">
-        <span class="help-card-icon">☁️</span>
-        <div class="problem">Cloud Under Clinical Constraints</div>
-        <h3>Healthcare Cloud Architecture</h3>
-        <p>HIPAA-compliant cloud architecture on AWS, Azure, and GCP — BAA-covered service selection, de-identification pipeline design for analytics workloads, clinical application availability architecture, and data residency controls for cross-border health data flows.</p>
-        <a href="../cloud-consulting.html" class="help-link">Cloud Consulting →</a>
+        <span class="help-card-icon">🧭</span>
+        <div class="problem">Engineering Organisation Scaling</div>
+        <h3>Fractional CTO & Technical Advisory</h3>
+        <p>Senior technical leadership available on a fractional basis — architecture governance, engineering organisation design, technology roadmap, vendor selection, and the board-level technical narrative that investors and enterprise customers need to hear from someone with credibility.</p>
+        <a href="../strategic-advisory.html" class="help-link">Strategic Advisory →</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CLINICAL DATA FLOW — unique section -->
+<!-- GROWTH STAGE MATRIX — unique section -->
 <section class="section bg-surface reveal">
   <div class="wrap">
-    <span class="section-eyebrow">03 — Clinical Data Architecture</span>
-    <h2 class="section-title">How Clinical Data Should<br>Flow — and Where It Breaks</h2>
-    <div class="dataflow-grid">
-      <div class="dataflow-intro">
-        <p>Most health systems have a data problem they describe as an integration problem. <strong>It is actually an architecture problem.</strong> Individual point-to-point integrations between clinical systems accumulate over years into an unmaintainable mesh — expensive to change, impossible to monitor, and opaque to the analytics layer that clinical decision-making requires.</p>
-        <p>The FHIR R4 standard provides the data model and API specification for a different architecture — one where clinical data flows through a governed, observable platform rather than through hundreds of custom interfaces. We design and implement that platform layer.</p>
+    <span class="section-eyebrow">03 — Where You Are in the Journey</span>
+    <h2 class="section-title">Different Stage.<br>Different Problem.</h2>
+    <p class="section-sub">The challenges a technology company faces at Series A are different from those at Series C. The right investment depends entirely on your current stage — not a generic technology roadmap.</p>
+
+    <div class="stage-grid">
+      <div class="stage-card">
+        <div class="stage-label">Stage 01</div>
+        <div class="stage-name">Pre-Series A / Early</div>
+        <div class="stage-desc">Building the product, finding product-market fit. Architecture decisions are being made under time pressure. The foundation being laid now will either enable or constrain everything that follows.</div>
+        <div class="stage-needs">
+          <div class="stage-need">Cloud landing zone and security baseline — before the first enterprise prospect asks</div>
+          <div class="stage-need">Architecture review and tech debt inventory</div>
+          <div class="stage-need">Data foundation design — event tracking and warehouse</div>
+          <div class="stage-need">DevSecOps pipeline from day one</div>
+        </div>
       </div>
-      <div class="dataflow-layers">
-        <div class="df-layer">
-          <div class="df-badge">Layer 5</div>
-          <div class="df-body">
-            <h4>Analytics & AI</h4>
-            <p>Population health dashboards, clinical decision support, predictive risk models, and research analytics — consuming de-identified or consent-governed clinical data from the FHIR platform layer.</p>
-            <div class="df-pills"><span class="df-pill">Power BI / Tableau</span><span class="df-pill">Clinical AI Models</span><span class="df-pill">Population Health</span></div>
-          </div>
+      <div class="stage-card">
+        <div class="stage-label">Stage 02</div>
+        <div class="stage-name">Series A / Scaling</div>
+        <div class="stage-desc">Product-market fit found. Growing fast. First enterprise customers appearing on the horizon. Cloud costs becoming visible. Engineering team growing faster than processes.</div>
+        <div class="stage-needs">
+          <div class="stage-need">SOC 2 Type II programme — the enterprise sales unlock</div>
+          <div class="stage-need">FinOps — cloud cost visibility and governance</div>
+          <div class="stage-need">Engineering process and toolchain professionalisation</div>
+          <div class="stage-need">Product analytics stack for growth decisions</div>
         </div>
-        <div class="df-layer">
-          <div class="df-badge">Layer 4</div>
-          <div class="df-body">
-            <h4>Patient-Facing Applications</h4>
-            <p>Patient portal, mobile health applications, remote monitoring platforms, and third-party app integrations — accessing patient data via SMART on FHIR authorisation, with patient consent governing data scope.</p>
-            <div class="df-pills"><span class="df-pill">Patient Portal</span><span class="df-pill">SMART on FHIR</span><span class="df-pill">RPM Platforms</span></div>
-          </div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-label">Stage 03</div>
+        <div class="stage-name">Series B–C / Growth</div>
+        <div class="stage-desc">Enterprise customers dominant. Architecture decisions from Series A are now constraints. AI integration on the product roadmap. Engineering organisation at 50–150 people.</div>
+        <div class="stage-needs">
+          <div class="stage-need">Architecture modernisation — decomposition and platform engineering</div>
+          <div class="stage-need">AI strategy and MLOps platform design</div>
+          <div class="stage-need">ISO 27001 alongside SOC 2 for international expansion</div>
+          <div class="stage-need">Multi-cloud strategy and cost optimisation</div>
         </div>
-        <div class="df-layer">
-          <div class="df-badge">Layer 3</div>
-          <div class="df-body">
-            <h4>FHIR R4 Platform</h4>
-            <p>The central interoperability layer — a FHIR server that normalises clinical data from source systems into a queryable, API-accessible repository. Replaces point-to-point HL7 v2 integration spaghetti with governed, observable data flows.</p>
-            <div class="df-pills"><span class="df-pill">FHIR R4 Server</span><span class="df-pill">CDS Hooks</span><span class="df-pill">Terminology Services</span></div>
-          </div>
-        </div>
-        <div class="df-layer">
-          <div class="df-badge">Layer 2</div>
-          <div class="df-body">
-            <h4>Integration Engine</h4>
-            <p>HL7 v2 and DICOM message processing, transformation, and routing — converting legacy clinical message formats into FHIR resources, with monitoring, alerting, and audit logging across all clinical data flows.</p>
-            <div class="df-pills"><span class="df-pill">Mirth Connect</span><span class="df-pill">Azure Health Data</span><span class="df-pill">AWS HealthLake</span></div>
-          </div>
-        </div>
-        <div class="df-layer">
-          <div class="df-badge">Layer 1</div>
-          <div class="df-body">
-            <h4>Clinical Source Systems</h4>
-            <p>EHR, PACS, LIS, pharmacy, and other clinical systems of record — each generating HL7 v2 messages, DICOM objects, and proprietary data that the integration layer ingests and normalises.</p>
-            <div class="df-pills"><span class="df-pill">EHR (Epic / Cerner)</span><span class="df-pill">PACS / RIS</span><span class="df-pill">LIS / Pharmacy</span></div>
-          </div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-label">Stage 04</div>
+        <div class="stage-name">Late Stage / Post-IPO</div>
+        <div class="stage-desc">Public company or pre-IPO. Governance, control, and audit expectations intensifying. Board technology committee asking harder questions. Regulators paying attention.</div>
+        <div class="stage-needs">
+          <div class="stage-need">Technology governance and board reporting framework</div>
+          <div class="stage-need">AI governance and model risk management programme</div>
+          <div class="stage-need">Security programme maturity uplift for public company scrutiny</div>
+          <div class="stage-need">Fractional CTO or technology board advisory</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- REGULATORY STANDARDS -->
+<!-- CERTIFICATIONS & STANDARDS -->
 <section class="section reveal">
   <div class="wrap">
-    <span class="section-eyebrow">04 — Regulatory & Standards Landscape</span>
-    <h2 class="section-title">The Frameworks We<br>Work Within</h2>
-    <p class="section-sub">Healthcare sits at the intersection of privacy, cybersecurity, clinical safety, and medical device regulation — each framework with distinct requirements that must be designed for together, not separately.</p>
+    <span class="section-eyebrow">04 — Certifications & Compliance</span>
+    <h2 class="section-title">What Enterprise Customers<br>Will Ask You For</h2>
+    <p class="section-sub">Enterprise procurement and security teams have a standard set of compliance requirements. We help you build and maintain the programmes that satisfy them — so compliance becomes a sales accelerator, not a deal blocker.</p>
 
     <div class="standards-grid">
       <div class="std-card">
-        <div class="std-badge">HIPAA</div>
-        <h4>Health Insurance Portability & Accountability Act</h4>
-        <div class="issuer">US Department of Health & Human Services</div>
-        <p>The primary US healthcare privacy and security law — covering the Security Rule (administrative, physical, and technical safeguards for ePHI), Privacy Rule (use and disclosure limitations), and Breach Notification Rule (60-day notification requirement). Applies to covered entities and their business associates.</p>
+        <div class="std-badge">SOC 2</div>
+        <h4>SOC 2 Type I & Type II</h4>
+        <div class="issuer">AICPA Trust Services Criteria</div>
+        <p>The primary enterprise sales requirement for US-market SaaS companies — covering Security, Availability, Confidentiality, Processing Integrity, and Privacy trust service criteria. Type II (covering a 6–12 month audit period) is what serious enterprise procurement teams require.</p>
         <div class="scope">
-          <span class="std-scope-tag">US Health Systems</span><span class="std-scope-tag">HealthTech</span><span class="std-scope-tag">Payers</span>
-        </div>
-      </div>
-      <div class="std-card">
-        <div class="std-badge">DPDPA</div>
-        <h4>Digital Personal Data Protection Act 2023</h4>
-        <div class="issuer">Ministry of Electronics and IT — India</div>
-        <p>Health data is sensitive personal data under DPDPA — subject to explicit consent requirements, data minimisation obligations, and 72-hour breach notification. Indian hospitals, diagnostic chains, health insurers, and health-tech platforms all have significant obligations under this framework.</p>
-        <div class="scope">
-          <span class="std-scope-tag">Indian Healthcare</span><span class="std-scope-tag">Health Insurers</span><span class="std-scope-tag">DiagTech</span>
-        </div>
-      </div>
-      <div class="std-card">
-        <div class="std-badge">HL7 FHIR</div>
-        <h4>Fast Healthcare Interoperability Resources R4</h4>
-        <div class="issuer">Health Level Seven International</div>
-        <p>The modern standard for clinical data interoperability — mandated by the US 21st Century Cures Act information blocking provisions and adopted by NHS England, Australian Digital Health Agency, and increasingly by Indian health digital frameworks. FHIR R4 is the foundation of modern health data architecture.</p>
-        <div class="scope">
-          <span class="std-scope-tag">Interoperability</span><span class="std-scope-tag">EHR Integration</span><span class="std-scope-tag">Patient Access</span>
-        </div>
-      </div>
-      <div class="std-card">
-        <div class="std-badge">EU AI Act</div>
-        <h4>High-Risk AI — Annex III</h4>
-        <div class="issuer">European Union</div>
-        <p>Clinical AI systems used for diagnosis, treatment decisions, or patient risk stratification are classified as high-risk AI under the EU AI Act — requiring conformity assessment, technical documentation, human oversight mechanisms, and post-market monitoring. The most demanding AI regulatory framework globally.</p>
-        <div class="scope">
-          <span class="std-scope-tag">Clinical AI</span><span class="std-scope-tag">Diagnostic AI</span><span class="std-scope-tag">EU Markets</span>
+          <span class="std-scope-tag">Enterprise Sales</span><span class="std-scope-tag">SaaS</span><span class="std-scope-tag">US Market</span>
         </div>
       </div>
       <div class="std-card">
         <div class="std-badge">ISO 27001</div>
-        <h4>Information Security Management</h4>
+        <h4>ISO/IEC 27001:2022</h4>
         <div class="issuer">International Organization for Standardization</div>
-        <p>Increasingly required by health insurers, hospital accreditation bodies, and international health system operators. ISO 27001:2022 added controls directly relevant to healthcare — cloud security, threat intelligence, and data masking that apply to health data environments.</p>
+        <p>Required for international enterprise customers — particularly in Europe, APAC, and government-adjacent markets. Often paired with SOC 2 as part of a dual-certification programme for companies pursuing global enterprise sales. The 2022 update added cloud security and AI controls.</p>
         <div class="scope">
-          <span class="std-scope-tag">All Healthcare Entities</span><span class="std-scope-tag">Accreditation</span><span class="std-scope-tag">International Ops</span>
+          <span class="std-scope-tag">International Sales</span><span class="std-scope-tag">Europe / APAC</span><span class="std-scope-tag">Government</span>
         </div>
       </div>
       <div class="std-card">
-        <div class="std-badge">SaMD</div>
-        <h4>Software as a Medical Device</h4>
-        <div class="issuer">FDA / IMDRF</div>
-        <p>Regulatory framework for clinical AI and decision support software — covering risk classification, pre-market submission requirements, post-market surveillance, and the quality management system (ISO 13485) that regulators require for SaMD manufacturers. Critical for any health-tech company selling clinical AI into regulated markets.</p>
+        <div class="std-badge">GDPR</div>
+        <h4>General Data Protection Regulation</h4>
+        <div class="issuer">European Union</div>
+        <p>Mandatory for any technology company handling EU personal data — with specific requirements for data processor agreements, DPIAs, consent management, breach notification, and data subject rights. Non-compliance is a sales blocker for EU customers, not just a legal risk.</p>
         <div class="scope">
-          <span class="std-scope-tag">Clinical AI Products</span><span class="std-scope-tag">Decision Support</span><span class="std-scope-tag">HealthTech</span>
+          <span class="std-scope-tag">EU Customers</span><span class="std-scope-tag">Data Processors</span><span class="std-scope-tag">B2B SaaS</span>
+        </div>
+      </div>
+      <div class="std-card">
+        <div class="std-badge">DPDPA</div>
+        <h4>Digital Personal Data Protection Act</h4>
+        <div class="issuer">Ministry of Electronics and IT — India</div>
+        <p>India's data protection law — relevant for technology companies serving Indian enterprise customers or handling Indian citizen data. Data fiduciary obligations, consent management, breach notification, and data localisation requirements apply.</p>
+        <div class="scope">
+          <span class="std-scope-tag">Indian Market</span><span class="std-scope-tag">SaaS in India</span><span class="std-scope-tag">FinTech</span>
+        </div>
+      </div>
+      <div class="std-card">
+        <div class="std-badge">EU AI Act</div>
+        <h4>EU Artificial Intelligence Act</h4>
+        <div class="issuer">European Union</div>
+        <p>The world's first comprehensive AI regulation — classifying AI systems by risk level and imposing conformity assessment, transparency, and governance requirements. Directly relevant for any technology company selling AI-powered products into the EU market from 2025 onwards.</p>
+        <div class="scope">
+          <span class="std-scope-tag">AI Products</span><span class="std-scope-tag">EU Market</span><span class="std-scope-tag">High-Risk AI</span>
+        </div>
+      </div>
+      <div class="std-card">
+        <div class="std-badge">PCI DSS</div>
+        <h4>PCI DSS v4.0</h4>
+        <div class="issuer">PCI Security Standards Council</div>
+        <p>Required for any technology company processing, storing, or transmitting payment card data — including SaaS platforms that handle payments on behalf of merchants. v4.0 introduced customised implementation options and expanded e-commerce security requirements.</p>
+        <div class="scope">
+          <span class="std-scope-tag">Payments</span><span class="std-scope-tag">FinTech</span><span class="std-scope-tag">E-commerce Platforms</span>
         </div>
       </div>
     </div>
@@ -465,29 +466,29 @@ body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(
 <section class="section bg-surface reveal">
   <div class="wrap">
     <span class="section-eyebrow">05 — Proof Points</span>
-    <h2 class="section-title">Outcomes in Healthcare<br>& Life Sciences Contexts</h2>
-    <p class="section-sub">Results from our work in AI governance, data architecture, security, and compliance — applied to the specific constraints and patient safety requirements of healthcare environments.</p>
+    <h2 class="section-title">Outcomes for Technology<br>Companies</h2>
+    <p class="section-sub">Results from our work in cloud, security, AI, and data — applied to the specific growth-stage challenges technology companies face.</p>
 
     <div class="proof-grid">
       <div class="proof-stat">
-        <span class="proof-num">$10.9M</span>
-        <span class="proof-label">Average healthcare breach cost — the risk context that justifies our security architecture and compliance programme investment</span>
-        <span class="proof-context">IBM Cost of a Data Breach Report 2024</span>
-      </div>
-      <div class="proof-stat">
-        <span class="proof-num">FHIR R4</span>
-        <span class="proof-label">Interoperability architecture expertise — SMART on FHIR, CDS Hooks, and HL7 v2 to FHIR transformation pipeline design</span>
-        <span class="proof-context">Health data platform design capability</span>
-      </div>
-      <div class="proof-stat">
-        <span class="proof-num">6–9 mo</span>
-        <span class="proof-label">ISO 27001:2022 certification timeline for healthcare organisations — including health data specific controls and clinical system scope definition</span>
+        <span class="proof-num">4–6 mo</span>
+        <span class="proof-label">SOC 2 Type II audit readiness from engagement start — control implementation, policy library, and evidence collection</span>
         <span class="proof-context">Security compliance programme delivery</span>
       </div>
       <div class="proof-stat">
-        <span class="proof-num">AI Governed</span>
-        <span class="proof-label">Clinical AI governance framework design — bias assessment, performance monitoring, explainability, and SaMD regulatory pathway advisory</span>
-        <span class="proof-context">Clinical AI deployment governance practice</span>
+        <span class="proof-num">40%</span>
+        <span class="proof-label">Average cloud cost reduction identified and remediated within the first two weeks of a FinOps engagement</span>
+        <span class="proof-context">Cloud cost optimisation practice</span>
+      </div>
+      <div class="proof-stat">
+        <span class="proof-num">3×</span>
+        <span class="proof-label">Faster decision cycles in technology companies that move from centralised reporting to self-service product analytics</span>
+        <span class="proof-context">Modern data stack and BI platform implementation</span>
+      </div>
+      <div class="proof-stat">
+        <span class="proof-num">Zero</span>
+        <span class="proof-label">Manual infrastructure configuration — all cloud environments deployed as code from landing zone design through production</span>
+        <span class="proof-context">IaC-first cloud architecture practice</span>
       </div>
     </div>
   </div>
@@ -498,24 +499,24 @@ body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(
   <div class="wrap">
     <span class="section-eyebrow">06 — Most Relevant Services</span>
     <h2 class="section-title">Where to Start</h2>
-    <p class="section-sub">The right starting point depends on whether your most urgent constraint is data fragmentation, security risk, or AI governance — the three areas where healthcare organisations most commonly need external expertise.</p>
+    <p class="section-sub">The right starting point depends on your stage and your most urgent constraint — here are the three most common entry points for technology companies.</p>
     <div class="related-grid">
       <a href="../cybersecurity.html" class="related-card">
         <span class="related-icon">🔐</span>
-        <h4>Cybersecurity Consulting</h4>
-        <p>Healthcare-specific security architecture — ransomware resilience, medical device network segmentation, clinical continuity during incidents, and the HIPAA Security Rule controls that protect patient data and clinical operations simultaneously.</p>
+        <h4>Cybersecurity & SOC 2</h4>
+        <p>The most common starting point for Series A and B companies — building the security programme that passes enterprise customer security review and enables the deals that justify the investment.</p>
         <span class="related-arrow">Explore →</span>
       </a>
-      <a href="../analytics.html" class="related-card">
-        <span class="related-icon">📊</span>
-        <h4>Health Data & Analytics</h4>
-        <p>FHIR-based interoperability platforms, clinical data warehouses, population health analytics, and the de-identification pipelines that enable secondary use of clinical data for quality improvement and research.</p>
+      <a href="../cloud-consulting.html" class="related-card">
+        <span class="related-icon">☁️</span>
+        <h4>Cloud Architecture & FinOps</h4>
+        <p>Architecture review, modernisation roadmap, and FinOps programme — for companies where cloud spend is becoming significant and architectural decisions made at launch are creating engineering friction at scale.</p>
         <span class="related-arrow">Explore →</span>
       </a>
       <a href="../ai-ml.html" class="related-card">
         <span class="related-icon">🤖</span>
-        <h4>Clinical AI & Governance</h4>
-        <p>Clinical AI deployment governance — from model validation and bias assessment through to SaMD regulatory pathway advisory and the post-market surveillance frameworks that regulators are beginning to require.</p>
+        <h4>AI Strategy & MLOps</h4>
+        <p>Structured AI strategy, build vs buy evaluation, MLOps platform design, and AI governance framework — for companies navigating the AI integration decisions that will define their product positioning over the next three years.</p>
         <span class="related-arrow">Explore →</span>
       </a>
     </div>
@@ -525,10 +526,10 @@ body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(
 <!-- CTA -->
 <section class="cta-section reveal">
   <div class="cta-inner">
-    <h2>Technology That Earns<br>Clinical Trust.<br><em>Every Decision.</em></h2>
-    <p>Healthcare technology is unforgiving of the gaps between design intent and operational reality. We bring the clinical context awareness and technical depth to close those gaps — before they become patient safety events, compliance failures, or headlines. Book a conversation with our healthcare practice team.</p>
+    <h2>Built to Help You<br>Move Fast<br><em>Without Breaking Things.</em></h2>
+    <p>The companies that scale well are those that invest in the right foundations at the right stage. Book a conversation with our technology practice team — we will tell you exactly what we think your most important investment is right now, based on where you are in the journey.</p>
     <div class="cta-buttons">
-      <a href="../../index.html#contact" class="btn btn-primary">Talk to Our Healthcare Team →</a>
+      <a href="../../index.html#contact" class="btn btn-primary">Talk to Our Tech Industry Team →</a>
       <a href="mailto:contact@metamorphex.tech" class="btn btn-ghost">Email Us Directly</a>
     </div>
   </div>
@@ -550,14 +551,14 @@ body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(
     <div class="footer-col"><h4>Services</h4><ul>
       <li><a href="../cloud-consulting.html">Cloud Consulting</a></li>
       <li><a href="../ai-ml.html">AI & ML Advisory</a></li>
-      <li><a href="../compliance-risk.html">Compliance & Risk</a></li>
       <li><a href="../cybersecurity.html">Cybersecurity</a></li>
+      <li><a href="../analytics.html">Data Analytics</a></li>
     </ul></div>
     <div class="footer-col"><h4>Industries</h4><ul>
       <li><a href="financial-services.html">Financial Services</a></li>
-      <li><a href="healthcare.html">Healthcare</a></li>
       <li><a href="public-sector.html">Public Sector</a></li>
       <li><a href="technology.html">Technology</a></li>
+      <li><a href="energy.html">Energy & Utilities</a></li>
     </ul></div>
     <div class="footer-col"><h4>Company</h4><ul>
       <li><a href="../../index.html#case-studies">Case Studies</a></li>

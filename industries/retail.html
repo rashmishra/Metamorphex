@@ -3,261 +3,388 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retail & E-commerce | Metamorphex</title>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Retail & E-Commerce IT Consulting | Metamorphex</title>
+<meta name="description" content="Technology consulting for retailers and e-commerce businesses — from unified commerce architecture and personalisation to supply chain analytics, fraud prevention, and peak-load cloud infrastructure.">
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root {
-  --color-primary: #0066FF;
-  --color-accent: #00D9B4;
-  --color-purple: #7B61FF;
-  --color-bg: #FFFFFF;
-  --color-bg-light: #F8F9FA;
-  --color-text: #1A1A1A;
-  --color-text-secondary: #5A5A5A;
-  --color-border: #E8E8E8;
-  --font-primary: 'Public Sans', -apple-system, sans-serif;
-  --shadow: 0 4px 20px rgba(0,0,0,0.08);
-  --shadow-hover: 0 8px 32px rgba(0,0,0,0.12);
+:root{--accent:#3EC9E8;--accent-dim:rgba(62,201,232,0.18);--accent-glow:rgba(62,201,232,0.35);--bg:#07080D;--bg-surface:#0D0F17;--border:rgba(255,255,255,0.07);--border-lit:rgba(62,201,232,0.25);--text:#FFFFFF;--text-dim:rgba(255,255,255,0.55);--text-dimmer:rgba(255,255,255,0.30);--font:'Exo 2',-apple-system,sans-serif;--radius:12px;--max:1400px;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(1px 1px at 20% 15%,rgba(255,255,255,0.45) 0%,transparent 100%),radial-gradient(1px 1px at 80% 25%,rgba(255,255,255,0.3) 0%,transparent 100%),radial-gradient(1.5px 1.5px at 45% 60%,rgba(255,255,255,0.25) 0%,transparent 100%),radial-gradient(1px 1px at 65% 80%,rgba(255,255,255,0.35) 0%,transparent 100%),radial-gradient(1px 1px at 10% 70%,rgba(255,255,255,0.2) 0%,transparent 100%),radial-gradient(1px 1px at 90% 55%,rgba(255,255,255,0.28) 0%,transparent 100%),radial-gradient(1px 1px at 52% 40%,rgba(62,201,232,0.3) 0%,transparent 100%);pointer-events:none;z-index:0;}
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(7,8,13,0.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-container{max-width:var(--max);margin:0 auto;padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.logo{display:flex;align-items:center;gap:0;text-decoration:none;transition:opacity 0.2s;}.logo:hover{opacity:0.82;}
+.logo-mark{height:42px;width:auto;display:block;flex-shrink:0;}
+.logo-sep{width:1px;height:26px;background:rgba(255,255,255,0.13);margin:0 18px;flex-shrink:0;}
+.logo-wordmark{display:flex;align-items:baseline;line-height:1;}
+.logo-wordmark-text{font-family:'Exo 2',sans-serif;font-weight:200;font-size:18px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.88);white-space:nowrap;}
+.logo-wordmark-x{display:inline-block;position:relative;}.logo-wordmark-x svg{display:block;overflow:visible;position:absolute;bottom:0;left:0;}
+.nav-menu{display:flex;align-items:center;gap:2.2rem;list-style:none;}.nav-item{position:relative;}
+.nav-link{color:var(--text-dim);text-decoration:none;font-size:0.88rem;font-weight:500;letter-spacing:0.04em;padding:0.5rem 0;display:flex;align-items:center;gap:0.4rem;cursor:pointer;transition:color 0.2s;}.nav-link:hover{color:var(--text);}
+.nav-link .arrow{font-size:0.6rem;transition:transform 0.3s;}.nav-item.open .arrow{transform:rotate(180deg);}
+.mega-menu{position:absolute;top:calc(100% + 1rem);left:50%;transform:translateX(-50%);background:rgba(10,12,20,0.97);border:1px solid var(--border);border-radius:var(--radius);min-width:300px;padding:0.5rem 0;opacity:0;visibility:hidden;pointer-events:none;transition:all 0.25s cubic-bezier(0.4,0,0.2,1);box-shadow:0 24px 60px rgba(0,0,0,0.7),0 0 0 1px rgba(62,201,232,0.1);z-index:100;}
+.nav-item.open .mega-menu{opacity:1;visibility:visible;pointer-events:all;top:calc(100% + 0.4rem);}
+.dropdown-item{display:block;padding:0.65rem 1.5rem;color:var(--text-dim);text-decoration:none;font-size:0.85rem;font-weight:400;transition:all 0.2s;border-left:2px solid transparent;}
+.dropdown-item:hover{background:rgba(62,201,232,0.06);border-left-color:var(--accent);color:var(--text);padding-left:1.8rem;}
+.dropdown-item.active{border-left-color:var(--accent);color:var(--accent);}
+.nav-cta{background:transparent;color:var(--accent);border:1px solid var(--accent);padding:0.55rem 1.5rem;border-radius:4px;text-decoration:none;font-weight:600;font-size:0.85rem;letter-spacing:0.06em;text-transform:uppercase;transition:all 0.25s;}
+.nav-cta:hover{background:var(--accent);color:var(--bg);box-shadow:0 0 20px var(--accent-glow);}
+.breadcrumb{position:relative;z-index:1;padding:96px 2.5rem 0;max-width:var(--max);margin:0 auto;}
+.breadcrumb-inner{display:flex;align-items:center;gap:0.6rem;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dimmer);}
+.breadcrumb-inner a{color:var(--text-dimmer);text-decoration:none;transition:color 0.2s;}.breadcrumb-inner a:hover{color:var(--accent);}
+.breadcrumb-inner .sep{opacity:0.4;}.breadcrumb-inner .current{color:var(--accent);}
+.hero{position:relative;z-index:1;padding:48px 2.5rem 80px;max-width:var(--max);margin:0 auto;}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:0.7rem;background:rgba(62,201,232,0.08);border:1px solid rgba(62,201,232,0.22);border-radius:3px;padding:0.4rem 1rem;font-size:0.7rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:1.8rem;}
+.hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 var(--accent-glow);}50%{opacity:0.6;box-shadow:0 0 0 5px transparent;}}
+.hero h1{font-family:'Exo 2',sans-serif;font-weight:200;font-size:clamp(2.8rem,4.5vw,4.4rem);letter-spacing:0.06em;text-transform:uppercase;line-height:1.08;margin-bottom:1.6rem;}
+.hero h1 em{font-style:normal;color:var(--accent);}
+.hero-lead{font-size:1.08rem;color:var(--text-dim);font-weight:300;line-height:1.75;margin-bottom:2.4rem;max-width:520px;}
+.hero-actions{display:flex;gap:0.9rem;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:0.6rem;padding:0.85rem 2rem;border-radius:4px;font-family:var(--font);font-size:0.85rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:all 0.25s;}
+.btn-primary{background:var(--accent);color:var(--bg);border-color:var(--accent);box-shadow:0 0 24px var(--accent-glow);}.btn-primary:hover{background:#5BD7F2;box-shadow:0 0 40px rgba(62,201,232,0.5);transform:translateY(-2px);}
+.btn-ghost{background:transparent;color:var(--text);border-color:var(--border);}.btn-ghost:hover{border-color:rgba(255,255,255,0.25);background:rgba(255,255,255,0.04);transform:translateY(-2px);}
+.hero-panel{background:var(--bg-surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+.hero-panel-header{padding:1.6rem 2rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:1rem;}
+.industry-icon-lg{width:52px;height:52px;border-radius:10px;background:var(--accent-dim);border:1px solid var(--border-lit);display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;}
+.hero-panel-header h3{font-family:'Exo 2',sans-serif;font-weight:300;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);}
+.hero-panel-header p{font-size:0.98rem;font-weight:500;color:var(--text);margin-top:0.2rem;}
+.panel-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);}
+.panel-stat{padding:1.6rem 2rem;background:var(--bg-surface);transition:background 0.25s;}.panel-stat:hover{background:rgba(62,201,232,0.04);}
+.panel-stat-num{font-family:'Exo 2',sans-serif;font-weight:700;font-size:2.2rem;color:var(--accent);line-height:1;display:block;margin-bottom:0.35rem;}
+.panel-stat-label{font-size:0.76rem;color:var(--text-dim);font-weight:300;letter-spacing:0.04em;}
+.panel-tags{padding:1.4rem 2rem;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:0.5rem;}
+.fw-tag{padding:0.3rem 0.75rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:3px;font-size:0.68rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);}
+.section{position:relative;z-index:1;padding:6rem 2.5rem;}.section+.section{border-top:1px solid var(--border);}.section.bg-surface{background:var(--bg-surface);}
+.wrap{max-width:var(--max);margin:0 auto;}
+.section-eyebrow{font-size:0.7rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;display:block;}
+.section-title{font-family:'Exo 2',sans-serif;font-weight:200;font-size:clamp(1.9rem,3vw,2.8rem);letter-spacing:0.06em;text-transform:uppercase;line-height:1.15;margin-bottom:1rem;}
+.section-sub{font-size:1rem;color:var(--text-dim);font-weight:300;line-height:1.75;max-width:640px;}
+.context-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:5rem;align-items:start;margin-top:3.5rem;}
+.context-body p{font-size:1rem;color:var(--text-dim);font-weight:300;line-height:1.8;margin-bottom:1.2rem;}.context-body p:last-child{margin-bottom:0;}.context-body strong{color:var(--text);font-weight:500;}
+.challenges-card{background:var(--bg-surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+.challenges-header{padding:1.2rem 1.6rem;border-bottom:1px solid var(--border);font-size:0.7rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);}
+.challenge-list{list-style:none;}
+.challenge-item{padding:1.1rem 1.6rem;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:1rem;transition:background 0.2s;}.challenge-item:last-child{border-bottom:none;}.challenge-item:hover{background:rgba(62,201,232,0.04);}
+.challenge-icon{font-size:1.1rem;flex-shrink:0;margin-top:0.1rem;}
+.challenge-item h4{font-size:0.86rem;font-weight:600;margin-bottom:0.2rem;color:var(--text);}
+.challenge-item p{font-size:0.77rem;color:var(--text-dim);font-weight:300;line-height:1.5;}
+.help-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:3.5rem;}
+.help-card{background:var(--bg-surface);padding:2.2rem 2rem;position:relative;overflow:hidden;transition:background 0.3s;}
+.help-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);transform:scaleX(0);transform-origin:left;transition:transform 0.4s;}
+.help-card:hover{background:rgba(62,201,232,0.04);}.help-card:hover::after{transform:scaleX(1);}
+.help-card-icon{font-size:1.6rem;margin-bottom:1rem;display:block;}
+.help-card h3{font-size:0.92rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;}
+.help-card .problem{font-size:0.76rem;color:var(--accent);font-weight:500;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:0.7rem;}
+.help-card p{font-size:0.82rem;color:var(--text-dim);font-weight:300;line-height:1.65;margin-bottom:1rem;}
+.help-link{font-size:0.75rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--accent);text-decoration:none;transition:letter-spacing 0.3s;display:inline-block;}
+.help-link:hover{letter-spacing:0.12em;}
+/* commerce stack unique section */
+.commerce-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:3.5rem;}
+.commerce-card{background:var(--bg-surface);padding:2rem 1.6rem;transition:background 0.3s;}.commerce-card:hover{background:rgba(62,201,232,0.04);}
+.commerce-layer{font-family:'Exo 2',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem;}
+.commerce-card h4{font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;}
+.commerce-card p{font-size:0.76rem;color:var(--text-dim);font-weight:300;line-height:1.55;margin-bottom:0.8rem;}
+.commerce-tools{display:flex;flex-direction:column;gap:0.28rem;}
+.commerce-tool{font-size:0.71rem;color:var(--text-dim);font-weight:300;}
+.proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:3.5rem;}
+.proof-stat{background:var(--bg-surface);padding:2.4rem 2rem;text-align:center;transition:background 0.3s;}.proof-stat:hover{background:rgba(62,201,232,0.04);}
+.proof-num{font-family:'Exo 2',sans-serif;font-weight:700;font-size:3rem;color:var(--accent);line-height:1;display:block;margin-bottom:0.5rem;}
+.proof-label{font-size:0.8rem;color:var(--text-dim);font-weight:300;line-height:1.5;}
+.proof-context{font-size:0.68rem;color:var(--text-dimmer);font-weight:300;margin-top:0.4rem;display:block;font-style:italic;}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:2.5rem;}
+.related-card{background:var(--bg-surface);padding:2rem;text-decoration:none;display:block;transition:background 0.3s;position:relative;overflow:hidden;}
+.related-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 0.35s;}
+.related-card:hover{background:rgba(62,201,232,0.04);}.related-card:hover::after{transform:scaleX(1);}
+.related-icon{font-size:1.6rem;margin-bottom:0.8rem;display:block;}
+.related-card h4{font-size:0.9rem;font-weight:600;color:var(--text);margin-bottom:0.4rem;}
+.related-card p{font-size:0.8rem;color:var(--text-dim);font-weight:300;line-height:1.55;}
+.related-arrow{color:var(--accent);font-size:0.8rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-top:1rem;display:block;transition:letter-spacing 0.3s;}
+.related-card:hover .related-arrow{letter-spacing:0.12em;}
+.cta-section{position:relative;z-index:1;background:var(--bg-surface);border-top:1px solid var(--border);padding:6rem 2.5rem;overflow:hidden;}
+.cta-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:400px;background:radial-gradient(ellipse,rgba(62,201,232,0.07) 0%,transparent 65%);pointer-events:none;}
+.cta-inner{max-width:760px;margin:0 auto;text-align:center;position:relative;z-index:1;}
+.cta-inner h2{font-family:'Exo 2',sans-serif;font-weight:200;font-size:clamp(2rem,4vw,3rem);letter-spacing:0.08em;text-transform:uppercase;line-height:1.1;margin-bottom:1.2rem;}
+.cta-inner h2 em{font-style:normal;color:var(--accent);}
+.cta-inner p{font-size:1rem;color:var(--text-dim);font-weight:300;line-height:1.7;margin-bottom:2.4rem;}
+.cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.footer{background:var(--bg-surface);border-top:1px solid var(--border);color:white;padding:5rem 2.5rem 2.5rem;position:relative;z-index:1;}
+.footer-container{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;margin-bottom:3rem;}
+.footer-brand p{color:var(--text-dim);font-size:0.9rem;line-height:1.7;font-weight:300;max-width:280px;}
+.footer-col h4{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-dimmer);margin-bottom:1.2rem;}
+.footer-col ul{list-style:none;}.footer-col ul li{margin-bottom:0.7rem;}
+.footer-col ul li a{color:var(--text-dim);text-decoration:none;font-size:0.88rem;font-weight:300;transition:color 0.2s;}.footer-col ul li a:hover{color:var(--text);}
+.footer-bottom{max-width:var(--max);margin:0 auto;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;color:var(--text-dimmer);font-size:0.8rem;letter-spacing:0.04em;}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.6s ease-out,transform 0.6s ease-out;}.reveal.active{opacity:1;transform:translateY(0);}
+@media(max-width:1024px){
+  .hero-grid,.context-grid{grid-template-columns:1fr;gap:3rem;}
+  .help-grid{grid-template-columns:1fr 1fr;}.commerce-grid{grid-template-columns:1fr 1fr;}
+  .proof-grid{grid-template-columns:1fr 1fr;}.related-grid{grid-template-columns:1fr 1fr;}
+  .footer-container{grid-template-columns:1fr 1fr;}
 }
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { font-family: var(--font-primary); background: var(--color-bg); color: var(--color-text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
-.navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--color-border); box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-.nav-container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 70px; }
-.logo { font-size: 1.6rem; font-weight: 800; color: var(--color-text); text-decoration: none; }
-.logo span { background: linear-gradient(135deg, var(--color-primary), var(--color-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.nav-cta { background: linear-gradient(135deg, var(--color-primary), var(--color-purple)); color: white; padding: 0.7rem 1.8rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.9rem; }
-.hero { padding: 140px 2rem 80px; background: linear-gradient(135deg, #F0F7FF 0%, #FFFFFF 100%); }
-.hero-container { max-width: 1400px; margin: 0 auto; }
-.breadcrumb { font-size: 0.9rem; color: var(--color-text-secondary); margin-bottom: 2rem; }
-.breadcrumb a { color: var(--color-primary); text-decoration: none; }
-.hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-bottom: 1.5rem; line-height: 1.1; }
-.hero-icon { font-size: 4rem; margin-bottom: 1rem; }
-.hero p { font-size: 1.2rem; color: var(--color-text-secondary); max-width: 800px; margin-bottom: 2rem; line-height: 1.7; }
-.section { padding: 5rem 2rem; }
-.section-container { max-width: 1400px; margin: 0 auto; }
-.section-title { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700; margin-bottom: 1rem; }
-.section-label { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; background: linear-gradient(135deg, var(--color-primary), var(--color-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 0.1em; margin-bottom: 1rem; display: inline-block; }
-.section-description { font-size: 1.1rem; color: var(--color-text-secondary); margin-bottom: 3rem; }
-.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 4rem; }
-.stat-card { background: white; border: 1px solid var(--color-border); border-radius: 12px; padding: 2rem; text-align: center; }
-.stat-number { font-size: 2.5rem; font-weight: 800; background: linear-gradient(135deg, var(--color-primary), var(--color-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: block; margin-bottom: 0.5rem; }
-.stat-label { color: var(--color-text-secondary); font-size: 0.9rem; }
-.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 3rem; }
-.project-card { background: white; border: 1px solid var(--color-border); border-radius: 16px; padding: 2.5rem; transition: all 0.3s; }
-.project-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
-.project-meta { display: flex; gap: 0.8rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
-.project-tag { padding: 0.4rem 1rem; background: rgba(0,102,255,0.1); border-radius: 20px; font-size: 0.75rem; font-weight: 600; color: var(--color-primary); }
-.project-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; }
-.project-card p { color: var(--color-text-secondary); margin-bottom: 1.5rem; line-height: 1.7; }
-.project-results { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border); }
-.result-item .number { font-size: 1.5rem; font-weight: 700; color: var(--color-accent); display: block; }
-.result-item .label { font-size: 0.8rem; color: var(--color-text-secondary); }
-.clients-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 3rem; }
-.client-card { background: var(--color-bg-light); border-radius: 12px; padding: 2rem; text-align: center; font-size: 1.5rem; font-weight: 700; color: var(--color-text-secondary); transition: all 0.3s; }
-.client-card:hover { background: white; color: var(--color-primary); box-shadow: var(--shadow); }
-.insights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 3rem; }
-.insight-card { background: white; border: 1px solid var(--color-border); border-radius: 16px; overflow: hidden; transition: all 0.3s; }
-.insight-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
-.insight-type { padding: 1rem 2rem; background: linear-gradient(135deg, var(--color-primary), var(--color-purple)); color: white; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
-.insight-content { padding: 2rem; }
-.insight-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; }
-.insight-card p { color: var(--color-text-secondary); margin-bottom: 1.5rem; line-height: 1.7; }
-.insight-link { color: var(--color-primary); text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 0.5rem; }
-.cta { background: linear-gradient(135deg, var(--color-primary), var(--color-purple)); color: white; padding: 5rem 2rem; text-align: center; }
-.cta h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1.5rem; }
-.cta p { font-size: 1.2rem; margin-bottom: 2.5rem; opacity: 0.95; }
-.btn { padding: 1rem 2.2rem; border-radius: 50px; font-weight: 700; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.6rem; background: white; color: var(--color-primary); transition: all 0.3s; }
-.btn:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
-@media (max-width: 968px) { .projects-grid, .insights-grid { grid-template-columns: 1fr; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+@media(max-width:640px){
+  .section{padding:4rem 1.5rem;}.breadcrumb{padding:96px 1.5rem 0;}.hero{padding:32px 1.5rem 60px;}
+  .hero h1{font-size:2.4rem;}.nav-menu{display:none;}
+  .help-grid,.related-grid{grid-template-columns:1fr;}.commerce-grid{grid-template-columns:1fr 1fr;}
+  .proof-grid{grid-template-columns:1fr 1fr;}.panel-stats{grid-template-columns:1fr 1fr;}
+}
 </style>
 </head>
 <body>
-
 <nav class="navbar">
   <div class="nav-container">
-    <a href="../index.html" class="logo">Meta<span>morphex</span></a>
-    <a href="../index.html#contact" class="nav-cta">Contact Us</a>
+    <a href="../../index.html" class="logo">
+      <img class="logo-mark" src="../../metamorphex-logo.png" alt="Metamorphex">
+      <div class="logo-sep"></div>
+      <div class="logo-wordmark">
+        <span class="logo-wordmark-text" id="nav-wt">METAMORPHE</span>
+        <span class="logo-wordmark-x" id="nav-wx"></span>
+      </div>
+    </a>
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a class="nav-link">Services <span class="arrow">▼</span></a>
+        <div class="mega-menu">
+          <a href="../cloud-consulting.html" class="dropdown-item">Cloud Consulting & Implementation</a>
+          <a href="../ai-ml.html" class="dropdown-item">AI & ML Advisory</a>
+          <a href="../analytics.html" class="dropdown-item">Data Analytics Strategy</a>
+          <a href="../project-management.html" class="dropdown-item">Project Management Services</a>
+          <a href="../policy-governance.html" class="dropdown-item">Policy & Governance</a>
+          <a href="../compliance-risk.html" class="dropdown-item">Compliance & Risk Advisory</a>
+          <a href="../risk-assessment.html" class="dropdown-item">Risk Assessment & Intelligence</a>
+          <a href="../it-infrastructure.html" class="dropdown-item">IT Infrastructure Consulting</a>
+          <a href="../digital-transformation.html" class="dropdown-item">Digital Transformation</a>
+          <a href="../strategic-advisory.html" class="dropdown-item">Strategic IT Advisory</a>
+          <a href="../enterprise-applications.html" class="dropdown-item">Enterprise Applications</a>
+          <a href="../cybersecurity.html" class="dropdown-item">Cybersecurity Consulting</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">Industries <span class="arrow">▼</span></a>
+        <div class="mega-menu">
+          <a href="financial-services.html" class="dropdown-item">Financial Services</a>
+          <a href="healthcare.html" class="dropdown-item">Healthcare</a>
+          <a href="retail.html" class="dropdown-item active">Retail & E-commerce</a>
+          <a href="manufacturing.html" class="dropdown-item">Manufacturing</a>
+          <a href="public-sector.html" class="dropdown-item">Public Sector</a>
+          <a href="technology.html" class="dropdown-item">Technology</a>
+          <a href="energy.html" class="dropdown-item">Energy & Utilities</a>
+          <a href="telecom.html" class="dropdown-item">Telecommunications</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">Products <span class="arrow">▼</span></a>
+        <div class="mega-menu">
+          <a href="products/metapolicypulse.html" class="dropdown-item">MetaPolicyPulse</a>
+          
+        </div>
+      </li>
+      <li class="nav-item"><a href="../../index.html#case-studies" class="nav-link">Insights</a></li>
+      <li class="nav-item"><a href="../../index.html#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <a href="../../index.html#contact" class="nav-cta">Get Started</a>
   </div>
 </nav>
-
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="../../index.html">Home</a><span class="sep">/</span>
+    <span>Industries</span><span class="sep">/</span>
+    <span class="current">Retail & E-Commerce</span>
+  </div>
+</div>
 <section class="hero">
-  <div class="hero-container">
-    <div class="breadcrumb">
-      <a href="../index.html">Home</a> / <a href="../index.html#expertise">Industries</a> / Retail & E-commerce
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow"><span class="dot"></span>Industry — Retail & E-Commerce</div>
+      <h1>Commerce That<br>Converts. Data That<br><em>Compounds.</em></h1>
+      <p class="hero-lead">Retail is now a technology competition dressed as a merchandising one. The gap between retailers who understand their customers at an individual level and those who don't has become the primary driver of market share shifts. We build the data, AI, and commerce technology that puts that gap in your favour.</p>
+      <div class="hero-actions">
+        <a href="../../index.html#contact" class="btn btn-primary">Talk to Our Retail Team →</a>
+        <a href="#how-we-help" class="btn btn-ghost">See What We Do</a>
+      </div>
     </div>
-    <div class="hero-icon">🛒</div>
-    <h1>Retail & E-commerce Solutions</h1>
-    <p>
-      We help retailers and e-commerce businesses implement omnichannel platforms, optimize inventory management with AI, build personalized customer experiences, and scale their digital operations. From POS systems to marketplace integrations, we deliver technology that drives sales and customer loyalty.
-    </p>
-  </div>
-</section>
-
-<section class="section" style="background: var(--color-bg-light);">
-  <div class="section-container">
-    <div class="stats-grid">
-      <div class="stat-card">
-        <span class="stat-number">35+</span>
-        <span class="stat-label">Retail Projects</span>
+    <div class="hero-panel reveal">
+      <div class="hero-panel-header">
+        <div class="industry-icon-lg">🛒</div>
+        <div><h3>Industry Focus</h3><p>Retail & E-Commerce</p></div>
       </div>
-      <div class="stat-card">
-        <span class="stat-number">$120M+</span>
-        <span class="stat-label">Annual GMV Processed</span>
+      <div class="panel-stats">
+        <div class="panel-stat"><span class="panel-stat-num">3×</span><span class="panel-stat-label">Revenue lift from personalisation at scale — the gap between retailers who know their customers and those who guess</span></div>
+        <div class="panel-stat"><span class="panel-stat-num">Real-time</span><span class="panel-stat-label">Inventory and demand analytics — so stockouts and overstock become predictable, not inevitable</span></div>
+        <div class="panel-stat"><span class="panel-stat-num">Omnichannel</span><span class="panel-stat-label">Unified commerce architecture — one inventory, one customer view, every channel</span></div>
+        <div class="panel-stat"><span class="panel-stat-num">Peak-ready</span><span class="panel-stat-label">Auto-scaling cloud infrastructure designed for 10× peak load without 10× steady-state cost</span></div>
       </div>
-      <div class="stat-card">
-        <span class="stat-number">5M+</span>
-        <span class="stat-label">Customers Served</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-number">42%</span>
-        <span class="stat-label">Avg. Revenue Increase</span>
+      <div class="panel-tags">
+        <span class="fw-tag">Personalisation</span><span class="fw-tag">Demand Forecasting</span><span class="fw-tag">Unified Commerce</span>
+        <span class="fw-tag">PCI DSS</span><span class="fw-tag">DPDPA</span><span class="fw-tag">Payment Fraud</span><span class="fw-tag">Supply Chain AI</span>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="section-container">
-    <div class="section-label">Case Studies</div>
-    <h2 class="section-title">Key Retail & E-commerce Projects</h2>
-    <p class="section-description">
-      Driving growth through digital retail transformation
-    </p>
-    
-    <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-meta">
-          <span class="project-tag">Omnichannel</span>
-          <span class="project-tag">E-commerce</span>
-        </div>
-        <h3>National Retail Chain Goes Omnichannel</h3>
-        <p>
-          Built unified commerce platform for 200+ store retail chain. Integrated online, mobile, and in-store experiences with real-time inventory sync, click-and-collect, and loyalty program.
-        </p>
-        <div class="project-results">
-          <div class="result-item">
-            <span class="number">65%</span>
-            <span class="label">Online Sales Growth</span>
-          </div>
-          <div class="result-item">
-            <span class="number">38%</span>
-            <span class="label">Customer Retention</span>
-          </div>
-        </div>
+<section class="section bg-surface reveal">
+  <div class="wrap">
+    <span class="section-eyebrow">01 — Industry Context</span>
+    <h2 class="section-title">The Competitive Reality<br>of Modern Retail</h2>
+    <div class="context-grid">
+      <div class="context-body">
+        <p>The retailers winning market share right now are winning on data — not on product, price, or store locations. They know which customers are about to churn before they do. They predict demand at SKU and store level before placing supplier orders. They personalise every digital touchpoint at the individual level and measure incrementality on every marketing rupee. Their competitors are making the same decisions with last month's spreadsheet reports.</p>
+        <p>The technology gap driving this divide is not primarily about the tools — most retailers have access to the same platforms. It is about <strong>data architecture, data quality, and the analytical capability that turns transaction histories into predictions</strong>. A retailer with 20 million loyalty card members has an enormous asset if they can use it; a liability in terms of DPDPA and PCI DSS compliance obligations if they cannot.</p>
+        <p>The omnichannel expectation has also fundamentally changed what "commerce infrastructure" means. <strong>A customer who sees a product on Instagram, checks stock on mobile, and collects in-store expects a seamless experience across all three touchpoints</strong> — which requires a unified inventory, a unified customer profile, and an order management system that was not designed for the channel fragmentation most retailers are operating. Bolting channels onto legacy ERP and POS systems creates the seams that frustrated customers fall through.</p>
+        <p>We work with <strong>fashion and apparel retailers, FMCG distributors, grocery chains, e-commerce pure-plays, marketplaces, and D2C brands</strong> — building the technology layer that makes customer intelligence, operational efficiency, and channel-agnostic commerce achievable rather than aspirational.</p>
       </div>
-      
-      <div class="project-card">
-        <div class="project-meta">
-          <span class="project-tag">AI/ML</span>
-          <span class="project-tag">Inventory</span>
-        </div>
-        <h3>AI-Powered Inventory Optimization</h3>
-        <p>
-          Implemented predictive analytics for fashion retailer. ML models forecast demand with 94% accuracy, reducing stockouts by 70% and excess inventory by 45%.
-        </p>
-        <div class="project-results">
-          <div class="result-item">
-            <span class="number">$4.2M</span>
-            <span class="label">Annual Savings</span>
-          </div>
-          <div class="result-item">
-            <span class="number">94%</span>
-            <span class="label">Forecast Accuracy</span>
-          </div>
-        </div>
-      </div>
-      
-      <div class="project-card">
-        <div class="project-meta">
-          <span class="project-tag">Personalization</span>
-          <span class="project-tag">Analytics</span>
-        </div>
-        <h3>Real-Time Personalization Engine</h3>
-        <p>
-          Developed recommendation engine for e-commerce marketplace. Personalized product suggestions, dynamic pricing, and targeted marketing increased conversion by 55%.
-        </p>
-        <div class="project-results">
-          <div class="result-item">
-            <span class="number">55%</span>
-            <span class="label">Conversion Increase</span>
-          </div>
-          <div class="result-item">
-            <span class="number">2.3x</span>
-            <span class="label">Average Order Value</span>
-          </div>
-        </div>
+      <div class="challenges-card">
+        <div class="challenges-header">The challenges we hear most</div>
+        <ul class="challenge-list">
+          <li class="challenge-item"><span class="challenge-icon">👤</span><div><h4>No Unified Customer View</h4><p>Customer data siloed across e-commerce, in-store POS, loyalty platform, and CRM — preventing the single customer profile that personalisation, churn prediction, and lifetime value modelling all require.</p></div></li>
+          <li class="challenge-item"><span class="challenge-icon">📦</span><div><h4>Inventory Imbalances</h4><p>Stockouts in fast-moving SKUs alongside excess stock in slow movers — the result of demand forecasting that relies on sales history averages rather than ML models that incorporate weather, events, trends, and channel signals.</p></div></li>
+          <li class="challenge-item"><span class="challenge-icon">🔀</span><div><h4>Channel Fragmentation</h4><p>Online, in-store, and marketplace operating as separate businesses — different inventory pools, different promotions, different customer experiences — when customers expect one retailer with multiple touchpoints.</p></div></li>
+          <li class="challenge-item"><span class="challenge-icon">💸</span><div><h4>Cart and Payment Fraud</h4><p>Account takeover, promo abuse, and card-not-present fraud scaling with digital transaction volumes — particularly acute for marketplaces and D2C brands where fraud economics are directly visible in unit margin.</p></div></li>
+          <li class="challenge-item"><span class="challenge-icon">⚡</span><div><h4>Infrastructure That Breaks at Peak</h4><p>Commerce platforms that perform adequately at average load but degrade or fail during sale events — the Black Friday problem that costs brands both revenue and reputation in the hours that matter most.</p></div></li>
+          <li class="challenge-item"><span class="challenge-icon">📊</span><div><h4>Marketing Attribution That Misleads</h4><p>Last-click attribution models that overvalue performance channels and undervalue brand and upper-funnel investment — causing systematically wrong marketing mix decisions that compound over time.</p></div></li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" style="background: var(--color-bg-light);">
-  <div class="section-container">
-    <div class="section-label">Our Clients</div>
-    <h2 class="section-title">Trusted by Retail Leaders</h2>
-    
-    <div class="clients-grid">
-      <div class="client-card">Flipkart</div>
-      <div class="client-card">Myntra</div>
-      <div class="client-card">Reliance Retail</div>
-      <div class="client-card">Shoppers Stop</div>
-      <div class="client-card">Nykaa</div>
-      <div class="client-card">BigBasket</div>
+<section class="section reveal" id="how-we-help">
+  <div class="wrap">
+    <span class="section-eyebrow">02 — How We Help</span>
+    <h2 class="section-title">Services Mapped to<br>Your Actual Problems</h2>
+    <p class="section-sub">Six capabilities matched to the specific technology challenges that retailers and e-commerce businesses face — built around the commercial outcomes that matter, not just the technology that enables them.</p>
+    <div class="help-grid">
+      <div class="help-card"><span class="help-card-icon">👤</span><div class="problem">No Unified Customer View</div><h3>Customer Data Platform</h3><p>Unified customer profile architecture — stitching online and offline transaction history, loyalty data, browsing behaviour, and service interactions into a single, governed customer record that feeds personalisation, segmentation, and churn prediction models in real time.</p><a href="../analytics.html" class="help-link">Data Analytics →</a></div>
+      <div class="help-card"><span class="help-card-icon">📦</span><div class="problem">Inventory Imbalances</div><h3>Demand Forecasting AI</h3><p>ML demand forecasting models that incorporate external signals — weather, events, search trends, social sentiment — alongside internal sales history, promotions calendar, and price elasticity data. SKU-level, store-level, and channel-level predictions updated daily.</p><a href="../ai-ml.html" class="help-link">AI & ML Advisory →</a></div>
+      <div class="help-card"><span class="help-card-icon">🔀</span><div class="problem">Channel Fragmentation</div><h3>Unified Commerce Architecture</h3><p>Omnichannel platform architecture — unified order management, single inventory across channels, shared customer profile, and consistent promotion engine. Designed around a headless commerce approach that lets channels evolve independently without rebuilding the commerce core.</p><a href="../digital-transformation.html" class="help-link">Digital Transformation →</a></div>
+      <div class="help-card"><span class="help-card-icon">💸</span><div class="problem">Cart and Payment Fraud</div><h3>E-Commerce Fraud Prevention</h3><p>Real-time fraud scoring using ML models trained on transaction velocity, device fingerprinting, behavioural biometrics, and network relationship signals — reducing fraud losses without increasing false positive rates that frustrate legitimate customers.</p><a href="../risk-assessment.html" class="help-link">Risk Assessment →</a></div>
+      <div class="help-card"><span class="help-card-icon">⚡</span><div class="problem">Infrastructure Breaks at Peak</div><h3>Peak-Ready Cloud Architecture</h3><p>Auto-scaling cloud infrastructure for commerce workloads — load tested at 10× steady-state, with pre-warming strategies, CDN configuration, and database read replica architecture that handles Black Friday and seasonal peaks without degradation or emergency spend.</p><a href="../cloud-consulting.html" class="help-link">Cloud Consulting →</a></div>
+      <div class="help-card"><span class="help-card-icon">📊</span><div class="problem">Marketing Attribution That Misleads</div><h3>Marketing Mix & Attribution</h3><p>Multi-touch attribution and marketing mix modelling that replaces last-click with incrementality measurement — giving media and brand teams an accurate picture of what is actually driving sales, and the confidence to reallocate budget toward what works.</p><a href="../analytics.html" class="help-link">Data Analytics →</a></div>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="section-container">
-    <div class="section-label">Insights & Resources</div>
-    <h2 class="section-title">Retail Technology Insights</h2>
-    <p class="section-description">
-      Expert perspectives on retail digital transformation
-    </p>
-    
-    <div class="insights-grid">
-      <div class="insight-card">
-        <div class="insight-type">Whitepaper</div>
-        <div class="insight-content">
-          <h3>The Omnichannel Retail Playbook for 2026</h3>
-          <p>
-            Complete guide to building seamless shopping experiences across online, mobile, and physical stores with unified inventory and customer data.
-          </p>
-          <a href="#" class="insight-link">Download PDF →</a>
+<section class="section bg-surface reveal">
+  <div class="wrap">
+    <span class="section-eyebrow">03 — Commerce Technology Stack</span>
+    <h2 class="section-title">The Platforms We Build<br>Retail Intelligence On</h2>
+    <p class="section-sub">Platform-agnostic — we work with your existing commerce platforms or recommend the right stack for your scale, channel mix, and growth trajectory.</p>
+    <div class="commerce-grid">
+      <div class="commerce-card">
+        <div class="commerce-layer">Commerce Platform</div>
+        <h4>Storefront & OMS</h4>
+        <p>Headless and composable commerce architecture supporting any frontend channel.</p>
+        <div class="commerce-tools">
+          <div class="commerce-tool">Shopify Plus / Shopify</div>
+          <div class="commerce-tool">Salesforce Commerce Cloud</div>
+          <div class="commerce-tool">SAP Commerce / Hybris</div>
+          <div class="commerce-tool">Magento / Adobe Commerce</div>
+          <div class="commerce-tool">Commercetools (headless)</div>
         </div>
       </div>
-      
-      <div class="insight-card">
-        <div class="insight-type">Case Study</div>
-        <div class="insight-content">
-          <h3>How AI Reduced Stockouts by 70% for Fashion Retailer</h3>
-          <p>
-            Deep dive into implementing demand forecasting, automated replenishment, and dynamic pricing for a multi-brand fashion retail chain.
-          </p>
-          <a href="#" class="insight-link">Read Case Study →</a>
+      <div class="commerce-card">
+        <div class="commerce-layer">Customer Data</div>
+        <h4>CDP & CRM</h4>
+        <p>Unified customer profile, segmentation, and activation across marketing and service channels.</p>
+        <div class="commerce-tools">
+          <div class="commerce-tool">Segment / Twilio CDP</div>
+          <div class="commerce-tool">Salesforce Data Cloud</div>
+          <div class="commerce-tool">mParticle</div>
+          <div class="commerce-tool">Bloomreach</div>
+          <div class="commerce-tool">Klaviyo (email / SMS)</div>
         </div>
       </div>
-      
-      <div class="insight-card">
-        <div class="insight-type">Blog Post</div>
-        <div class="insight-content">
-          <h3>Personalization at Scale: Building Recommendation Engines</h3>
-          <p>
-            Technical guide to implementing collaborative filtering, content-based recommendations, and real-time personalization for e-commerce.
-          </p>
-          <a href="#" class="insight-link">Read Article →</a>
+      <div class="commerce-card">
+        <div class="commerce-layer">Analytics & AI</div>
+        <h4>Intelligence Layer</h4>
+        <p>Demand forecasting, personalisation, and marketing analytics on a modern data stack.</p>
+        <div class="commerce-tools">
+          <div class="commerce-tool">Snowflake / BigQuery</div>
+          <div class="commerce-tool">dbt transformation layer</div>
+          <div class="commerce-tool">Python ML (scikit-learn, XGBoost)</div>
+          <div class="commerce-tool">Looker / Power BI</div>
+          <div class="commerce-tool">Northbeam / Rockerbox (attribution)</div>
+        </div>
+      </div>
+      <div class="commerce-card">
+        <div class="commerce-layer">Payments & Fraud</div>
+        <h4>Transaction Security</h4>
+        <p>PCI DSS-compliant payment architecture and real-time fraud prevention.</p>
+        <div class="commerce-tools">
+          <div class="commerce-tool">Stripe / Razorpay / PayU</div>
+          <div class="commerce-tool">Signifyd / Riskified (fraud)</div>
+          <div class="commerce-tool">Custom ML fraud scoring</div>
+          <div class="commerce-tool">3DS2 implementation</div>
+          <div class="commerce-tool">PCI DSS scope reduction</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="cta">
-  <h2>Ready to Transform Your Retail Operations?</h2>
-  <p>Let's discuss how we can help you build the future of retail.</p>
-  <a href="../index.html#contact" class="btn">Schedule Consultation →</a>
+<section class="section reveal">
+  <div class="wrap">
+    <span class="section-eyebrow">04 — Proof Points</span>
+    <h2 class="section-title">Outcomes for Retail &<br>E-Commerce Businesses</h2>
+    <div class="proof-grid">
+      <div class="proof-stat"><span class="proof-num">3×</span><span class="proof-label">Revenue uplift achievable through 1:1 personalisation at scale vs generic segment-based targeting</span><span class="proof-context">Personalisation programme industry benchmark</span></div>
+      <div class="proof-stat"><span class="proof-num">25%</span><span class="proof-label">Reduction in inventory holding costs through ML demand forecasting vs historical average-based planning</span><span class="proof-context">Demand forecasting AI deployment outcomes</span></div>
+      <div class="proof-stat"><span class="proof-num">40%</span><span class="proof-label">Cloud cost reduction after FinOps engagement — critical for e-commerce businesses with high compute variability</span><span class="proof-context">Cloud cost optimisation practice</span></div>
+      <div class="proof-stat"><span class="proof-num">99.99%</span><span class="proof-label">Uptime during peak trading periods for commerce infrastructure designed with auto-scaling and pre-warming</span><span class="proof-context">Peak-ready cloud architecture deployments</span></div>
+    </div>
+  </div>
 </section>
 
+<section class="section bg-surface reveal">
+  <div class="wrap">
+    <span class="section-eyebrow">05 — Most Relevant Services</span>
+    <h2 class="section-title">Where to Start</h2>
+    <div class="related-grid">
+      <a href="../analytics.html" class="related-card"><span class="related-icon">📊</span><h4>Data Analytics & CDP</h4><p>The unified customer data foundation that makes personalisation, churn prediction, demand forecasting, and attribution modelling possible — built on a modern data stack designed for retail data volumes.</p><span class="related-arrow">Explore →</span></a>
+      <a href="../ai-ml.html" class="related-card"><span class="related-icon">🤖</span><h4>AI & ML — Retail Intelligence</h4><p>Demand forecasting, personalisation models, price elasticity analysis, and churn prediction — the AI layer that turns retail transaction data into competitive advantage.</p><span class="related-arrow">Explore →</span></a>
+      <a href="../cloud-consulting.html" class="related-card"><span class="related-icon">☁️</span><h4>Cloud & Peak Architecture</h4><p>Auto-scaling commerce infrastructure designed for peak-load resilience and FinOps cost discipline — so your infrastructure handles Black Friday without costing Black Friday margins year-round.</p><span class="related-arrow">Explore →</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section reveal">
+  <div class="cta-inner">
+    <h2>The Retailers Who Win<br>Know Their Customers<br><em>Better Than They Know Themselves.</em></h2>
+    <p>Book a conversation with our retail practice team — we'll assess where your biggest data and commerce technology gaps are, and outline the investments with the highest commercial return for your specific business model.</p>
+    <div class="cta-buttons">
+      <a href="../../index.html#contact" class="btn btn-primary">Talk to Our Retail Team →</a>
+      <a href="mailto:contact@metamorphex.tech" class="btn btn-ghost">Email Us Directly</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <div style="display:flex;align-items:center;gap:0;margin-bottom:1.2rem;">
+        <img src="../../metamorphex-logo.png" alt="Metamorphex" style="height:38px;width:auto;">
+        <div style="width:1px;height:22px;background:rgba(255,255,255,0.1);margin:0 16px;"></div>
+        <div style="display:flex;align-items:baseline;">
+          <span id="footer-wt" style="font-family:'Exo 2',sans-serif;font-weight:200;font-size:16px;letter-spacing:0.20em;text-transform:uppercase;color:rgba(255,255,255,0.85);">METAMORPHE</span>
+          <span id="footer-wx" style="display:inline-block;position:relative;"></span>
+        </div>
+      </div>
+      <p>Expert IT consulting and implementation services for enterprise digital transformation.</p>
+    </div>
+    <div class="footer-col"><h4>Services</h4><ul><li><a href="../analytics.html">Data Analytics</a></li><li><a href="../ai-ml.html">AI & ML Advisory</a></li><li><a href="../cloud-consulting.html">Cloud Consulting</a></li><li><a href="../digital-transformation.html">Digital Transformation</a></li></ul></div>
+    <div class="footer-col"><h4>Industries</h4><ul><li><a href="financial-services.html">Financial Services</a></li><li><a href="retail.html">Retail & E-Commerce</a></li><li><a href="technology.html">Technology</a></li><li><a href="healthcare.html">Healthcare</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="../../index.html#case-studies">Case Studies</a></li><li><a href="../careers.html">Careers</a></li><li><a href="../../index.html#contact">Contact</a></li><li><a href="https://www.linkedin.com/company/metamorphex/">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 Metamorphex. All rights reserved.</p><p>IT Consulting & Implementation Services · Noida, India</p></div>
+</footer>
+<script>
+function buildLogoX(t,x){const el=document.getElementById(t),xel=document.getElementById(x);if(!el||!xel)return;const fs=parseFloat(getComputedStyle(el).fontSize),ls=parseFloat(getComputedStyle(el).letterSpacing)||0,capH=Math.round(fs*0.73),xW=Math.round(fs*0.64),thin=Math.max(1.2,fs*0.042),thick=Math.max(3.5,fs*0.134);xel.style.cssText=`display:inline-block;position:relative;width:${xW+ls}px;height:${capH}px;vertical-align:baseline;`;xel.innerHTML=`<svg viewBox="0 0 ${xW} ${capH}" width="${xW}" height="${capH}" style="display:block;overflow:visible;position:absolute;bottom:0;left:0;"><line x1="1" y1="1" x2="${xW-1}" y2="${capH-1}" stroke="rgba(220,232,245,0.75)" stroke-width="${thin}" stroke-linecap="round"/><line x1="1" y1="${capH-1}" x2="${xW-1}" y2="1" stroke="#3EC9E8" stroke-width="${thick}" stroke-linecap="round"/></svg>`;}
+(document.fonts?document.fonts.ready:Promise.resolve()).then(()=>{buildLogoX('nav-wt','nav-wx');buildLogoX('footer-wt','footer-wx');});
+document.querySelectorAll('.nav-item').forEach(item=>{const link=item.querySelector('.nav-link'),menu=item.querySelector('.mega-menu');if(!menu)return;link.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();document.querySelectorAll('.nav-item').forEach(o=>{if(o!==item)o.classList.remove('open');});item.classList.toggle('open');});});
+document.addEventListener('click',e=>{if(!e.target.closest('.nav-item'))document.querySelectorAll('.nav-item').forEach(i=>i.classList.remove('open'));});
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('active');obs.unobserve(e.target);}});},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
 </body>
 </html>

@@ -3,116 +3,571 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Data Analytics Strategy | Metamorphex</title>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Data Analytics & Business Intelligence | Metamorphex</title>
+<meta name="description" content="Data strategy, analytics engineering, and BI platform design — turning raw organisational data into the decision intelligence that drives measurable business outcomes.">
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--p:#3B5BDB;--a:#38D9C0;--pu:#8B5CF6;--bg:#fff;--bgl:#F5F3FF;--t:#1A1A2E;--ts:#5A5A7A;--b:#E8E4F3;--gm:linear-gradient(135deg,#3B5BDB,#8B5CF6);--gt:linear-gradient(135deg,#38D9C0,#4FACFE);--gf:linear-gradient(135deg,#38D9C0 0%,#3B5BDB 45%,#8B5CF6 80%,#B39DDB 100%);--sh:0 4px 20px rgba(59,91,219,.1);--shh:0 8px 32px rgba(59,91,219,.2);--fn:'Public Sans',-apple-system,sans-serif;}
+:root{--accent:#3EC9E8;--accent-dim:rgba(62,201,232,0.18);--accent-glow:rgba(62,201,232,0.35);--bg:#07080D;--bg-surface:#0D0F17;--border:rgba(255,255,255,0.07);--border-lit:rgba(62,201,232,0.25);--text:#FFFFFF;--text-dim:rgba(255,255,255,0.55);--text-dimmer:rgba(255,255,255,0.30);--font:'Exo 2',-apple-system,sans-serif;--radius:12px;--max:1400px;}
 *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
-body{font-family:var(--fn);background:var(--bg);color:var(--t);line-height:1.6;-webkit-font-smoothing:antialiased;}
-.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:#1A1A2E;border-bottom:1px solid rgba(255,255,255,.08);box-shadow:0 2px 20px rgba(0,0,0,.3);}
-.nav-container{max-width:1400px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:70px;}
-.logo{display:flex;align-items:center;gap:.5rem;text-decoration:none;color:white;font-size:1.5rem;font-weight:800;}
-.nav-cta{background:var(--gf);color:white;padding:.65rem 1.6rem;border-radius:50px;text-decoration:none;font-weight:700;font-size:.9rem;transition:all .3s;}
-.nav-cta:hover{transform:translateY(-2px);}
-.hero{padding:130px 2rem 70px;background:linear-gradient(160deg,#EEF2FF 0%,#F5F0FF 50%,#F0FDFB 100%);}
-.hero-inner{max-width:1400px;margin:0 auto;}
-.breadcrumb{font-size:.9rem;color:var(--ts);margin-bottom:1.5rem;}
-.breadcrumb a{color:var(--p);text-decoration:none;}
-.hero-icon{font-size:4rem;margin-bottom:1rem;}
-.hero h1{font-size:clamp(2.4rem,5vw,3.8rem);font-weight:800;margin-bottom:1.2rem;line-height:1.1;letter-spacing:-.03em;}
-.hero p{font-size:1.15rem;color:var(--ts);max-width:800px;line-height:1.75;}
-.section{padding:5rem 2rem;}
-.inner{max-width:1400px;margin:0 auto;}
-.lbl{font-size:.8rem;font-weight:700;text-transform:uppercase;background:var(--gm);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:.1em;display:inline-block;margin-bottom:.8rem;}
-.h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;margin-bottom:.8rem;letter-spacing:-.02em;}
-.desc{font-size:1.05rem;color:var(--ts);margin-bottom:2.5rem;line-height:1.7;}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:2rem;margin-top:2rem;}
-.card{background:white;border:1px solid var(--b);border-radius:16px;padding:2.5rem;transition:all .3s;}
-.card:hover{transform:translateY(-5px);box-shadow:var(--shh);}
-.tag{display:inline-flex;gap:.6rem;margin-bottom:1.2rem;flex-wrap:wrap;}
-.tag span{padding:.3rem .9rem;background:rgba(59,91,219,.1);border-radius:20px;font-size:.75rem;font-weight:600;color:var(--p);}
-.card h3{font-size:1.25rem;font-weight:700;margin-bottom:.8rem;}
-.card p{color:var(--ts);line-height:1.7;margin-bottom:1.5rem;}
-.results{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;padding-top:1.2rem;border-top:1px solid var(--b);}
-.rnum{font-size:1.6rem;font-weight:800;background:var(--gt);-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:block;}
-.rlbl{font-size:.8rem;color:var(--ts);}
-.clients{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.5rem;margin-top:2rem;}
-.client{background:var(--bgl);border-radius:10px;padding:1.6rem;text-align:center;font-weight:700;font-size:1.1rem;color:var(--ts);transition:all .3s;}
-.client:hover{background:white;color:var(--p);box-shadow:var(--sh);}
-.insights{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;margin-top:2rem;}
-.ins{background:white;border:1px solid var(--b);border-radius:16px;overflow:hidden;transition:all .3s;}
-.ins:hover{transform:translateY(-5px);box-shadow:var(--shh);}
-.ins-top{padding:.9rem 1.8rem;background:var(--gm);color:white;font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.05em;}
-.ins-body{padding:1.8rem;}
-.ins-body h3{font-size:1.15rem;font-weight:700;margin-bottom:.8rem;}
-.ins-body p{color:var(--ts);line-height:1.7;margin-bottom:1.2rem;font-size:.95rem;}
-.ins-link{color:var(--p);text-decoration:none;font-weight:700;font-size:.9rem;}
-.cta-sec{background:var(--gf);color:white;padding:5rem 2rem;text-align:center;}
-.cta-sec h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:1rem;}
-.cta-sec p{font-size:1.15rem;margin-bottom:2rem;opacity:.95;}
-.btn{padding:.9rem 2rem;border-radius:50px;font-weight:700;font-size:.95rem;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;background:white;color:var(--p);transition:all .3s;}
-.btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,.2);}
-@media(max-width:768px){.cards,.insights{grid-template-columns:1fr;}.clients{grid-template-columns:repeat(2,1fr);}}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(1px 1px at 20% 15%,rgba(255,255,255,0.45) 0%,transparent 100%),radial-gradient(1px 1px at 80% 25%,rgba(255,255,255,0.3) 0%,transparent 100%),radial-gradient(1.5px 1.5px at 45% 60%,rgba(255,255,255,0.25) 0%,transparent 100%),radial-gradient(1px 1px at 65% 80%,rgba(255,255,255,0.35) 0%,transparent 100%),radial-gradient(1px 1px at 10% 70%,rgba(255,255,255,0.2) 0%,transparent 100%),radial-gradient(1px 1px at 90% 55%,rgba(255,255,255,0.28) 0%,transparent 100%),radial-gradient(1px 1px at 52% 40%,rgba(62,201,232,0.3) 0%,transparent 100%);pointer-events:none;z-index:0;}
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(7,8,13,0.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-container{max-width:var(--max);margin:0 auto;padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.logo{display:flex;align-items:center;gap:0;text-decoration:none;transition:opacity 0.2s;}.logo:hover{opacity:0.82;}
+.logo-mark{height:42px;width:auto;display:block;flex-shrink:0;}
+.logo-sep{width:1px;height:26px;background:rgba(255,255,255,0.13);margin:0 18px;flex-shrink:0;}
+.logo-wordmark{display:flex;align-items:baseline;line-height:1;}
+.logo-wordmark-text{font-family:'Exo 2',sans-serif;font-weight:200;font-size:18px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.88);white-space:nowrap;}
+.logo-wordmark-x{display:inline-block;position:relative;}.logo-wordmark-x svg{display:block;overflow:visible;position:absolute;bottom:0;left:0;}
+.nav-menu{display:flex;align-items:center;gap:2.2rem;list-style:none;}.nav-item{position:relative;}
+.nav-link{color:var(--text-dim);text-decoration:none;font-size:0.88rem;font-weight:500;letter-spacing:0.04em;padding:0.5rem 0;display:flex;align-items:center;gap:0.4rem;cursor:pointer;transition:color 0.2s;}.nav-link:hover{color:var(--text);}
+.nav-link .arrow{font-size:0.6rem;transition:transform 0.3s;}.nav-item.open .arrow{transform:rotate(180deg);}
+.mega-menu{position:absolute;top:calc(100% + 1rem);left:50%;transform:translateX(-50%);background:rgba(10,12,20,0.97);border:1px solid var(--border);border-radius:var(--radius);min-width:300px;padding:0.5rem 0;opacity:0;visibility:hidden;pointer-events:none;transition:all 0.25s cubic-bezier(0.4,0,0.2,1);box-shadow:0 24px 60px rgba(0,0,0,0.7),0 0 0 1px rgba(62,201,232,0.1);z-index:100;}
+.nav-item.open .mega-menu{opacity:1;visibility:visible;pointer-events:all;top:calc(100% + 0.4rem);}
+.dropdown-item{display:block;padding:0.65rem 1.5rem;color:var(--text-dim);text-decoration:none;font-size:0.85rem;font-weight:400;transition:all 0.2s;border-left:2px solid transparent;}
+.dropdown-item:hover{background:rgba(62,201,232,0.06);border-left-color:var(--accent);color:var(--text);padding-left:1.8rem;}
+.dropdown-item.active{border-left-color:var(--accent);color:var(--accent);}
+.nav-cta{background:transparent;color:var(--accent);border:1px solid var(--accent);padding:0.55rem 1.5rem;border-radius:4px;text-decoration:none;font-weight:600;font-size:0.85rem;letter-spacing:0.06em;text-transform:uppercase;transition:all 0.25s;}
+.nav-cta:hover{background:var(--accent);color:var(--bg);box-shadow:0 0 20px var(--accent-glow);}
+.breadcrumb{position:relative;z-index:1;padding:96px 2.5rem 0;max-width:var(--max);margin:0 auto;}
+.breadcrumb-inner{display:flex;align-items:center;gap:0.6rem;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dimmer);}
+.breadcrumb-inner a{color:var(--text-dimmer);text-decoration:none;transition:color 0.2s;}.breadcrumb-inner a:hover{color:var(--accent);}
+.breadcrumb-inner .sep{opacity:0.4;}.breadcrumb-inner .current{color:var(--accent);}
+.hero{position:relative;z-index:1;padding:48px 2.5rem 80px;max-width:var(--max);margin:0 auto;}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:0.7rem;background:rgba(62,201,232,0.08);border:1px solid rgba(62,201,232,0.22);border-radius:3px;padding:0.4rem 1rem;font-size:0.7rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);margin-bottom:1.8rem;}
+.hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 var(--accent-glow);}50%{opacity:0.6;box-shadow:0 0 0 5px transparent;}}
+.hero h1{font-family:'Exo 2',sans-serif;font-weight:200;font-size:clamp(2.8rem,4.5vw,4.4rem);letter-spacing:0.06em;text-transform:uppercase;line-height:1.08;margin-bottom:1.6rem;}
+.hero h1 em{font-style:normal;color:var(--accent);}
+.hero-lead{font-size:1.08rem;color:var(--text-dim);font-weight:300;line-height:1.75;margin-bottom:2.4rem;max-width:520px;}
+.hero-actions{display:flex;gap:0.9rem;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:0.6rem;padding:0.85rem 2rem;border-radius:4px;font-family:var(--font);font-size:0.85rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:all 0.25s;}
+.btn-primary{background:var(--accent);color:var(--bg);border-color:var(--accent);box-shadow:0 0 24px var(--accent-glow);}.btn-primary:hover{background:#5BD7F2;box-shadow:0 0 40px rgba(62,201,232,0.5);transform:translateY(-2px);}
+.btn-ghost{background:transparent;color:var(--text);border-color:var(--border);}.btn-ghost:hover{border-color:rgba(255,255,255,0.25);background:rgba(255,255,255,0.04);transform:translateY(-2px);}
+.hero-panel{background:var(--bg-surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+.hero-panel-header{padding:1.6rem 2rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:1rem;}
+.service-icon-lg{width:52px;height:52px;border-radius:10px;background:var(--accent-dim);border:1px solid var(--border-lit);display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;}
+.hero-panel-header h3{font-family:'Exo 2',sans-serif;font-weight:300;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);}
+.hero-panel-header p{font-size:0.98rem;font-weight:500;color:var(--text);margin-top:0.2rem;}
+.panel-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);}
+.panel-stat{padding:1.6rem 2rem;background:var(--bg-surface);transition:background 0.25s;}.panel-stat:hover{background:rgba(62,201,232,0.04);}
+.panel-stat-num{font-family:'Exo 2',sans-serif;font-weight:700;font-size:2.2rem;color:var(--accent);line-height:1;display:block;margin-bottom:0.35rem;}
+.panel-stat-label{font-size:0.76rem;color:var(--text-dim);font-weight:300;letter-spacing:0.04em;}
+.panel-tags{padding:1.4rem 2rem;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:0.5rem;}
+.fw-tag{padding:0.3rem 0.75rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:3px;font-size:0.68rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);}
+.section{position:relative;z-index:1;padding:6rem 2.5rem;}.section+.section{border-top:1px solid var(--border);}.section.bg-surface{background:var(--bg-surface);}
+.wrap{max-width:var(--max);margin:0 auto;}
+.section-eyebrow{font-size:0.7rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;display:block;}
+.section-title{font-family:'Exo 2',sans-serif;font-weight:200;font-size:clamp(1.9rem,3vw,2.8rem);letter-spacing:0.06em;text-transform:uppercase;line-height:1.15;margin-bottom:1rem;}
+.section-sub{font-size:1rem;color:var(--text-dim);font-weight:300;line-height:1.75;max-width:600px;}
+.overview-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:5rem;align-items:start;margin-top:3.5rem;}
+.overview-body p{font-size:1rem;color:var(--text-dim);font-weight:300;line-height:1.8;margin-bottom:1.2rem;}.overview-body p:last-child{margin-bottom:0;}.overview-body strong{color:var(--text);font-weight:500;}
+.who-card{background:var(--bg-surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;position:sticky;top:88px;}
+.who-card-header{padding:1.2rem 1.6rem;border-bottom:1px solid var(--border);font-size:0.7rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);}
+.who-list{list-style:none;}
+.who-list li{padding:1rem 1.6rem;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:0.85rem;transition:background 0.2s;}.who-list li:last-child{border-bottom:none;}.who-list li:hover{background:rgba(62,201,232,0.04);}
+.who-icon{font-size:1.2rem;flex-shrink:0;margin-top:0.1rem;}
+.who-list li h4{font-size:0.88rem;font-weight:600;margin-bottom:0.2rem;}.who-list li p{font-size:0.78rem;color:var(--text-dim);font-weight:300;line-height:1.5;}
+.cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:3.5rem;}
+.cap-card{background:var(--bg-surface);padding:2.4rem 2rem;position:relative;overflow:hidden;transition:background 0.3s;}
+.cap-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);transform:scaleX(0);transform-origin:left;transition:transform 0.4s;}
+.cap-card:hover{background:rgba(62,201,232,0.04);}.cap-card:hover::after{transform:scaleX(1);}
+.cap-num{font-family:'Exo 2',sans-serif;font-weight:700;font-size:2.5rem;color:rgba(62,201,232,0.12);line-height:1;margin-bottom:1.2rem;letter-spacing:-0.02em;}
+.cap-card h3{font-size:0.95rem;font-weight:600;letter-spacing:0.04em;color:var(--text);margin-bottom:0.7rem;}
+.cap-card p{font-size:0.84rem;color:var(--text-dim);font-weight:300;line-height:1.65;margin-bottom:1.2rem;}
+.cap-list{list-style:none;display:flex;flex-direction:column;gap:0.45rem;}
+.cap-list li{font-size:0.78rem;color:var(--text-dim);font-weight:300;display:flex;align-items:flex-start;gap:0.6rem;}
+.cap-list li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:0.6;flex-shrink:0;margin-top:0.42rem;}
+/* data maturity ladder */
+.ladder-wrap{margin-top:3.5rem;display:grid;grid-template-columns:1fr 1.8fr;gap:4rem;align-items:start;}
+.ladder-intro p{font-size:1rem;color:var(--text-dim);font-weight:300;line-height:1.8;margin-bottom:1.2rem;}.ladder-intro strong{color:var(--text);font-weight:500;}
+.ladder{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+.ladder-rung{background:var(--bg-surface);padding:1.6rem 2rem;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1.6rem;transition:background 0.25s;cursor:default;}.ladder-rung:hover{background:rgba(62,201,232,0.04);}
+.rung-level{font-family:'Exo 2',sans-serif;font-weight:800;font-size:1.4rem;color:rgba(62,201,232,0.25);line-height:1;width:2.2rem;text-align:center;}
+.ladder-rung.lit .rung-level{color:var(--accent);}
+.rung-body h4{font-size:0.88rem;font-weight:600;color:var(--text);margin-bottom:0.2rem;}
+.rung-body p{font-size:0.78rem;color:var(--text-dim);font-weight:300;line-height:1.5;}
+.rung-tag{font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.25rem 0.65rem;border-radius:3px;white-space:nowrap;}
+.rung-tag.achieved{background:rgba(62,201,232,0.12);border:1px solid rgba(62,201,232,0.3);color:var(--accent);}
+.rung-tag.target{background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--text-dimmer);}
+/* stack grid */
+.stack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:3.5rem;}
+.stack-card{background:var(--bg-surface);padding:1.8rem 1.6rem;transition:background 0.3s;}.stack-card:hover{background:rgba(62,201,232,0.04);}
+.stack-layer{font-family:'Exo 2',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem;}
+.stack-card h4{font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;}
+.stack-tools{display:flex;flex-direction:column;gap:0.3rem;}
+.stack-tool{font-size:0.74rem;color:var(--text-dim);font-weight:300;}
+.process-timeline{margin-top:3.5rem;display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+.process-step{background:var(--bg-surface);padding:2.2rem 1.8rem;transition:background 0.3s;}.process-step:hover{background:rgba(62,201,232,0.04);}
+.step-number{width:44px;height:44px;border-radius:50%;border:1px solid rgba(62,201,232,0.3);display:flex;align-items:center;justify-content:center;font-family:'Exo 2',sans-serif;font-weight:700;font-size:0.9rem;color:var(--accent);margin-bottom:1.2rem;transition:background 0.3s,box-shadow 0.3s;}
+.process-step:hover .step-number{background:var(--accent-dim);box-shadow:0 0 20px var(--accent-dim);}
+.process-step h4{font-size:0.88rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--text);margin-bottom:0.6rem;}
+.process-step p{font-size:0.8rem;color:var(--text-dim);font-weight:300;line-height:1.6;}
+.outcomes-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-top:3.5rem;}
+.outcomes-visual{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+.outcome-stat{background:var(--bg-surface);padding:2.2rem 2rem;text-align:center;transition:background 0.3s;}.outcome-stat:hover{background:rgba(62,201,232,0.04);}
+.outcome-num{font-family:'Exo 2',sans-serif;font-weight:700;font-size:2.8rem;color:var(--accent);line-height:1;display:block;margin-bottom:0.5rem;}
+.outcome-label{font-size:0.78rem;color:var(--text-dim);font-weight:300;line-height:1.4;}
+.outcomes-list{display:flex;flex-direction:column;gap:1.2rem;}
+.outcome-item{display:flex;align-items:flex-start;gap:1.2rem;padding:1.4rem 1.6rem;background:var(--bg-surface);border:1px solid var(--border);border-radius:8px;transition:border-color 0.25s,background 0.25s;}
+.outcome-item:hover{border-color:var(--border-lit);background:rgba(62,201,232,0.03);}
+.outcome-check{width:30px;height:30px;border-radius:6px;background:var(--accent-dim);border:1px solid rgba(62,201,232,0.3);display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:0.85rem;font-weight:700;flex-shrink:0;margin-top:1px;}
+.outcome-item h4{font-size:0.9rem;font-weight:600;margin-bottom:0.25rem;color:var(--text);}
+.outcome-item p{font-size:0.82rem;color:var(--text-dim);font-weight:300;line-height:1.55;}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:2.5rem;}
+.related-card{background:var(--bg-surface);padding:2rem;text-decoration:none;display:block;transition:background 0.3s;position:relative;overflow:hidden;}
+.related-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 0.35s;}
+.related-card:hover{background:rgba(62,201,232,0.04);}.related-card:hover::after{transform:scaleX(1);}
+.related-icon{font-size:1.6rem;margin-bottom:0.8rem;display:block;}
+.related-card h4{font-size:0.9rem;font-weight:600;color:var(--text);margin-bottom:0.4rem;}
+.related-card p{font-size:0.8rem;color:var(--text-dim);font-weight:300;line-height:1.55;}
+.related-arrow{color:var(--accent);font-size:0.8rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-top:1rem;display:block;transition:letter-spacing 0.3s;}
+.related-card:hover .related-arrow{letter-spacing:0.12em;}
+.cta-section{position:relative;z-index:1;background:var(--bg-surface);border-top:1px solid var(--border);padding:6rem 2.5rem;overflow:hidden;}
+.cta-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:400px;background:radial-gradient(ellipse,rgba(62,201,232,0.07) 0%,transparent 65%);pointer-events:none;}
+.cta-inner{max-width:760px;margin:0 auto;text-align:center;position:relative;z-index:1;}
+.cta-inner h2{font-family:'Exo 2',sans-serif;font-weight:200;font-size:clamp(2rem,4vw,3rem);letter-spacing:0.08em;text-transform:uppercase;line-height:1.1;margin-bottom:1.2rem;}
+.cta-inner h2 em{font-style:normal;color:var(--accent);}
+.cta-inner p{font-size:1rem;color:var(--text-dim);font-weight:300;line-height:1.7;margin-bottom:2.4rem;}
+.cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.footer{background:var(--bg-surface);border-top:1px solid var(--border);color:white;padding:5rem 2.5rem 2.5rem;position:relative;z-index:1;}
+.footer-container{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;margin-bottom:3rem;}
+.footer-brand p{color:var(--text-dim);font-size:0.9rem;line-height:1.7;font-weight:300;max-width:280px;}
+.footer-col h4{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-dimmer);margin-bottom:1.2rem;}
+.footer-col ul{list-style:none;}.footer-col ul li{margin-bottom:0.7rem;}
+.footer-col ul li a{color:var(--text-dim);text-decoration:none;font-size:0.88rem;font-weight:300;transition:color 0.2s;}.footer-col ul li a:hover{color:var(--text);}
+.footer-bottom{max-width:var(--max);margin:0 auto;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;color:var(--text-dimmer);font-size:0.8rem;letter-spacing:0.04em;}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.6s ease-out,transform 0.6s ease-out;}.reveal.active{opacity:1;transform:translateY(0);}
+@media(max-width:1024px){.hero-grid,.overview-grid,.outcomes-grid,.ladder-wrap{grid-template-columns:1fr;gap:3rem;}.who-card{position:static;}.cap-grid{grid-template-columns:1fr 1fr;}.stack-grid{grid-template-columns:1fr 1fr;}.process-timeline{grid-template-columns:repeat(3,1fr);}.related-grid{grid-template-columns:1fr 1fr;}.footer-container{grid-template-columns:1fr 1fr;}}
+@media(max-width:640px){.section{padding:4rem 1.5rem;}.breadcrumb{padding:96px 1.5rem 0;}.hero{padding:32px 1.5rem 60px;}.hero h1{font-size:2.4rem;}.nav-menu{display:none;}.cap-grid,.related-grid{grid-template-columns:1fr;}.stack-grid{grid-template-columns:1fr 1fr;}.process-timeline{grid-template-columns:1fr 1fr;}.panel-stats,.outcomes-visual{grid-template-columns:1fr 1fr;}.ladder-rung{grid-template-columns:auto 1fr;}}
 </style>
 </head>
 <body>
 <nav class="navbar">
   <div class="nav-container">
     <a href="../index.html" class="logo">
-      <img src="../metamorphex-logo.png" alt="Metamorphex" style="height:38px;width:auto;">
-      <span style="background:var(--gf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Metamorphex</span>
+      <img class="logo-mark" src="../metamorphex-logo.png" alt="Metamorphex">
+      <div class="logo-sep"></div>
+      <div class="logo-wordmark">
+        <span class="logo-wordmark-text" id="nav-wt">METAMORPHE</span>
+        <span class="logo-wordmark-x" id="nav-wx"></span>
+      </div>
     </a>
-    <a href="../index.html#contact" class="nav-cta">Contact Us</a>
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a class="nav-link">Services <span class="arrow">▼</span></a>
+        <div class="mega-menu">
+          <a href="cloud-consulting.html" class="dropdown-item">Cloud Consulting & Implementation</a>
+          <a href="ai-ml.html" class="dropdown-item">AI & ML Advisory</a>
+          <a href="analytics.html" class="dropdown-item active">Data Analytics Strategy</a>
+          <a href="project-management.html" class="dropdown-item">Project Management Services</a>
+          <a href="policy-governance.html" class="dropdown-item">Policy & Governance</a>
+          <a href="compliance-risk.html" class="dropdown-item">Compliance & Risk Advisory</a>
+          <a href="risk-assessment.html" class="dropdown-item">Risk Assessment & Intelligence</a>
+          <a href="it-infrastructure.html" class="dropdown-item">IT Infrastructure Consulting</a>
+          <a href="digital-transformation.html" class="dropdown-item">Digital Transformation</a>
+          <a href="strategic-advisory.html" class="dropdown-item">Strategic IT Advisory</a>
+          <a href="enterprise-applications.html" class="dropdown-item">Enterprise Applications</a>
+          <a href="cybersecurity.html" class="dropdown-item">Cybersecurity Consulting</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">Industries <span class="arrow">▼</span></a>
+        <div class="mega-menu">
+          <a href="../industries/financial-services.html" class="dropdown-item">Financial Services</a>
+          <a href="../industries/healthcare.html" class="dropdown-item">Healthcare</a>
+          <a href="../industries/retail.html" class="dropdown-item">Retail & E-commerce</a>
+          <a href="../industries/manufacturing.html" class="dropdown-item">Manufacturing</a>
+          <a href="../industries/public-sector.html" class="dropdown-item">Public Sector</a>
+          <a href="../industries/technology.html" class="dropdown-item">Technology</a>
+          <a href="../industries/energy.html" class="dropdown-item">Energy & Utilities</a>
+          <a href="../industries/telecom.html" class="dropdown-item">Telecommunications</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">Products <span class="arrow">▼</span></a>
+        <div class="mega-menu">
+          <a href="products/metapolicypulse.html" class="dropdown-item">MetaPolicyPulse</a>
+          
+        </div>
+      </li>
+      <li class="nav-item"><a href="../index.html#case-studies" class="nav-link">Insights</a></li>
+      <li class="nav-item"><a href="../index.html#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <a href="../index.html#contact" class="nav-cta">Get Started</a>
   </div>
 </nav>
-
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="../index.html">Home</a><span class="sep">/</span>
+    <a href="../index.html#services">Services</a><span class="sep">/</span>
+    <span class="current">Data Analytics & Business Intelligence</span>
+  </div>
+</div>
 <section class="hero">
-  <div class="hero-inner">
-    <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../index.html#services">Services</a> / Data Analytics Strategy</div>
-    <div class="hero-icon">📊</div>
-    <h1>Data Analytics Strategy</h1>
-    <p>We design and implement analytics foundations — data lakes, warehouses, BI layers, and governance frameworks — that turn scattered data into a strategic asset.</p>
-  </div>
-</section>
-
-<section class="section" style="background:var(--bgl);">
-  <div class="inner">
-    <div class="lbl">Case Studies</div>
-    <h2 class="h2">What We've Delivered</h2>
-    <div class="cards">
-      <div class="card">
-        <div class="tag"><span>Data Lake</span></div>
-        <h3>Enterprise Data Platform for Retail Group</h3>
-        <p>Built a unified data lake on Google BigQuery for a retail group with 200+ stores, consolidating 18 source systems into a single analytics layer with real-time POS streaming.</p>
-        <div class="results"><div><span class="rnum">4 hrs → 12 min</span><span class="rlbl">Report Generation Time</span></div><div><span class="rnum">18</span><span class="rlbl">Source Systems Unified</span></div></div>
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow"><span class="dot"></span>Data Analytics & Business Intelligence</div>
+      <h1>Data You Have.<br>Decisions You<br><em>Actually Make.</em></h1>
+      <p class="hero-lead">Most organisations are sitting on more data than they know what to do with. The problem is not collection — it is the architecture, governance, and analytical capability that turns raw data into decisions that move the business. We build that capability, end to end.</p>
+      <div class="hero-actions">
+        <a href="../index.html#contact" class="btn btn-primary">Book a Data Assessment →</a>
+        <a href="#capabilities" class="btn btn-ghost">See Capabilities</a>
       </div>
-      <div class="card">
-        <div class="tag"><span>BI & Reporting</span></div>
-        <h3>Real-Time Executive Dashboard for Healthcare Network</h3>
-        <p>Data Refresh Frequency</p>
-        <div class="results"><div><span class="rnum">85%</span><span class="rlbl">Reduction in Manual Reporting</span></div><div><span class="rnum">How We Unified 18 Data Sources and Cut Reporting Time by 95%</span><span class="rlbl"></span></div></div>
+    </div>
+    <div class="hero-panel reveal">
+      <div class="hero-panel-header">
+        <div class="service-icon-lg">📊</div>
+        <div><h3>Service Overview</h3><p>Data Analytics & Business Intelligence</p></div>
+      </div>
+      <div class="panel-stats">
+        <div class="panel-stat"><span class="panel-stat-num">73%</span><span class="panel-stat-label">Of enterprise data goes unanalysed — the opportunity is in the data you already have</span></div>
+        <div class="panel-stat"><span class="panel-stat-num">3×</span><span class="panel-stat-label">Faster decision cycles in organisations with self-service BI vs centralised reporting</span></div>
+        <div class="panel-stat"><span class="panel-stat-num">Lakehouse</span><span class="panel-stat-label">Modern data architecture standard — unifying structured, semi-structured, and unstructured data</span></div>
+        <div class="panel-stat"><span class="panel-stat-num">Real-time</span><span class="panel-stat-label">Streaming analytics pipelines for decisions that cannot wait for a nightly batch run</span></div>
+      </div>
+      <div class="panel-tags">
+        <span class="fw-tag">dbt</span><span class="fw-tag">Snowflake</span><span class="fw-tag">BigQuery</span><span class="fw-tag">Databricks</span>
+        <span class="fw-tag">Power BI</span><span class="fw-tag">Tableau</span><span class="fw-tag">Apache Kafka</span><span class="fw-tag">Data Mesh</span>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="inner">
-    <div class="lbl">Insights & Resources</div>
-    <h2 class="h2">Knowledge Centre</h2>
-    <p class="desc">Whitepapers, case studies, and expert articles on Data Analytics Strategy</p>
-    <div class="insights">
-      <div class="ins"><div class="ins-top">Whitepaper</div><div class="ins-body"><h3>15 min</h3><p>Modern Data Stack Selection Guide for Enterprises</p><a href="#" class="ins-link">Download PDF →</a></div></div>
-      <div class="ins"><div class="ins-top">Case Study</div><div class="ins-body"><h3></h3><p>A detailed look at how we tackled a complex Data Analytics Strategy engagement and delivered measurable outcomes for the client.</p><a href="#" class="ins-link">Read Case Study →</a></div></div>
-      <div class="ins"><div class="ins-top">Blog Post</div><div class="ins-body"><h3>Trends in Data Analytics Strategy for 2026</h3><p>Our consultants share the latest developments, emerging best practices, and what decision-makers need to know going into 2026.</p><a href="#" class="ins-link">Read Article →</a></div></div>
+<section class="section bg-surface reveal">
+  <div class="wrap">
+    <span class="section-eyebrow">01 — Overview</span>
+    <h2 class="section-title">What Data Analytics<br>Means at Metamorphex</h2>
+    <div class="overview-grid">
+      <div class="overview-body">
+        <p>The data problem in most organisations is not a shortage of data — it is a shortage of the architecture, quality, and analytical capability that makes data usable. Reports that take weeks to produce. Dashboards that nobody trusts because the numbers never quite agree. Analysts who spend 80% of their time preparing data and 20% actually analysing it. These are solvable engineering and governance problems, and they are what we specialise in.</p>
+        <p>Our analytics practice operates across the full data value chain: <strong>data strategy and architecture, data engineering and pipeline design, semantic layer and data modelling, BI platform implementation, and advanced analytics and AI integration</strong>. We do not implement BI tools in isolation — we design the data foundation that makes BI accurate, fast, and trustworthy first.</p>
+        <p>We have deep experience in <strong>modern data stack architecture</strong> — the combination of cloud-native data warehouses, transformation frameworks like dbt, and self-service BI tools that has replaced the traditional enterprise data warehouse as the standard for organisations that need to move fast. We also operate at the frontier of <strong>AI-augmented analytics</strong> — embedding machine learning models, LLM-driven natural language querying, and Graph Neural Network-based fraud and anomaly detection into analytics platforms.</p>
+        <p>Critically, we bring operational data analytics experience from complex international environments — including <strong>peacekeeping operations fraud detection programmes</strong> that achieved 40% fraud reduction across multi-country deployments — that gives our analytics work a credibility and depth that purely commercial practitioners cannot match.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-card-header">Who this service is for</div>
+        <ul class="who-list">
+          <li><span class="who-icon">🏦</span><div><h4>Financial Services & FinTech</h4><p>Banks, NBFCs, and payments companies needing risk analytics, fraud detection, regulatory reporting automation, and customer behaviour intelligence.</p></div></li>
+          <li><span class="who-icon">🏛️</span><div><h4>International Organisations & Public Sector</h4><p>Multilateral bodies and government agencies needing operational analytics, KPI frameworks, and accountability reporting across distributed, multi-country programmes.</p></div></li>
+          <li><span class="who-icon">🛒</span><div><h4>Retail & E-Commerce</h4><p>Consumer businesses needing customer analytics, demand forecasting, inventory optimisation, and real-time campaign performance measurement.</p></div></li>
+          <li><span class="who-icon">⚙️</span><div><h4>Operations-Intensive Enterprises</h4><p>Manufacturing, logistics, and supply chain organisations where operational data analytics directly drives efficiency, quality, and cost reduction at scale.</p></div></li>
+          <li><span class="who-icon">🚀</span><div><h4>Scaling Technology Companies</h4><p>SaaS and product companies building product analytics, growth instrumentation, and the data infrastructure that drives product-led growth decisions.</p></div></li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="cta-sec">
-  <h2>Ready to Get Started with Data Analytics Strategy?</h2>
-  <p>Let's scope your engagement and put together a tailored plan.</p>
-  <a href="../index.html#contact" class="btn">Schedule a Consultation →</a>
+<section class="section reveal" id="capabilities">
+  <div class="wrap">
+    <span class="section-eyebrow">02 — Capabilities</span>
+    <h2 class="section-title">What We Do</h2>
+    <p class="section-sub">Six capability areas covering the complete journey from raw data to executive decision intelligence.</p>
+    <div class="cap-grid">
+      <div class="cap-card">
+        <div class="cap-num">01</div>
+        <h3>Data Strategy & Architecture</h3>
+        <p>The foundation before any tooling — a data architecture that is fit for your workload, your growth trajectory, and your analytical use cases.</p>
+        <ul class="cap-list">
+          <li>Data maturity assessment and target architecture design</li>
+          <li>Modern data stack selection — data warehouse, lakehouse, or hybrid</li>
+          <li>Data mesh vs centralised architecture trade-off analysis</li>
+          <li>Data governance framework and data ownership model design</li>
+          <li>Cloud platform data architecture (AWS, Azure, GCP)</li>
+        </ul>
+      </div>
+      <div class="cap-card">
+        <div class="cap-num">02</div>
+        <h3>Data Engineering & Pipeline Design</h3>
+        <p>The pipelines, transformations, and orchestration that move data from source systems to analytics-ready form — reliably, at scale, with full observability.</p>
+        <ul class="cap-list">
+          <li>ELT pipeline design and implementation (Fivetran, Airbyte, custom)</li>
+          <li>dbt transformation layer design — models, tests, documentation</li>
+          <li>Streaming pipeline architecture (Apache Kafka, Kinesis, Pub/Sub)</li>
+          <li>Data quality framework — profiling, validation, alerting</li>
+          <li>Data lineage and metadata management implementation</li>
+        </ul>
+      </div>
+      <div class="cap-card">
+        <div class="cap-num">03</div>
+        <h3>Data Warehouse & Lakehouse Implementation</h3>
+        <p>Cloud-native data platform implementation — designed for analytical performance, cost efficiency, and the access patterns your BI and data science teams actually need.</p>
+        <ul class="cap-list">
+          <li>Snowflake, BigQuery, and Databricks implementation and optimisation</li>
+          <li>Dimensional modelling and semantic layer design</li>
+          <li>Delta Lake / Iceberg lakehouse architecture for unified analytics</li>
+          <li>Data access control, row-level security, and masking policies</li>
+          <li>Cost governance and query optimisation</li>
+        </ul>
+      </div>
+      <div class="cap-card">
+        <div class="cap-num">04</div>
+        <h3>BI Platform & Self-Service Analytics</h3>
+        <p>Business intelligence that business users can actually use — dashboards that are trusted, fast, and designed around the decisions they are meant to support.</p>
+        <ul class="cap-list">
+          <li>Power BI and Tableau enterprise implementation and governance</li>
+          <li>Semantic model design — consistent metrics, calculations, and hierarchies</li>
+          <li>Self-service BI enablement and data literacy training</li>
+          <li>Executive dashboard and KPI scorecard design</li>
+          <li>Embedded analytics integration into operational applications</li>
+        </ul>
+      </div>
+      <div class="cap-card">
+        <div class="cap-num">05</div>
+        <h3>Advanced Analytics & AI Integration</h3>
+        <p>Moving beyond descriptive dashboards — predictive models, anomaly detection, and AI-driven analytical capabilities embedded directly into the data platform.</p>
+        <ul class="cap-list">
+          <li>Fraud and anomaly detection using ML and Graph Neural Networks</li>
+          <li>Predictive analytics models integrated into BI dashboards</li>
+          <li>Natural language querying using LLM-powered semantic layers</li>
+          <li>Customer segmentation, propensity, and churn modelling</li>
+          <li>Demand forecasting and operational optimisation models</li>
+        </ul>
+      </div>
+      <div class="cap-card">
+        <div class="cap-num">06</div>
+        <h3>Data Governance & Compliance Analytics</h3>
+        <p>Data cataloguing, classification, lineage, and governance controls — ensuring data is trusted, compliant with DPDPA and regulatory requirements, and managed as an organisational asset.</p>
+        <ul class="cap-list">
+          <li>Data catalogue implementation (Atlan, Collibra, OpenMetadata)</li>
+          <li>Data classification and sensitivity labelling</li>
+          <li>Regulatory reporting automation (RBI, SEBI, DPDPA data obligations)</li>
+          <li>Master data management programme design</li>
+          <li>Data retention, archival, and deletion policy implementation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>
+
+<section class="section bg-surface reveal">
+  <div class="wrap">
+    <span class="section-eyebrow">03 — Data Maturity Model</span>
+    <h2 class="section-title">Where You Are.<br>Where We Take You.</h2>
+    <div class="ladder-wrap">
+      <div class="ladder-intro">
+        <p>Every analytics engagement starts with an honest assessment of where your organisation currently sits on the data maturity ladder — and a realistic plan for how far to move, and in what sequence.</p>
+        <p>Most organisations underestimate the gap between their current state and where they want to be. <strong>The most common mistake is investing in BI tooling before the data engineering foundation is stable</strong> — producing dashboards that nobody trusts because the underlying data is unreliable.</p>
+        <p>We sequence investments to build on each other — foundation first, insight last.</p>
+      </div>
+      <div class="ladder">
+        <div class="ladder-rung lit">
+          <div class="rung-level">5</div>
+          <div class="rung-body"><h4>Decision Intelligence</h4><p>AI-augmented decisions. Predictive and prescriptive analytics embedded in operations. Data drives autonomous actions and strategic choices in near-real-time.</p></div>
+          <span class="rung-tag target">Target State</span>
+        </div>
+        <div class="ladder-rung lit">
+          <div class="rung-level">4</div>
+          <div class="rung-body"><h4>Advanced Analytics</h4><p>Predictive models, ML integration, and statistical analysis operating on a clean, governed data foundation. Analysts focus on insight, not data preparation.</p></div>
+          <span class="rung-tag target">Advanced</span>
+        </div>
+        <div class="ladder-rung lit">
+          <div class="rung-level">3</div>
+          <div class="rung-body"><h4>Self-Service BI</h4><p>Trusted dashboards, shared semantic models, and business users who can answer their own questions without raising tickets. Single source of truth established.</p></div>
+          <span class="rung-tag target">Proficient</span>
+        </div>
+        <div class="ladder-rung">
+          <div class="rung-level">2</div>
+          <div class="rung-body"><h4>Structured Reporting</h4><p>Centralised data warehouse, consistent definitions, reliable pipelines. Reports are accurate but slow and centralised — analysts are a bottleneck.</p></div>
+          <span class="rung-tag achieved">Common Start</span>
+        </div>
+        <div class="ladder-rung">
+          <div class="rung-level">1</div>
+          <div class="rung-body"><h4>Fragmented Data</h4><p>Siloed systems, spreadsheet-driven reporting, no single source of truth. Analysts spend most time collecting and reconciling data rather than analysing it.</p></div>
+          <span class="rung-tag achieved">Common Start</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="wrap">
+    <span class="section-eyebrow">04 — Modern Data Stack</span>
+    <h2 class="section-title">The Technology We Work With</h2>
+    <p class="section-sub">We are platform-agnostic — we select tooling based on your workload, budget, and existing ecosystem. These are the platforms our engineers work with daily.</p>
+    <div class="stack-grid">
+      <div class="stack-card">
+        <div class="stack-layer">Ingestion</div>
+        <h4>Data Sources & ELT</h4>
+        <div class="stack-tools">
+          <div class="stack-tool">Fivetran — managed connectors</div>
+          <div class="stack-tool">Airbyte — open-source ELT</div>
+          <div class="stack-tool">Apache Kafka — streaming ingestion</div>
+          <div class="stack-tool">AWS Kinesis / Pub/Sub</div>
+          <div class="stack-tool">Custom API connectors</div>
+        </div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-layer">Storage & Compute</div>
+        <h4>Warehouse & Lakehouse</h4>
+        <div class="stack-tools">
+          <div class="stack-tool">Snowflake — cloud data warehouse</div>
+          <div class="stack-tool">Google BigQuery — serverless analytics</div>
+          <div class="stack-tool">Databricks — unified data + AI</div>
+          <div class="stack-tool">Azure Synapse Analytics</div>
+          <div class="stack-tool">Delta Lake / Apache Iceberg</div>
+        </div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-layer">Transformation</div>
+        <h4>Modelling & Orchestration</h4>
+        <div class="stack-tools">
+          <div class="stack-tool">dbt — SQL transformation layer</div>
+          <div class="stack-tool">Apache Airflow — orchestration</div>
+          <div class="stack-tool">Prefect / Dagster — modern workflows</div>
+          <div class="stack-tool">Great Expectations — data quality</div>
+          <div class="stack-tool">Monte Carlo — data observability</div>
+        </div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-layer">Visualisation</div>
+        <h4>BI & Dashboarding</h4>
+        <div class="stack-tools">
+          <div class="stack-tool">Power BI — Microsoft ecosystem</div>
+          <div class="stack-tool">Tableau — enterprise visualisation</div>
+          <div class="stack-tool">Looker — semantic layer BI</div>
+          <div class="stack-tool">Metabase — open-source BI</div>
+          <div class="stack-tool">Observable / Evidence</div>
+        </div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-layer">Advanced Analytics</div>
+        <h4>ML & AI Integration</h4>
+        <div class="stack-tools">
+          <div class="stack-tool">Python (pandas, scikit-learn)</div>
+          <div class="stack-tool">PyTorch / TensorFlow</div>
+          <div class="stack-tool">Graph Neural Networks (PyG)</div>
+          <div class="stack-tool">LangChain — NL querying</div>
+          <div class="stack-tool">MLflow — experiment tracking</div>
+        </div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-layer">Governance</div>
+        <h4>Catalogue & Lineage</h4>
+        <div class="stack-tools">
+          <div class="stack-tool">Atlan — modern data catalogue</div>
+          <div class="stack-tool">OpenMetadata — open-source</div>
+          <div class="stack-tool">Collibra — enterprise governance</div>
+          <div class="stack-tool">dbt docs — lineage via transforms</div>
+          <div class="stack-tool">Alation — data intelligence</div>
+        </div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-layer">Real-time</div>
+        <h4>Streaming Analytics</h4>
+        <div class="stack-tools">
+          <div class="stack-tool">Apache Flink — stream processing</div>
+          <div class="stack-tool">Spark Streaming</div>
+          <div class="stack-tool">ksqlDB — Kafka SQL queries</div>
+          <div class="stack-tool">Materialize — real-time views</div>
+          <div class="stack-tool">Redpanda — Kafka-compatible</div>
+        </div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-layer">Fraud & Risk</div>
+        <h4>Specialised Analytics</h4>
+        <div class="stack-tools">
+          <div class="stack-tool">Graph Neural Networks (GNN)</div>
+          <div class="stack-tool">Federated learning frameworks</div>
+          <div class="stack-tool">Neo4j — graph database</div>
+          <div class="stack-tool">Isolation Forest anomaly detection</div>
+          <div class="stack-tool">Custom risk scoring engines</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-surface reveal">
+  <div class="wrap">
+    <span class="section-eyebrow">05 — How We Work</span>
+    <h2 class="section-title">Our Engagement Process</h2>
+    <p class="section-sub">A five-phase model from data landscape assessment to a production analytics platform delivering measurable business outcomes.</p>
+    <div class="process-timeline">
+      <div class="process-step"><div class="step-number">01</div><h4>Assess</h4><p>Data landscape audit — source system inventory, data quality assessment, current analytics capability review, and maturity scoring. We identify the highest-value analytical use cases before designing any architecture.</p></div>
+      <div class="process-step"><div class="step-number">02</div><h4>Architect</h4><p>Modern data stack selection and architecture design — warehouse, ingestion tooling, transformation layer, semantic model, and BI platform. Governance model and data ownership framework defined before build begins.</p></div>
+      <div class="process-step"><div class="step-number">03</div><h4>Engineer</h4><p>Data pipeline build — ELT connectors, dbt transformation models with full testing coverage, orchestration workflows, and data quality monitoring. Every pipeline documented and observable from day one.</p></div>
+      <div class="process-step"><div class="step-number">04</div><h4>Visualise</h4><p>BI platform implementation — semantic model deployment, dashboard and report build for priority use cases, self-service training, and executive KPI scorecard delivery. Data is now accurate, fast, and usable.</p></div>
+      <div class="process-step"><div class="step-number">05</div><h4>Advance</h4><p>ML and advanced analytics layer — predictive models, anomaly detection, NLP querying, and AI-augmented dashboards. Analytics evolves from describing what happened to predicting and prescribing what to do next.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="wrap">
+    <span class="section-eyebrow">06 — Outcomes</span>
+    <h2 class="section-title">What You Walk Away With</h2>
+    <div class="outcomes-grid">
+      <div class="outcomes-visual">
+        <div class="outcome-stat"><span class="outcome-num">73%</span><span class="outcome-label">Reduction in analyst time spent on data preparation vs actual analysis</span></div>
+        <div class="outcome-stat"><span class="outcome-num">3×</span><span class="outcome-label">Faster decision cycles with self-service BI vs centralised report requests</span></div>
+        <div class="outcome-stat"><span class="outcome-num">40%</span><span class="outcome-label">Fraud reduction achieved in GNN-based detection deployment across peacekeeping operations</span></div>
+        <div class="outcome-stat"><span class="outcome-num">Single</span><span class="outcome-label">Source of truth — one set of numbers the whole organisation agrees on</span></div>
+      </div>
+      <div class="outcomes-list">
+        <div class="outcome-item"><div class="outcome-check">✓</div><div><h4>Data Your Organisation Actually Trusts</h4><p>A semantic layer and transformation framework that produces consistent, tested, documented metrics — so the CFO and the product manager see the same number, derived the same way.</p></div></div>
+        <div class="outcome-item"><div class="outcome-check">✓</div><div><h4>Business Users Who Don't Need to Raise Tickets</h4><p>Self-service BI that empowers analysts and business users to answer their own questions — reducing the data engineering bottleneck and increasing the speed at which data drives decisions.</p></div></div>
+        <div class="outcome-item"><div class="outcome-check">✓</div><div><h4>Analytics That Work in Real Time</h4><p>Streaming pipelines and real-time dashboards for the use cases where nightly batch is not fast enough — fraud detection, live operational monitoring, and customer-facing analytics.</p></div></div>
+        <div class="outcome-item"><div class="outcome-check">✓</div><div><h4>A Platform That Grows With You</h4><p>Modern data stack architecture designed for evolution — new data sources, new use cases, and new analytical capabilities added without tearing down and rebuilding the foundation.</p></div></div>
+        <div class="outcome-item"><div class="outcome-check">✓</div><div><h4>Compliance Built Into the Data Layer</h4><p>DPDPA, RBI, and SEBI data obligations addressed in the architecture — classification, lineage, access controls, and retention policies embedded rather than retrofitted when the regulator asks.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-surface reveal">
+  <div class="wrap">
+    <span class="section-eyebrow">07 — Related Services</span>
+    <h2 class="section-title">Often Paired With</h2>
+    <p class="section-sub">Analytics delivers the most value when connected to the AI capabilities and cloud infrastructure that unlock its full potential.</p>
+    <div class="related-grid">
+      <a href="ai-ml.html" class="related-card"><span class="related-icon">🤖</span><h4>AI & ML Advisory</h4><p>The analytics foundation we build is the data layer that ML models train and run on — the two practices are designed as a continuous stack.</p><span class="related-arrow">Explore →</span></a>
+      <a href="cloud-consulting.html" class="related-card"><span class="related-icon">☁️</span><h4>Cloud Consulting</h4><p>Modern data platforms are cloud-native. Cloud migration and analytics architecture are most efficiently designed and delivered together.</p><span class="related-arrow">Explore →</span></a>
+      <a href="risk-assessment.html" class="related-card"><span class="related-icon">🎯</span><h4>Risk Assessment & Intelligence</h4><p>GNN-based fraud detection and risk scoring are analytics capabilities — built on the same data engineering foundations we lay in analytics engagements.</p><span class="related-arrow">Explore →</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section reveal">
+  <div class="cta-inner">
+    <h2>Ready to Make Your<br>Data Work <em>For</em> You?</h2>
+    <p>Book a no-obligation data assessment. We will review your current data landscape, identify your highest-value analytical use cases, and outline a practical path from where you are to where you need to be.</p>
+    <div class="cta-buttons">
+      <a href="../index.html#contact" class="btn btn-primary">Book a Data Assessment →</a>
+      <a href="mailto:contact@metamorphex.tech" class="btn btn-ghost">Email Us Directly</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <div style="display:flex;align-items:center;gap:0;margin-bottom:1.2rem;">
+        <img src="../metamorphex-logo.png" alt="Metamorphex" style="height:38px;width:auto;">
+        <div style="width:1px;height:22px;background:rgba(255,255,255,0.1);margin:0 16px;"></div>
+        <div style="display:flex;align-items:baseline;">
+          <span id="footer-wt" style="font-family:'Exo 2',sans-serif;font-weight:200;font-size:16px;letter-spacing:0.20em;text-transform:uppercase;color:rgba(255,255,255,0.85);">METAMORPHE</span>
+          <span id="footer-wx" style="display:inline-block;position:relative;"></span>
+        </div>
+      </div>
+      <p>Expert IT consulting and implementation services for enterprise digital transformation.</p>
+    </div>
+    <div class="footer-col"><h4>Services</h4><ul><li><a href="cloud-consulting.html">Cloud Consulting</a></li><li><a href="ai-ml.html">AI & ML Advisory</a></li><li><a href="compliance-risk.html">Compliance & Risk</a></li><li><a href="digital-transformation.html">Digital Transformation</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="../index.html#expertise">Expertise</a></li><li><a href="../index.html#case-studies">Case Studies</a></li><li><a href="careers.html">Careers</a></li><li><a href="../index.html#contact">Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Connect</h4><ul><li><a href="https://www.linkedin.com/company/metamorphex/">LinkedIn</a></li><li><a href="mailto:contact@metamorphex.tech">Email</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 Metamorphex. All rights reserved.</p><p>IT Consulting & Implementation Services · Noida, India</p></div>
+</footer>
+<script>
+function buildLogoX(t,x){const el=document.getElementById(t),xel=document.getElementById(x);if(!el||!xel)return;const fs=parseFloat(getComputedStyle(el).fontSize),ls=parseFloat(getComputedStyle(el).letterSpacing)||0,capH=Math.round(fs*0.73),xW=Math.round(fs*0.64),thin=Math.max(1.2,fs*0.042),thick=Math.max(3.5,fs*0.134);xel.style.cssText=`display:inline-block;position:relative;width:${xW+ls}px;height:${capH}px;vertical-align:baseline;`;xel.innerHTML=`<svg viewBox="0 0 ${xW} ${capH}" width="${xW}" height="${capH}" style="display:block;overflow:visible;position:absolute;bottom:0;left:0;"><line x1="1" y1="1" x2="${xW-1}" y2="${capH-1}" stroke="rgba(220,232,245,0.75)" stroke-width="${thin}" stroke-linecap="round"/><line x1="1" y1="${capH-1}" x2="${xW-1}" y2="1" stroke="#3EC9E8" stroke-width="${thick}" stroke-linecap="round"/></svg>`;}
+(document.fonts?document.fonts.ready:Promise.resolve()).then(()=>{buildLogoX('nav-wt','nav-wx');buildLogoX('footer-wt','footer-wx');});
+document.querySelectorAll('.nav-item').forEach(item=>{const link=item.querySelector('.nav-link'),menu=item.querySelector('.mega-menu');if(!menu)return;link.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();document.querySelectorAll('.nav-item').forEach(o=>{if(o!==item)o.classList.remove('open');});item.classList.toggle('open');});});
+document.addEventListener('click',e=>{if(!e.target.closest('.nav-item'))document.querySelectorAll('.nav-item').forEach(i=>i.classList.remove('open'));});
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('active');obs.unobserve(e.target);}});},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
 </body>
 </html>
