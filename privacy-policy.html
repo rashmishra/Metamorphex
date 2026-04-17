@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | Metamorphex</title>
+<meta name="description" content="Metamorphex Privacy Policy — how we collect, use, protect, and handle personal data in connection with our IT consulting services.">
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent:       #3EC9E8;
+  --accent-dim:   rgba(62,201,232,0.18);
+  --accent-glow:  rgba(62,201,232,0.35);
+  --bg:           #07080D;
+  --bg-surface:   #0D0F17;
+  --border:       rgba(255,255,255,0.07);
+  --text:         #FFFFFF;
+  --text-dim:     rgba(255,255,255,0.55);
+  --text-dimmer:  rgba(255,255,255,0.32);
+  --font:         'Exo 2', -apple-system, sans-serif;
+  --radius:       12px;
+  --max:          1400px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body::before { content: ''; position: fixed; inset: 0; background-image: radial-gradient(1px 1px at 20% 15%,rgba(255,255,255,0.45) 0%,transparent 100%),radial-gradient(1px 1px at 80% 25%,rgba(255,255,255,0.3) 0%,transparent 100%),radial-gradient(1.5px 1.5px at 45% 60%,rgba(255,255,255,0.25) 0%,transparent 100%),radial-gradient(1px 1px at 65% 80%,rgba(255,255,255,0.35) 0%,transparent 100%),radial-gradient(1px 1px at 10% 70%,rgba(255,255,255,0.2) 0%,transparent 100%),radial-gradient(1px 1px at 52% 40%,rgba(62,201,232,0.3) 0%,transparent 100%); pointer-events: none; z-index: 0; }
+
+/* ── NAVBAR ── */
+.navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(7,8,13,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+.nav-container { max-width: var(--max); margin: 0 auto; padding: 0 2.5rem; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+.logo { display: flex; align-items: center; gap: 0; text-decoration: none; transition: opacity 0.2s; }
+.logo:hover { opacity: 0.82; }
+.logo-mark { height: 42px; width: auto; display: block; flex-shrink: 0; }
+.logo-sep { width: 1px; height: 26px; background: rgba(255,255,255,0.13); margin: 0 18px; flex-shrink: 0; }
+.logo-wordmark { display: flex; align-items: baseline; line-height: 1; }
+.logo-wordmark-text { font-family: 'Exo 2', sans-serif; font-weight: 200; font-size: 18px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.88); white-space: nowrap; }
+.logo-wordmark-x { display: inline-block; position: relative; }
+.nav-menu { display: flex; align-items: center; gap: 2.2rem; list-style: none; }
+.nav-item { position: relative; }
+.nav-link { color: var(--text-dim); text-decoration: none; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em; padding: 0.5rem 0; display: flex; align-items: center; gap: 0.4rem; cursor: pointer; transition: color 0.2s; }
+.nav-link:hover { color: var(--text); }
+.nav-link .arrow { font-size: 0.6rem; transition: transform 0.3s; }
+.nav-item.open .arrow { transform: rotate(180deg); }
+.mega-menu { position: absolute; top: calc(100% + 1rem); left: 50%; transform: translateX(-50%); background: rgba(10,12,20,0.97); border: 1px solid var(--border); border-radius: var(--radius); min-width: 300px; padding: 0.5rem 0; opacity: 0; visibility: hidden; pointer-events: none; transition: all 0.25s cubic-bezier(0.4,0,0.2,1); box-shadow: 0 24px 60px rgba(0,0,0,0.7), 0 0 0 1px rgba(62,201,232,0.1); z-index: 100; }
+.nav-item.open .mega-menu { opacity: 1; visibility: visible; pointer-events: all; top: calc(100% + 0.4rem); }
+.dropdown-item { display: block; padding: 0.65rem 1.5rem; color: var(--text-dim); text-decoration: none; font-size: 0.85rem; font-weight: 400; transition: all 0.2s; border-left: 2px solid transparent; }
+.dropdown-item:hover { background: rgba(62,201,232,0.06); border-left-color: var(--accent); color: var(--text); padding-left: 1.8rem; }
+.nav-cta { background: transparent; color: var(--accent); border: 1px solid var(--accent); padding: 0.55rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; transition: all 0.25s; }
+.nav-cta:hover { background: var(--accent); color: var(--bg); box-shadow: 0 0 20px var(--accent-glow); }
+
+/* ── BREADCRUMB ── */
+.breadcrumb { position: relative; z-index: 1; padding: 96px 2.5rem 0; max-width: var(--max); margin: 0 auto; }
+.breadcrumb-inner { display: flex; align-items: center; gap: 0.6rem; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dimmer); }
+.breadcrumb-inner a { color: var(--text-dimmer); text-decoration: none; transition: color 0.2s; }
+.breadcrumb-inner a:hover { color: var(--accent); }
+.breadcrumb-inner .sep { opacity: 0.4; }
+.breadcrumb-inner .current { color: var(--accent); }
+
+/* ── HERO ── */
+.page-hero { position: relative; z-index: 1; padding: 56px 2.5rem 64px; }
+.page-hero-inner { max-width: 800px; }
+.eyebrow { display: inline-flex; align-items: center; gap: 0.7rem; background: rgba(62,201,232,0.08); border: 1px solid rgba(62,201,232,0.25); border-radius: 3px; padding: 0.45rem 1.2rem; font-size: 0.75rem; font-weight: 600; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 2rem; }
+.page-hero h1 { font-family: 'Exo 2', sans-serif; font-weight: 200; font-size: clamp(2.2rem, 4vw, 3.4rem); letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.1; margin-bottom: 1.2rem; }
+.page-hero h1 em { font-style: normal; color: var(--accent); }
+.page-hero .meta { font-size: 0.82rem; color: var(--text-dimmer); font-weight: 400; letter-spacing: 0.04em; }
+
+/* ── CONTENT ── */
+.policy-layout { position: relative; z-index: 1; padding: 0 2.5rem 6rem; }
+.policy-wrap { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 240px 1fr; gap: 5rem; align-items: start; }
+
+/* Table of contents */
+.policy-toc { position: sticky; top: 96px; }
+.toc-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-dimmer); margin-bottom: 1rem; display: block; }
+.toc-list { list-style: none; }
+.toc-list li { margin-bottom: 0.4rem; }
+.toc-list a { font-size: 0.82rem; color: var(--text-dim); text-decoration: none; font-weight: 400; transition: color 0.2s; display: block; padding: 0.3rem 0; border-left: 2px solid transparent; padding-left: 0.75rem; }
+.toc-list a:hover { color: var(--accent); border-left-color: var(--accent); }
+
+/* Policy body */
+.policy-body { min-width: 0; }
+.policy-section { margin-bottom: 3.5rem; padding-bottom: 3.5rem; border-bottom: 1px solid var(--border); }
+.policy-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.policy-section-num { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; display: block; }
+.policy-section h2 { font-family: 'Exo 2', sans-serif; font-weight: 300; font-size: 1.4rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text); margin-bottom: 1.4rem; }
+.policy-section p { font-size: 0.95rem; color: var(--text-dim); font-weight: 300; line-height: 1.85; margin-bottom: 1.1rem; }
+.policy-section p:last-child { margin-bottom: 0; }
+.policy-section strong { color: var(--text); font-weight: 500; }
+.policy-section a { color: var(--accent); text-decoration: none; }
+.policy-section a:hover { text-decoration: underline; }
+.policy-list { list-style: none; margin: 1rem 0 1.2rem; }
+.policy-list li { font-size: 0.93rem; color: var(--text-dim); font-weight: 300; line-height: 1.75; padding: 0.5rem 0 0.5rem 1.4rem; position: relative; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.policy-list li:last-child { border-bottom: none; }
+.policy-list li::before { content: '—'; position: absolute; left: 0; color: var(--accent); font-size: 0.8rem; }
+.policy-highlight { background: var(--bg-surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 var(--radius) var(--radius) 0; padding: 1.4rem 1.8rem; margin: 1.5rem 0; }
+.policy-highlight p { margin: 0; font-size: 0.9rem; }
+
+/* ── FOOTER ── */
+.footer { background: var(--bg-surface); border-top: 1px solid var(--border); color: white; padding: 5rem 2.5rem 2.5rem; position: relative; z-index: 1; }
+.footer-container { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 4rem; margin-bottom: 3rem; }
+.footer-brand p { color: var(--text-dim); font-size: 0.9rem; line-height: 1.7; font-weight: 300; max-width: 280px; }
+.footer-col h4 { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-dimmer); margin-bottom: 1.2rem; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 0.7rem; }
+.footer-col ul li a { color: var(--text-dim); text-decoration: none; font-size: 0.88rem; font-weight: 300; transition: color 0.2s; }
+.footer-col ul li a:hover { color: var(--text); }
+.footer-bottom { max-width: var(--max); margin: 0 auto; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; color: var(--text-dimmer); font-size: 0.8rem; letter-spacing: 0.04em; flex-wrap: wrap; gap: 0.5rem; }
+.footer-bottom a { color: var(--text-dimmer); text-decoration: none; transition: color 0.2s; }
+.footer-bottom a:hover { color: var(--accent); }
+
+@media (max-width: 1024px) {
+  .policy-wrap { grid-template-columns: 1fr; gap: 3rem; }
+  .policy-toc { position: static; }
+  .footer-container { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .nav-menu { display: none; }
+  .breadcrumb { padding: 96px 1.5rem 0; }
+  .page-hero { padding: 32px 1.5rem 48px; }
+  .policy-layout { padding: 0 1.5rem 4rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <img class="logo-mark" src="metamorphex-logo.png" alt="Metamorphex">
+      <div class="logo-sep"></div>
+      <div class="logo-wordmark">
+        <span class="logo-wordmark-text" id="nav-wt">METAMORPHE</span>
+        <span class="logo-wordmark-x" id="nav-wx"></span>
+      </div>
+    </a>
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a class="nav-link">Services <span class="arrow">▼</span></a>
+        <div class="mega-menu">
+          <a href="services/cloud-consulting.html" class="dropdown-item">Cloud Consulting & Implementation</a>
+          <a href="services/ai-ml.html" class="dropdown-item">AI & ML Advisory</a>
+          <a href="services/analytics.html" class="dropdown-item">Data Analytics Strategy</a>
+          <a href="services/project-management.html" class="dropdown-item">Project Management Services</a>
+          <a href="services/policy-governance.html" class="dropdown-item">Policy & Governance</a>
+          <a href="services/compliance-risk.html" class="dropdown-item">Compliance & Risk Advisory</a>
+          <a href="services/risk-assessment.html" class="dropdown-item">Risk Assessment & Intelligence</a>
+          <a href="services/it-infrastructure.html" class="dropdown-item">IT Infrastructure Consulting</a>
+          <a href="services/digital-transformation.html" class="dropdown-item">Digital Transformation</a>
+          <a href="services/strategic-advisory.html" class="dropdown-item">Strategic IT Advisory</a>
+          <a href="services/enterprise-applications.html" class="dropdown-item">Enterprise Applications</a>
+          <a href="services/cybersecurity.html" class="dropdown-item">Cybersecurity Consulting</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">Industries <span class="arrow">▼</span></a>
+        <div class="mega-menu">
+          <a href="industries/financial-services.html" class="dropdown-item">Financial Services</a>
+          <a href="industries/healthcare.html" class="dropdown-item">Healthcare</a>
+          <a href="industries/retail.html" class="dropdown-item">Retail & E-commerce</a>
+          <a href="industries/manufacturing.html" class="dropdown-item">Manufacturing</a>
+          <a href="industries/public-sector.html" class="dropdown-item">Public Sector</a>
+          <a href="industries/technology.html" class="dropdown-item">Technology</a>
+          <a href="industries/energy.html" class="dropdown-item">Energy & Utilities</a>
+          <a href="industries/telecom.html" class="dropdown-item">Telecommunications</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">Products <span class="arrow">▼</span></a>
+        <div class="mega-menu">
+          <a href="products/MetaPolicyPlus.html" class="dropdown-item">MetaPolicyPlus</a>
+        </div>
+      </li>
+      <li class="nav-item"><a href="index.html#case-studies" class="nav-link">Insights</a></li>
+    <!--  <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+      <li class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></li> -->
+    </ul>
+    <a href="index.html#contact" class="nav-cta">Get Started</a>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="index.html">Home</a><span class="sep">/</span>
+    <span class="current">Privacy Policy</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="eyebrow">Legal</div>
+    <h1>Privacy <em>Policy</em></h1>
+    <p class="meta">Last updated: 16 April 2026 &nbsp;·&nbsp; Effective: 16 April 2026</p>
+  </div>
+</section>
+
+<!-- POLICY CONTENT -->
+<div class="policy-layout">
+  <div class="policy-wrap">
+
+    <!-- TABLE OF CONTENTS -->
+    <aside class="policy-toc">
+      <span class="toc-label">Contents</span>
+      <ul class="toc-list">
+        <li><a href="#intro">1. Introduction</a></li>
+        <li><a href="#who-we-are">2. Who We Are</a></li>
+        <li><a href="#information-we-collect">3. Information We Collect</a></li>
+        <li><a href="#how-we-use">4. How We Use Your Information</a></li>
+        <li><a href="#legal-basis">5. Legal Basis for Processing</a></li>
+        <li><a href="#sharing">6. Sharing of Information</a></li>
+        <li><a href="#retention">7. Data Retention</a></li>
+        <li><a href="#security">8. Data Security</a></li>
+        <li><a href="#your-rights">9. Your Rights</a></li>
+        <li><a href="#cookies">10. Cookies</a></li>
+        <li><a href="#transfers">11. International Transfers</a></li>
+        <li><a href="#children">12. Children's Privacy</a></li>
+        <li><a href="#changes">13. Changes to This Policy</a></li>
+        <li><a href="#contact-us">14. Contact Us</a></li>
+      </ul>
+    </aside>
+
+    <!-- POLICY BODY -->
+    <div class="policy-body">
+
+      <div id="intro" class="policy-section">
+        <span class="policy-section-num">01</span>
+        <h2>Introduction</h2>
+        <p>Metamorphex ("we", "us", or "our") is committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard information about you when you visit our website at <a href="https://metamorphex.tech">metamorphex.tech</a>, contact us through our enquiry forms, or engage with our consulting services.</p>
+        <p>Please read this policy carefully. If you disagree with its terms, please discontinue use of our site. If you have questions or concerns, contact us at <a href="mailto:contact@metamorphex.tech">contact@metamorphex.tech</a>.</p>
+        <div class="policy-highlight">
+          <p><strong>Summary:</strong> We collect only the information needed to respond to enquiries and deliver our services. We do not sell your data. We do not use it for advertising. We store it securely and only as long as necessary.</p>
+        </div>
+      </div>
+
+      <div id="who-we-are" class="policy-section">
+        <span class="policy-section-num">02</span>
+        <h2>Who We Are</h2>
+        <p><strong>Metamorphex</strong> is an IT consulting and implementation firm headquartered in Noida, India. We provide technology consulting, cloud, AI, data analytics, compliance, and digital transformation services to enterprise clients globally.</p>
+        <p>For the purposes of applicable data protection law, Metamorphex is the data controller in respect of personal data processed through this website and in connection with our services.</p>
+        <p><strong>Contact details:</strong><br>
+        Metamorphex<br>
+        Noida, Uttar Pradesh, India<br>
+        Email: <a href="mailto:contact@metamorphex.tech">contact@metamorphex.tech</a><br>
+        Website: <a href="https://metamorphex.tech">metamorphex.tech</a></p>
+      </div>
+
+      <div id="information-we-collect" class="policy-section">
+        <span class="policy-section-num">03</span>
+        <h2>Information We Collect</h2>
+        <p>We collect information in the following ways:</p>
+        <p><strong>Information you provide directly to us:</strong></p>
+        <ul class="policy-list">
+          <li><strong>Contact form submissions:</strong> name, email address, company name, phone number (if provided), and the content of your message or enquiry.</li>
+          <li><strong>Email correspondence:</strong> any information you share when corresponding with us by email.</li>
+          <li><strong>Client engagement:</strong> information necessary to deliver contracted consulting services, as described in your engagement agreement.</li>
+        </ul>
+        <p><strong>Information collected automatically:</strong></p>
+        <ul class="policy-list">
+          <li><strong>Log data:</strong> your IP address, browser type, operating system, referring URL, pages visited, and timestamps — collected by our web hosting infrastructure.</li>
+          <li><strong>Cookies and similar technologies:</strong> see Section 10 for full details.</li>
+        </ul>
+        <p>We do <strong>not</strong> collect sensitive personal data (such as financial account details, health data, or government identity numbers) through this website.</p>
+      </div>
+
+      <div id="how-we-use" class="policy-section">
+        <span class="policy-section-num">04</span>
+        <h2>How We Use Your Information</h2>
+        <p>We use the information we collect for the following purposes:</p>
+        <ul class="policy-list">
+          <li><strong>To respond to your enquiries</strong> — processing contact form submissions and email messages so that we can respond to you.</li>
+          <li><strong>To deliver consulting services</strong> — fulfilling contractual obligations to clients who engage Metamorphex for professional services.</li>
+          <li><strong>To improve our website</strong> — analysing usage patterns to enhance user experience and website performance.</li>
+          <li><strong>To comply with legal obligations</strong> — maintaining records required by law or regulation.</li>
+          <li><strong>To protect our legitimate interests</strong> — detecting and preventing fraud, security incidents, or misuse of our services.</li>
+        </ul>
+        <p>We do <strong>not</strong> use your personal data for advertising, profiling, or sale to third parties. We do not send unsolicited marketing communications.</p>
+      </div>
+
+      <div id="legal-basis" class="policy-section">
+        <span class="policy-section-num">05</span>
+        <h2>Legal Basis for Processing</h2>
+        <p>Where applicable data protection law requires a legal basis for processing personal data, we rely on the following:</p>
+        <ul class="policy-list">
+          <li><strong>Legitimate interests:</strong> responding to enquiries, improving our website, and maintaining the security of our systems.</li>
+          <li><strong>Contract performance:</strong> processing data necessary to deliver agreed consulting services to clients.</li>
+          <li><strong>Legal obligation:</strong> retaining records to comply with applicable laws and regulations.</li>
+          <li><strong>Consent:</strong> where we have explicitly obtained your consent, such as for optional communications.</li>
+        </ul>
+      </div>
+
+      <div id="sharing" class="policy-section">
+        <span class="policy-section-num">06</span>
+        <h2>Sharing of Information</h2>
+        <p>We do not sell, trade, or rent your personal information. We may share your data only in the following limited circumstances:</p>
+        <ul class="policy-list">
+          <li><strong>Service providers:</strong> third-party vendors who assist us in operating our website or delivering services (e.g., email delivery providers, web hosting). These parties are bound by contractual obligations to handle data securely and only as instructed.</li>
+          <li><strong>EmailJS:</strong> we use EmailJS to process contact form submissions. Your submission data is transmitted through their service for delivery to our team. Please review the <a href="https://www.emailjs.com/legal/privacy-policy/" target="_blank" rel="noopener">EmailJS Privacy Policy</a>.</li>
+          <li><strong>Legal requirements:</strong> if required by law, court order, or governmental authority, we may disclose information as required.</li>
+          <li><strong>Business transfers:</strong> in the event of a merger, acquisition, or sale of assets, personal data may be transferred as part of that transaction. We will notify you before your data becomes subject to a materially different privacy policy.</li>
+        </ul>
+        <p>In all cases, we require any third party receiving your data to maintain appropriate security standards.</p>
+      </div>
+
+      <div id="retention" class="policy-section">
+        <span class="policy-section-num">07</span>
+        <h2>Data Retention</h2>
+        <p>We retain personal data only for as long as necessary for the purposes for which it was collected:</p>
+        <ul class="policy-list">
+          <li><strong>Enquiry and contact data:</strong> retained for up to 24 months from your last interaction, to allow us to follow up on prior conversations.</li>
+          <li><strong>Client engagement data:</strong> retained in accordance with the terms of the engagement agreement and applicable legal requirements — typically 7 years for accounting and legal compliance purposes.</li>
+          <li><strong>Website log data:</strong> typically retained for up to 90 days.</li>
+        </ul>
+        <p>When data is no longer required, it is securely deleted or anonymised.</p>
+      </div>
+
+      <div id="security" class="policy-section">
+        <span class="policy-section-num">08</span>
+        <h2>Data Security</h2>
+        <p>We take the security of your personal information seriously. We implement appropriate technical and organisational measures to protect your data against unauthorised access, alteration, disclosure, or destruction. These measures include:</p>
+        <ul class="policy-list">
+          <li>Encryption of data in transit using TLS/HTTPS.</li>
+          <li>Restricted access to personal data on a need-to-know basis.</li>
+          <li>Regular review of our security practices and controls.</li>
+          <li>Use of reputable, security-conscious third-party service providers.</li>
+        </ul>
+        <p>No method of transmission over the internet or electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your data, we cannot guarantee its absolute security. In the event of a data breach affecting your rights and freedoms, we will notify you in accordance with applicable law.</p>
+      </div>
+
+      <div id="your-rights" class="policy-section">
+        <span class="policy-section-num">09</span>
+        <h2>Your Rights</h2>
+        <p>Depending on your location and applicable law, you may have the following rights regarding your personal data:</p>
+        <ul class="policy-list">
+          <li><strong>Access:</strong> the right to request a copy of the personal data we hold about you.</li>
+          <li><strong>Rectification:</strong> the right to request correction of inaccurate or incomplete data.</li>
+          <li><strong>Erasure:</strong> the right to request deletion of your personal data, subject to our legal obligations.</li>
+          <li><strong>Restriction:</strong> the right to request that we limit how we use your data in certain circumstances.</li>
+          <li><strong>Portability:</strong> the right to receive your data in a structured, machine-readable format.</li>
+          <li><strong>Objection:</strong> the right to object to processing based on legitimate interests.</li>
+          <li><strong>Withdrawal of consent:</strong> where processing is based on consent, the right to withdraw that consent at any time.</li>
+        </ul>
+        <p>To exercise any of these rights, please contact us at <a href="mailto:contact@metamorphex.tech">contact@metamorphex.tech</a>. We will respond within 30 days. We may need to verify your identity before processing your request. You also have the right to lodge a complaint with your local data protection supervisory authority.</p>
+      </div>
+
+      <div id="cookies" class="policy-section">
+        <span class="policy-section-num">10</span>
+        <h2>Cookies</h2>
+        <p>Our website uses a minimal number of cookies. Cookies are small text files placed on your device by your browser when you visit a website.</p>
+        <p><strong>Essential cookies:</strong> these are required for the website to function correctly (e.g., session management). They cannot be disabled.</p>
+        <p><strong>Analytics cookies:</strong> we may use anonymised analytics to understand how visitors use our site. No personally identifiable information is collected through analytics.</p>
+        <p>We do <strong>not</strong> use advertising cookies, tracking cookies, or third-party behavioural cookies.</p>
+        <p>You can control or delete cookies through your browser settings. Disabling cookies may affect some features of the website. For more information about cookies generally, visit <a href="https://www.allaboutcookies.org" target="_blank" rel="noopener">allaboutcookies.org</a>.</p>
+      </div>
+
+      <div id="transfers" class="policy-section">
+        <span class="policy-section-num">11</span>
+        <h2>International Data Transfers</h2>
+        <p>Metamorphex is headquartered in India and serves clients globally. When you interact with our website or engage our services, your data may be processed in India or in other countries where our service providers operate.</p>
+        <p>Where we transfer personal data across borders, we ensure that appropriate safeguards are in place — such as standard contractual clauses or equivalent mechanisms — to protect your data to a standard consistent with applicable law.</p>
+        <p>If you would like information about the specific safeguards applied to international transfers of your data, please contact us at <a href="mailto:contact@metamorphex.tech">contact@metamorphex.tech</a>.</p>
+      </div>
+
+      <div id="children" class="policy-section">
+        <span class="policy-section-num">12</span>
+        <h2>Children's Privacy</h2>
+        <p>Our website and services are directed at business professionals and are not intended for individuals under the age of 18. We do not knowingly collect personal information from children. If you believe we have inadvertently collected data from a child, please contact us immediately so we can take appropriate action.</p>
+      </div>
+
+      <div id="changes" class="policy-section">
+        <span class="policy-section-num">13</span>
+        <h2>Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or other factors. When we make material changes, we will update the "Last updated" date at the top of this page.</p>
+        <p>We encourage you to review this page periodically. Continued use of our website after any update constitutes acceptance of the revised policy.</p>
+      </div>
+
+      <div id="contact-us" class="policy-section">
+        <span class="policy-section-num">14</span>
+        <h2>Contact Us</h2>
+        <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:</p>
+        <div class="policy-highlight">
+          <p><strong>Metamorphex</strong><br>
+          Email: <a href="mailto:contact@metamorphex.tech">contact@metamorphex.tech</a><br>
+          Website: <a href="https://metamorphex.tech">metamorphex.tech</a><br>
+          Location: Noida, Uttar Pradesh, India</p>
+        </div>
+        <p>We are committed to resolving any concerns promptly and working with you in good faith to address any data privacy questions you may have.</p>
+      </div>
+
+    </div><!-- /policy-body -->
+  </div><!-- /policy-wrap -->
+</div><!-- /policy-layout -->
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <div style="display:flex;align-items:center;gap:0;margin-bottom:1.2rem;">
+        <img src="metamorphex-logo.png" alt="Metamorphex Logo" style="height:38px;width:auto;">
+        <div style="width:1px;height:22px;background:rgba(255,255,255,0.1);margin:0 16px;"></div>
+        <div class="logo-wordmark" id="footer-logo-wrap">
+          <span class="logo-wordmark-text" id="footer-wt" style="font-size:16px;letter-spacing:0.20em;">METAMORPHE</span>
+          <span class="logo-wordmark-x" id="footer-wx"></span>
+        </div>
+      </div>
+      <p>Expert IT consulting and implementation services for enterprise digital transformation.</p>
+    </div>
+    
+    <div class="footer-col">
+      <h4>Product and Services</h4>
+      <ul>
+    <li><a href="products/MetaPolicyPlus.html">MetaPolicyPlus</a></li>
+        <li><a href="services/cloud-consulting.html">Cloud Consulting</a></li>
+        <li><a href="services/ai-ml.html">AI & ML Advisory</a></li>
+        <li><a href="services/compliance-risk.html">Compliance & Risk</a></li>
+        <li><a href="services/digital-transformation.html">Digital Transformation</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="#case-studies">Case Studies</a></li>
+        <li><a href="careers.html">Careers</a></li>
+      </ul>
+    </div>
+  
+  <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="https://www.linkedin.com/company/metamorphex/">LinkedIn</a></li>
+        <li><a href="mailto:contact@metamorphex.tech">Email</a></li>
+      </ul>
+    </div>
+<!--
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="mailto:contact@metamorphex.tech">contact@metamorphex.tech</a></li>
+      </ul>
+    </div>
+  -->
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Metamorphex. All rights reserved.</p>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="about.html">About Us</a>
+    </div>
+    <p>IT Consulting & Implementation Services · Noida, India</p>
+  </div>
+</footer>
+
+<script>
+function buildLogoX(textId, xId) {
+  const textEl = document.getElementById(textId);
+  const xEl = document.getElementById(xId);
+  if (!textEl || !xEl) return;
+  const style = getComputedStyle(textEl);
+  const fontSize = parseFloat(style.fontSize);
+  const lsPx = parseFloat(style.letterSpacing) || 0;
+  const capH = Math.round(fontSize * 0.73);
+  const xW = Math.round(fontSize * 0.64);
+  xEl.style.cssText = `display:inline-block;position:relative;width:${xW + lsPx}px;height:${capH}px;vertical-align:baseline;`;
+  const sw = Math.max(1.6, fontSize * 0.055);
+  xEl.innerHTML = `<svg viewBox="0 0 ${xW} ${capH}" width="${xW}" height="${capH}" style="display:block;overflow:visible;position:absolute;bottom:0;left:0;" xmlns="http://www.w3.org/2000/svg"><line x1="1" y1="1" x2="${xW-1}" y2="${capH-1}" stroke="rgba(220,232,245,0.88)" stroke-width="${sw}" stroke-linecap="round"/><line x1="1" y1="${capH-1}" x2="${xW-1}" y2="1" stroke="#3EC9E8" stroke-width="${sw}" stroke-linecap="round"/><circle cx="${xW/2}" cy="${capH/2}" r="${sw*0.85}" fill="#3EC9E8" opacity="0.55"/></svg>`;
+}
+if (document.fonts) { document.fonts.ready.then(() => { buildLogoX('nav-wt','nav-wx'); buildLogoX('footer-wt','footer-wx'); }); }
+else { window.addEventListener('load', () => { buildLogoX('nav-wt','nav-wx'); buildLogoX('footer-wt','footer-wx'); }); }
+
+document.querySelectorAll('.nav-item').forEach(item => {
+  const link = item.querySelector('.nav-link');
+  const menu = item.querySelector('.mega-menu');
+  if (!menu) return;
+  link.addEventListener('click', e => {
+    e.preventDefault(); e.stopPropagation();
+    document.querySelectorAll('.nav-item').forEach(o => { if (o !== item) o.classList.remove('open'); });
+    item.classList.toggle('open');
+  });
+});
+document.addEventListener('click', e => {
+  if (!e.target.closest('.nav-item')) document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('open'));
+});
+</script>
+</body>
+</html>

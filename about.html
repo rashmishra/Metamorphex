@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Metamorphex — IT Consulting & Digital Transformation</title>
+<meta name="description" content="We started Metamorphex because we were tired of watching enterprises pay for advice they couldn't implement. Meet the team, learn the story.">
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent:      #3EC9E8;
+  --accent-dim:  rgba(62,201,232,0.18);
+  --accent-glow: rgba(62,201,232,0.35);
+  --bg:          #07080D;
+  --bg-surface:  #0D0F17;
+  --border:      rgba(255,255,255,0.07);
+  --text:        #FFFFFF;
+  --text-dim:    rgba(255,255,255,0.55);
+  --text-dimmer: rgba(255,255,255,0.32);
+  --font:        'Exo 2', -apple-system, sans-serif;
+  --radius:      12px;
+  --max:         1400px;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body { font-family:var(--font); background:var(--bg); color:var(--text); line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+body::before { content:''; position:fixed; inset:0; background-image:radial-gradient(1px 1px at 20% 15%,rgba(255,255,255,0.35) 0%,transparent 100%),radial-gradient(1px 1px at 80% 25%,rgba(255,255,255,0.2) 0%,transparent 100%),radial-gradient(1.5px 1.5px at 45% 60%,rgba(255,255,255,0.18) 0%,transparent 100%),radial-gradient(1px 1px at 10% 70%,rgba(255,255,255,0.15) 0%,transparent 100%),radial-gradient(1px 1px at 52% 40%,rgba(62,201,232,0.2) 0%,transparent 100%); pointer-events:none; z-index:0; }
+
+/* ── NAVBAR ── */
+.navbar { position:fixed; top:0; left:0; right:0; z-index:1000; background:rgba(7,8,13,0.85); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border-bottom:1px solid var(--border); }
+.nav-container { max-width:var(--max); margin:0 auto; padding:0 2.5rem; display:flex; align-items:center; justify-content:space-between; height:68px; }
+.logo { display:flex; align-items:center; gap:0; text-decoration:none; transition:opacity .2s; }
+.logo:hover { opacity:.82; }
+.logo-mark { height:42px; width:auto; display:block; flex-shrink:0; }
+.logo-sep { width:1px; height:26px; background:rgba(255,255,255,0.13); margin:0 18px; flex-shrink:0; }
+.logo-wordmark { display:flex; align-items:baseline; line-height:1; }
+.logo-wordmark-text { font-family:'Exo 2',sans-serif; font-weight:200; font-size:18px; letter-spacing:.22em; text-transform:uppercase; color:rgba(255,255,255,0.88); white-space:nowrap; }
+.logo-wordmark-x { display:inline-block; position:relative; }
+.logo-wordmark-x svg { display:block; overflow:visible; position:absolute; bottom:0; left:0; }
+.nav-menu { display:flex; align-items:center; gap:2.2rem; list-style:none; }
+.nav-item { position:relative; }
+.nav-link { color:var(--text-dim); text-decoration:none; font-size:.88rem; font-weight:500; letter-spacing:.04em; padding:.5rem 0; display:flex; align-items:center; gap:.4rem; cursor:pointer; transition:color .2s; }
+.nav-link:hover, .nav-link.active { color:var(--accent); }
+.nav-link .arrow { font-size:.6rem; transition:transform .3s; }
+.nav-item.open .arrow { transform:rotate(180deg); }
+.mega-menu { position:absolute; top:calc(100% + 1rem); left:50%; transform:translateX(-50%); background:rgba(10,12,20,0.97); border:1px solid var(--border); border-radius:var(--radius); min-width:300px; padding:.5rem 0; opacity:0; visibility:hidden; pointer-events:none; transition:all .25s cubic-bezier(.4,0,.2,1); box-shadow:0 24px 60px rgba(0,0,0,.7),0 0 0 1px rgba(62,201,232,0.1); z-index:100; }
+.nav-item.open .mega-menu { opacity:1; visibility:visible; pointer-events:all; top:calc(100% + .4rem); }
+.dropdown-item { display:block; padding:.65rem 1.5rem; color:var(--text-dim); text-decoration:none; font-size:.85rem; font-weight:400; transition:all .2s; border-left:2px solid transparent; }
+.dropdown-item:hover { background:rgba(62,201,232,0.06); border-left-color:var(--accent); color:var(--text); padding-left:1.8rem; }
+.nav-cta { background:transparent; color:var(--accent); border:1px solid var(--accent); padding:.55rem 1.5rem; border-radius:4px; text-decoration:none; font-weight:600; font-size:.85rem; letter-spacing:.06em; text-transform:uppercase; transition:all .25s; }
+.nav-cta:hover { background:var(--accent); color:var(--bg); box-shadow:0 0 20px var(--accent-glow); }
+
+/* ── HERO with canvas ── */
+.hero { position:relative; z-index:1; min-height:88vh; display:flex; align-items:center; padding:120px 2.5rem 80px; overflow:hidden; }
+#particle-canvas { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:0; }
+.hero-glow { position:absolute; top:10%; right:5%; width:500px; height:500px; background:radial-gradient(ellipse, rgba(62,201,232,0.07) 0%, transparent 65%); pointer-events:none; animation:glowPulse 6s ease-in-out infinite; }
+@keyframes glowPulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:.5;transform:scale(1.15);} }
+.hero-inner { max-width:860px; position:relative; z-index:1; }
+.hero-label { font-size:.72rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:var(--accent); margin-bottom:2rem; display:flex; align-items:center; gap:.8rem; opacity:0; animation:fadeUp .8s .2s ease forwards; }
+.hero-label::before { content:''; display:inline-block; width:28px; height:1px; background:var(--accent); }
+.hero-headline { font-family:'Exo 2',sans-serif; font-weight:200; font-size:clamp(2.2rem,4.5vw,3.8rem); letter-spacing:.04em; line-height:1.12; margin-bottom:2rem; }
+.hero-headline .word { display:inline-block; opacity:0; transform:translateY(20px); animation:wordIn .6s ease forwards; }
+.hero-headline em { font-style:normal; color:var(--accent); }
+.hero-subtext { font-size:1.1rem; color:var(--text-dim); font-weight:300; line-height:1.85; max-width:620px; border-left:2px solid rgba(62,201,232,0.35); padding-left:1.4rem; opacity:0; animation:fadeUp .8s 1.2s ease forwards; }
+@keyframes fadeUp { to{opacity:1; transform:translateY(0);} }
+@keyframes wordIn { to{opacity:1; transform:translateY(0);} }
+
+/* scroll indicator */
+.scroll-hint { position:absolute; bottom:2.5rem; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:.5rem; opacity:0; animation:fadeUp .6s 1.8s ease forwards; z-index:1; }
+.scroll-hint span { font-size:.62rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--text-dimmer); }
+.scroll-mouse { width:22px; height:36px; border:1.5px solid rgba(255,255,255,0.2); border-radius:11px; display:flex; justify-content:center; padding-top:6px; }
+.scroll-dot { width:3px; height:6px; background:var(--accent); border-radius:2px; animation:scrollDot 1.8s ease infinite; }
+@keyframes scrollDot { 0%{transform:translateY(0);opacity:1;} 100%{transform:translateY(12px);opacity:0;} }
+
+/* ── STATS STRIP ── */
+.stats-strip { position:relative; z-index:1; background:var(--bg-surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:0; overflow:hidden; }
+.stats-strip::before { content:''; position:absolute; inset:0; background:linear-gradient(90deg,rgba(62,201,232,0.03) 0%,transparent 50%,rgba(62,201,232,0.03) 100%); pointer-events:none; }
+.stats-row { max-width:var(--max); margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); }
+.stat-item { padding:2.4rem 2rem; text-align:center; border-right:1px solid var(--border); transition:background .3s; position:relative; overflow:hidden; }
+.stat-item:last-child { border-right:none; }
+.stat-item::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--accent),transparent); transform:scaleX(0); transform-origin:left; transition:transform .5s; }
+.stat-item:hover { background:rgba(62,201,232,0.04); }
+.stat-item:hover::after { transform:scaleX(1); }
+.stat-num { font-family:'Exo 2',sans-serif; font-weight:700; font-size:2.8rem; color:var(--accent); line-height:1; display:block; margin-bottom:.5rem; }
+.stat-label { font-size:.78rem; color:var(--text-dim); font-weight:300; line-height:1.5; }
+
+/* ── OPENER ── */
+.opener { position:relative; z-index:1; padding:6rem 2.5rem; border-top:1px solid var(--border); }
+.opener-inner { max-width:900px; margin:0 auto; display:grid; grid-template-columns:180px 1fr; gap:5rem; align-items:start; }
+.opener-tag { font-size:.68rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--text-dimmer); padding-top:.4rem; }
+.opener-body .highlight-line { font-size:1.2rem; color:var(--text); font-weight:400; line-height:1.7; border-left:2px solid var(--accent); padding-left:1.4rem; margin-bottom:2rem; font-style:italic; }
+.opener-body p { font-size:1rem; color:var(--text-dim); font-weight:300; line-height:1.9; margin-bottom:1.5rem; }
+.opener-body p:last-child { margin-bottom:0; }
+.opener-body strong { color:var(--text); font-weight:500; }
+
+/* ── BELIEFS ── */
+.beliefs { position:relative; z-index:1; padding:6rem 2.5rem; border-top:1px solid var(--border); background:var(--bg-surface); }
+.beliefs-inner { max-width:900px; margin:0 auto; }
+.section-tag { font-size:.68rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--accent); margin-bottom:1rem; display:block; }
+.section-h2 { font-family:'Exo 2',sans-serif; font-weight:200; font-size:clamp(1.6rem,3vw,2.4rem); letter-spacing:.05em; text-transform:uppercase; color:var(--text); line-height:1.2; margin-bottom:2.8rem; }
+.section-h2 em { font-style:normal; color:var(--accent); }
+.belief-list { display:flex; flex-direction:column; border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
+.belief-item { padding:1.8rem 2rem; border-bottom:1px solid var(--border); display:grid; grid-template-columns:2.5rem 1fr; gap:1.4rem; align-items:start; transition:background .25s; opacity:0; transform:translateX(-16px); }
+.belief-item.visible { animation:slideInLeft .5s ease forwards; }
+.belief-item:last-child { border-bottom:none; }
+.belief-item:hover { background:rgba(62,201,232,0.03); }
+@keyframes slideInLeft { to{opacity:1;transform:translateX(0);} }
+.belief-num { font-family:'Exo 2',sans-serif; font-weight:700; font-size:.7rem; color:rgba(62,201,232,0.4); letter-spacing:.1em; padding-top:.25rem; }
+.conviction { font-size:.98rem; font-weight:500; color:var(--text); line-height:1.5; margin-bottom:.5rem; }
+.explain { font-size:.84rem; color:var(--text-dim); font-weight:300; line-height:1.75; }
+
+/* ── STARTUP ADVANTAGE ── */
+.advantage { position:relative; z-index:1; padding:6rem 2.5rem; border-top:1px solid var(--border); }
+.advantage-inner { max-width:900px; margin:0 auto; }
+.adv-intro { font-size:1rem; color:var(--text-dim); font-weight:300; line-height:1.85; max-width:620px; margin-bottom:2.8rem; }
+.adv-intro strong { color:var(--text); font-weight:500; }
+.adv-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
+.adv-card { background:var(--bg-surface); padding:2rem 1.8rem; transition:background .3s; position:relative; overflow:hidden; }
+.adv-card::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,var(--accent),transparent); transform:scaleX(0); transform-origin:left; transition:transform .4s; }
+.adv-card:hover { background:rgba(62,201,232,0.04); }
+.adv-card:hover::before { transform:scaleX(1); }
+.adv-label { font-size:.62rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin-bottom:.7rem; display:block; }
+.adv-card p { font-size:.86rem; color:var(--text-dim); font-weight:300; line-height:1.75; }
+.adv-card strong { color:var(--text); font-weight:500; }
+
+/* ── TEAM ── */
+.team-section { position:relative; z-index:1; padding:6rem 2.5rem; border-top:1px solid var(--border); background:var(--bg-surface); }
+.team-inner { max-width:900px; margin:0 auto; }
+.section-sub { font-size:.95rem; color:var(--text-dim); font-weight:300; line-height:1.75; max-width:540px; margin-bottom:3rem; }
+.team-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+.team-card { background:rgba(255,255,255,0.025); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; transition:all .35s; position:relative; }
+.team-card::after { content:''; position:absolute; inset:0; border-radius:var(--radius); box-shadow:0 0 0 0 rgba(62,201,232,0); transition:box-shadow .35s; pointer-events:none; }
+.team-card:hover { border-color:rgba(62,201,232,0.3); transform:translateY(-6px); }
+.team-card:hover::after { box-shadow:0 0 30px rgba(62,201,232,0.08); }
+.team-avatar { height:180px; background:linear-gradient(135deg,rgba(62,201,232,0.12) 0%,rgba(62,201,232,0.03) 100%); display:flex; align-items:center; justify-content:center; border-bottom:1px solid var(--border); position:relative; overflow:hidden; }
+.avatar-ring { width:80px; height:80px; border-radius:50%; border:2px solid rgba(62,201,232,0.3); display:flex; align-items:center; justify-content:center; position:relative; }
+.avatar-ring::before { content:''; position:absolute; inset:-6px; border-radius:50%; border:1px solid rgba(62,201,232,0.12); animation:ringPulse 3s ease-in-out infinite; }
+@keyframes ringPulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:.4;transform:scale(1.1);} }
+.avatar-initials { font-family:'Exo 2',sans-serif; font-weight:700; font-size:1.4rem; color:rgba(62,201,232,0.5); letter-spacing:.1em; }
+.team-info { padding:1.4rem 1.6rem; }
+.team-name { font-size:.98rem; font-weight:600; color:var(--text); margin-bottom:.2rem; }
+.team-title { font-size:.7rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); margin-bottom:.9rem; }
+.team-bio { font-size:.82rem; color:var(--text-dim); font-weight:300; line-height:1.65; }
+.team-tags { display:flex; flex-wrap:wrap; gap:.35rem; margin-top:1rem; }
+.team-tag { font-size:.6rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; padding:.22rem .55rem; background:rgba(62,201,232,0.07); border:1px solid rgba(62,201,232,0.18); border-radius:3px; color:rgba(62,201,232,0.7); }
+
+/* ── HOW WE WORK (animated timeline) ── */
+.how-section { position:relative; z-index:1; padding:6rem 2.5rem; border-top:1px solid var(--border); }
+.how-inner { max-width:900px; margin:0 auto; }
+.how-steps { display:flex; flex-direction:column; margin-top:3rem; position:relative; }
+.how-steps::before { content:''; position:absolute; left:31px; top:0; bottom:0; width:1px; background:linear-gradient(180deg,var(--accent),rgba(62,201,232,0.05)); }
+.how-step { display:grid; grid-template-columns:64px 1fr; gap:2rem; align-items:start; padding:2rem 0 2rem; position:relative; opacity:0; transform:translateX(-20px); }
+.how-step.visible { animation:slideInLeft .5s ease forwards; }
+.how-num-circle { width:64px; height:64px; border-radius:50%; background:var(--bg-surface); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; flex-shrink:0; position:relative; z-index:1; transition:all .3s; }
+.how-step:hover .how-num-circle { border-color:rgba(62,201,232,0.4); background:rgba(62,201,232,0.08); box-shadow:0 0 20px rgba(62,201,232,0.15); }
+.how-num { font-family:'Exo 2',sans-serif; font-weight:700; font-size:.85rem; color:var(--accent); letter-spacing:.06em; }
+.how-content { padding-top:.9rem; }
+.how-content h3 { font-size:.95rem; font-weight:600; color:var(--text); margin-bottom:.4rem; }
+.how-content p { font-size:.86rem; color:var(--text-dim); font-weight:300; line-height:1.75; }
+
+/* ── ANIMATED QUOTE ── */
+.quote-break { position:relative; z-index:1; padding:6rem 2.5rem; border-top:1px solid var(--border); overflow:hidden; }
+.quote-bg { position:absolute; inset:0; }
+.quote-bg::before { content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:900px; height:400px; background:radial-gradient(ellipse,rgba(62,201,232,0.05) 0%,transparent 65%); animation:glowPulse 5s ease-in-out infinite; }
+.quote-line-top, .quote-line-bot { position:absolute; left:0; right:0; height:1px; overflow:hidden; }
+.quote-line-top { top:0; }
+.quote-line-bot { bottom:0; }
+.quote-line-top::after, .quote-line-bot::after { content:''; position:absolute; top:0; left:-100%; width:40%; height:100%; background:linear-gradient(90deg,transparent,rgba(62,201,232,0.6),transparent); animation:lineScan 4s ease-in-out infinite; }
+.quote-line-bot::after { animation-delay:2s; }
+@keyframes lineScan { 0%{left:-40%;} 100%{left:140%;} }
+.quote-inner { max-width:760px; margin:0 auto; text-align:center; position:relative; z-index:1; }
+.big-quote { font-family:'Exo 2',sans-serif; font-weight:200; font-size:clamp(1.4rem,3vw,2.2rem); letter-spacing:.03em; line-height:1.55; color:rgba(255,255,255,0.82); }
+.big-quote em { font-style:normal; color:var(--accent); }
+.quote-attr { margin-top:1.4rem; font-size:.72rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--text-dimmer); }
+
+/* ── CTA ── */
+.cta-section { position:relative; z-index:1; background:var(--bg-surface); border-top:1px solid var(--border); padding:6rem 2.5rem; overflow:hidden; }
+.cta-section::before { content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:700px; height:400px; background:radial-gradient(ellipse,rgba(62,201,232,0.07) 0%,transparent 65%); pointer-events:none; }
+.cta-inner { max-width:680px; margin:0 auto; text-align:center; position:relative; z-index:1; }
+.cta-inner h2 { font-family:'Exo 2',sans-serif; font-weight:200; font-size:clamp(1.8rem,4vw,2.8rem); letter-spacing:.06em; text-transform:uppercase; line-height:1.1; margin-bottom:1rem; }
+.cta-inner h2 em { font-style:normal; color:var(--accent); }
+.cta-inner p { font-size:1rem; color:var(--text-dim); font-weight:300; line-height:1.75; margin-bottom:2.2rem; }
+.cta-buttons { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+.btn { display:inline-flex; align-items:center; gap:.6rem; padding:.85rem 2rem; border-radius:4px; font-family:var(--font); font-size:.85rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; text-decoration:none; cursor:pointer; border:1px solid transparent; transition:all .25s; }
+.btn-primary { background:var(--accent); color:var(--bg); border-color:var(--accent); box-shadow:0 0 24px var(--accent-glow); }
+.btn-primary:hover { background:#5BD7F2; box-shadow:0 0 40px rgba(62,201,232,0.5); transform:translateY(-2px); }
+.btn-ghost { background:transparent; color:var(--text); border-color:var(--border); }
+.btn-ghost:hover { border-color:rgba(255,255,255,0.25); background:rgba(255,255,255,0.04); transform:translateY(-2px); }
+
+/* ── FOOTER ── */
+.footer { background:var(--bg-surface); border-top:1px solid var(--border); color:white; padding:5rem 2.5rem 2.5rem; position:relative; z-index:1; }
+.footer-container { max-width:var(--max); margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:4rem; margin-bottom:3rem; }
+.footer-brand p { color:var(--text-dim); font-size:.9rem; line-height:1.7; font-weight:300; max-width:280px; }
+.footer-col h4 { font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--text-dimmer); margin-bottom:1.2rem; }
+.footer-col ul { list-style:none; }
+.footer-col ul li { margin-bottom:.7rem; }
+.footer-col ul li a { color:var(--text-dim); text-decoration:none; font-size:.88rem; font-weight:300; transition:color .2s; }
+.footer-col ul li a:hover { color:var(--text); }
+.footer-bottom { max-width:var(--max); margin:0 auto; padding-top:2rem; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; color:var(--text-dimmer); font-size:.8rem; letter-spacing:.04em; flex-wrap:wrap; gap:.5rem; }
+.footer-bottom a { color:var(--text-dimmer); text-decoration:none; transition:color .2s; }
+.footer-bottom a:hover { color:var(--accent); }
+
+/* ── REVEAL ── */
+.reveal { opacity:0; transform:translateY(24px); transition:opacity .65s ease-out, transform .65s ease-out; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width:1024px) {
+  .opener-inner { grid-template-columns:1fr; gap:2rem; }
+  .opener-tag { display:none; }
+  .adv-grid { grid-template-columns:1fr; }
+  .team-grid { grid-template-columns:1fr 1fr; }
+  .footer-container { grid-template-columns:1fr 1fr; }
+  .stats-row { grid-template-columns:1fr 1fr; }
+}
+@media (max-width:640px) {
+  .nav-menu { display:none; }
+  .hero { padding:120px 1.5rem 70px; min-height:auto; }
+  .opener, .beliefs, .advantage, .team-section, .how-section, .quote-break, .cta-section { padding:4rem 1.5rem; }
+  .team-grid { grid-template-columns:1fr; }
+  .stats-row { grid-template-columns:1fr 1fr; }
+  .how-step { grid-template-columns:52px 1fr; gap:1.2rem; }
+  .how-steps::before { left:25px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <img class="logo-mark" src="metamorphex-logo.png" alt="Metamorphex">
+      <div class="logo-sep"></div>
+      <div class="logo-wordmark">
+        <span class="logo-wordmark-text" id="nav-wt">METAMORPHE</span>
+        <span class="logo-wordmark-x" id="nav-wx"></span>
+      </div>
+    </a>
+    <ul class="nav-menu">
+    <!--  <li class="nav-item"><a href="about.html" class="nav-link active">About Us</a></li> -->
+      <li class="nav-item">
+        <a class="nav-link">Services <span class="arrow">▼</span></a>
+        <div class="mega-menu">
+          <a href="services/cloud-consulting.html" class="dropdown-item">Cloud Consulting & Implementation</a>
+          <a href="services/ai-ml.html" class="dropdown-item">AI & ML Advisory</a>
+          <a href="services/analytics.html" class="dropdown-item">Data Analytics Strategy</a>
+          <a href="services/project-management.html" class="dropdown-item">Project Management Services</a>
+          <a href="services/policy-governance.html" class="dropdown-item">Policy & Governance</a>
+          <a href="services/compliance-risk.html" class="dropdown-item">Compliance & Risk Advisory</a>
+          <a href="services/risk-assessment.html" class="dropdown-item">Risk Assessment & Intelligence</a>
+          <a href="services/it-infrastructure.html" class="dropdown-item">IT Infrastructure Consulting</a>
+          <a href="services/digital-transformation.html" class="dropdown-item">Digital Transformation</a>
+          <a href="services/strategic-advisory.html" class="dropdown-item">Strategic IT Advisory</a>
+          <a href="services/enterprise-applications.html" class="dropdown-item">Enterprise Applications</a>
+          <a href="services/cybersecurity.html" class="dropdown-item">Cybersecurity Consulting</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">Industries <span class="arrow">▼</span></a>
+        <div class="mega-menu">
+          <a href="industries/financial-services.html" class="dropdown-item">Financial Services</a>
+          <a href="industries/healthcare.html" class="dropdown-item">Healthcare</a>
+          <a href="industries/retail.html" class="dropdown-item">Retail & E-commerce</a>
+          <a href="industries/manufacturing.html" class="dropdown-item">Manufacturing</a>
+          <a href="industries/public-sector.html" class="dropdown-item">Public Sector</a>
+          <a href="industries/technology.html" class="dropdown-item">Technology</a>
+          <a href="industries/energy.html" class="dropdown-item">Energy & Utilities</a>
+          <a href="industries/telecom.html" class="dropdown-item">Telecommunications</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">Products <span class="arrow">▼</span></a>
+        <div class="mega-menu">
+          <a href="products/MetaPolicyPlus.html" class="dropdown-item">MetaPolicyPlus</a>
+        </div>
+      </li>
+      <li class="nav-item"><a href="index.html#case-studies" class="nav-link">Insights</a></li>
+   
+    </ul>
+    <a href="index.html#contact" class="nav-cta">Get Started</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <canvas id="particle-canvas"></canvas>
+  <div class="hero-glow"></div>
+
+  <div class="hero-inner">
+    <div class="hero-label">Our Story</div>
+
+    <h1 class="hero-headline">
+      <span class="word" style="animation-delay:.4s">We got tired of watching</span><br>
+      <span class="word" style="animation-delay:.65s">good companies <em>pay</em> for</span><br>
+      <span class="word" style="animation-delay:.9s">advice they couldn't <em>implement.</em></span>
+    </h1>
+
+    <p class="hero-subtext">
+      So we built something different. A small, senior team — based in Noida, working globally — that actually stays until the work is done. Not just until the deck is delivered.
+    </p>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-mouse"><div class="scroll-dot"></div></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stats-row">
+    <div class="stat-item">
+      <span class="stat-num" data-target="30" data-suffix="+">0</span>
+      <span class="stat-label">Enterprise projects delivered</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="98" data-suffix="%">0</span>
+      <span class="stat-label">Client retention rate</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="6" data-suffix="+">0</span>
+      <span class="stat-label">Industries served</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="24" data-suffix="hr">0</span>
+      <span class="stat-label">First response guarantee</span>
+    </div>
+  </div>
+</div>
+
+<!-- THE HONEST OPENER -->
+<section class="opener">
+  <div class="opener-inner reveal">
+    <div class="opener-tag">The Origin</div>
+    <div class="opener-body">
+      <p class="highlight-line">"The problem with enterprise IT consulting isn't a lack of smart people. It's a misalignment of incentives. Big firms get paid to advise. We built Metamorphex to get paid to deliver."</p>
+      <p>Every one of us at Metamorphex has worked inside large organisations — or alongside the large consulting firms that serve them. We've seen the pattern play out too many times: a prestigious firm walks in, runs a discovery workshop, produces a beautifully formatted strategy document, and then hands it to a team of recent graduates to implement. The senior partner appears at the kickoff. Then disappears.</p>
+      <p>We started Metamorphex because we believed — and still believe — that <strong>the people who design the solution should be the people who build it</strong>. That real transformation requires someone who stays through the hard parts. That a startup can do this better than a firm that's grown too large to care.</p>
+      <p>We're based in Noida. We serve clients globally in financial services, healthcare, energy, and the public sector. We're not the biggest firm you'll speak to — quite intentionally. But we might be the most invested in your outcome.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE BELIEVE -->
+<section class="beliefs">
+  <div class="beliefs-inner">
+    <div class="reveal">
+      <span class="section-tag">What We Believe</span>
+      <h2 class="section-h2">The Convictions We <em>Work By</em></h2>
+    </div>
+    <div class="belief-list">
+      <div class="belief-item">
+        <span class="belief-num">01</span>
+        <div>
+          <div class="conviction">A junior analyst in a fancy boardroom is still a junior analyst.</div>
+          <div class="explain">On every Metamorphex engagement, the person who scoped the solution is the person who delivers it. No bait-and-switch. No hand-off to a team you've never met. Your senior consultant stays.</div>
+        </div>
+      </div>
+      <div class="belief-item">
+        <span class="belief-num">02</span>
+        <div>
+          <div class="conviction">The best consulting relationship is one where the client eventually doesn't need us.</div>
+          <div class="explain">We build capability inside your organisation, not dependency on ours. Knowledge transfer is woven through everything we do from day one — not a line item at the end.</div>
+        </div>
+      </div>
+      <div class="belief-item">
+        <span class="belief-num">03</span>
+        <div>
+          <div class="conviction">We'd rather lose a deal by being honest than win one by overselling.</div>
+          <div class="explain">If your problem isn't a good fit for what we do, we'll tell you. If your timeline is unrealistic, we'll say so before we start — not three months in when the pressure is already on.</div>
+        </div>
+      </div>
+      <div class="belief-item">
+        <span class="belief-num">04</span>
+        <div>
+          <div class="conviction">Implementation is where ideas become real. That's where most consultants aren't.</div>
+          <div class="explain">Strategy without execution is expensive speculation. We spend most of our time in the detail — in the architecture decisions, the compliance tradeoffs, the system integrations. That's where actual value is created.</div>
+        </div>
+      </div>
+      <div class="belief-item">
+        <span class="belief-num">05</span>
+        <div>
+          <div class="conviction">Being small is a choice. And it's the right one for our clients.</div>
+          <div class="explain">We could grow faster. We choose not to, because quality of delivery matters more than scale of headcount. Every client we take on gets our full attention — and that's only possible if we're selective.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STARTUP ADVANTAGE -->
+<section class="advantage">
+  <div class="advantage-inner">
+    <div class="reveal">
+      <span class="section-tag">The Difference</span>
+      <h2 class="section-h2">What You Actually Get When<br>You Work With a <em>Startup</em></h2>
+      <p class="adv-intro">Yes, we're building our story. That means we're <strong>hungrier, more invested, and more accountable</strong> than a firm coasting on a brand name. Here is what that translates to in practice:</p>
+    </div>
+    <div class="adv-grid reveal">
+      <div class="adv-card">
+        <span class="adv-label">Seniority on Every Engagement</span>
+        <p><strong>The consultant you meet in the pitch is the consultant who does the work.</strong> No delegation to junior staff. The people with the expertise stay involved end to end.</p>
+      </div>
+      <div class="adv-card">
+        <span class="adv-label">Speed Without Cutting Corners</span>
+        <p><strong>We move fast because we have to.</strong> No internal bureaucracy, no approval chains. We ship working solutions, not status updates — and we don't compromise quality to do it.</p>
+      </div>
+      <div class="adv-card">
+        <span class="adv-label">You're Not an Account Number</span>
+        <p><strong>Every client relationship matters to us personally.</strong> Our reputation grows with yours. That alignment of interest shapes everything about how we show up for you.</p>
+      </div>
+      <div class="adv-card">
+        <span class="adv-label">Honest Conversations, Always</span>
+        <p><strong>We'll push back when we disagree. We'll flag risks you might not want to hear.</strong> Our clients consistently tell us it's the thing they value most — and it's what earns long-term trust.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE TEAM -->
+<!--
+<section class="team-section">
+  <div class="team-inner">
+    <div class="reveal">
+      <span class="section-tag">The People</span>
+      <h2 class="section-h2">Who Actually Does the Work</h2>
+      <p class="section-sub">A small, senior team. Each of us has worked inside the problems we now help solve — in enterprise technology, regulated industries, and complex transformation programmes.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-avatar">
+          <div class="avatar-ring">
+            <span class="avatar-initials">RM</span>
+          </div>
+        </div>
+        <div class="team-info">
+          <div class="team-name">Rashmi Mishra</div>
+          <div class="team-title">Founder & Principal Consultant</div>
+          <div class="team-bio">Technology strategist with deep experience in enterprise IT transformation, governance, and compliance. Built her conviction about doing consulting differently after years inside complex programmes at large organisations.</div>
+          <div class="team-tags">
+            <span class="team-tag">Transformation</span>
+            <span class="team-tag">Governance</span>
+            <span class="team-tag">Cloud</span>
+          </div>
+        </div>
+      </div>
+      <div class="team-card reveal" style="transition-delay:.15s">
+        <div class="team-avatar">
+          <div class="avatar-ring">
+            <span class="avatar-initials">MX</span>
+          </div>
+        </div>
+        <div class="team-info">
+          <div class="team-name">Risk & Compliance Lead</div>
+          <div class="team-title">Senior Consultant</div>
+          <div class="team-bio">Specialist in regulatory compliance and governance architecture across financial services and public sector. Built compliance programmes from scratch for organisations navigating complex, multi-jurisdiction regulatory environments.</div>
+          <div class="team-tags">
+            <span class="team-tag">Risk</span>
+            <span class="team-tag">Compliance</span>
+            <span class="team-tag">Policy</span>
+          </div>
+        </div>
+      </div>
+      <div class="team-card reveal" style="transition-delay:.3s">
+        <div class="team-avatar">
+          <div class="avatar-ring">
+            <span class="avatar-initials">MX</span>
+          </div>
+        </div>
+        <div class="team-info">
+          <div class="team-name">AI & Data Lead</div>
+          <div class="team-title">Senior Consultant</div>
+          <div class="team-bio">Data scientist and AI practitioner who has designed and deployed ML systems in production across healthcare, retail, and financial services. Believes in AI that solves real business problems, not AI for the sake of a deck slide.</div>
+          <div class="team-tags">
+            <span class="team-tag">AI & ML</span>
+            <span class="team-tag">Analytics</span>
+            <span class="team-tag">Architecture</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+-->
+
+<!-- HOW WE WORK — animated timeline -->
+<section class="how-section">
+  <div class="how-inner">
+    <div class="reveal">
+      <span class="section-tag">How We Work</span>
+      <h2 class="section-h2">What an Engagement <em>Actually</em> Looks Like</h2>
+    </div>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-num-circle"><span class="how-num">01</span></div>
+        <div class="how-content">
+          <h3>We Listen Before We Propose</h3>
+          <p>Our first conversation is genuinely exploratory. We want to understand your business, your team, your constraints, and your goals before we suggest anything. If we're not the right fit, we'll tell you — and point you somewhere better.</p>
+        </div>
+      </div>
+      <div class="how-step">
+        <div class="how-num-circle"><span class="how-num">02</span></div>
+        <div class="how-content">
+          <h3>We Scope Honestly and Precisely</h3>
+          <p>The proposal you receive is written by the person who will do the work. Deliverables are specific, milestones are realistic, and pricing is fixed. No scope creep surprises. No padding the estimate to cover our bases.</p>
+        </div>
+      </div>
+      <div class="how-step">
+        <div class="how-num-circle"><span class="how-num">03</span></div>
+        <div class="how-content">
+          <h3>We Build Alongside Your Team</h3>
+          <p>We work with your people, not around them. We embed, share our thinking, explain the tradeoffs. The goal is always that your team comes out more capable than when we started.</p>
+        </div>
+      </div>
+      <div class="how-step">
+        <div class="how-num-circle"><span class="how-num">04</span></div>
+        <div class="how-content">
+          <h3>We Don't Disappear After Go-Live</h3>
+          <p>Handover isn't the end. We do structured knowledge transfer, document what we've built, and stay available after the engagement closes. The relationship outlasts the contract.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANIMATED QUOTE BREAK -->
+<section class="quote-break">
+  <div class="quote-bg">
+    <div class="quote-line-top"></div>
+    <div class="quote-line-bot"></div>
+  </div>
+  <div class="quote-inner reveal">
+    <div class="big-quote">
+      "We measure our success the same way our clients do — not by how many slides we produced, but by <em>what actually changed.</em>"
+    </div>
+    <div class="quote-attr">— The Metamorphex Team</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner reveal">
+    <h2>Let's have an <em>honest</em> conversation.</h2>
+    <p>Tell us what you're working on. We'll tell you whether we're the right team to help — and if we're not, we'll say that too. No hard sell. No wasted time.</p>
+    <div class="cta-buttons">
+      <a href="index.html#contact" class="btn btn-primary">Start the Conversation →</a>
+      <a href="mailto:contact@metamorphex.tech" class="btn btn-ghost">Email Us Directly</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <div style="display:flex;align-items:center;gap:0;margin-bottom:1.2rem;">
+        <img src="metamorphex-logo.png" alt="Metamorphex Logo" style="height:38px;width:auto;">
+        <div style="width:1px;height:22px;background:rgba(255,255,255,0.1);margin:0 16px;"></div>
+        <div class="logo-wordmark" id="footer-logo-wrap">
+          <span class="logo-wordmark-text" id="footer-wt" style="font-size:16px;letter-spacing:0.20em;">METAMORPHE</span>
+          <span class="logo-wordmark-x" id="footer-wx"></span>
+        </div>
+      </div>
+      <p>Expert IT consulting and implementation services for enterprise digital transformation.</p>
+    </div>
+    
+    <div class="footer-col">
+      <h4>Product and Services</h4>
+      <ul>
+    <li><a href="products/MetaPolicyPlus.html">MetaPolicyPlus</a></li>
+        <li><a href="services/cloud-consulting.html">Cloud Consulting</a></li>
+        <li><a href="services/ai-ml.html">AI & ML Advisory</a></li>
+        <li><a href="services/compliance-risk.html">Compliance & Risk</a></li>
+        <li><a href="services/digital-transformation.html">Digital Transformation</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="#case-studies">Case Studies</a></li>
+        <li><a href="careers.html">Careers</a></li>
+      </ul>
+    </div>
+  
+  <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="https://www.linkedin.com/company/metamorphex/">LinkedIn</a></li>
+        <li><a href="mailto:contact@metamorphex.tech">Email</a></li>
+      </ul>
+    </div>
+<!--
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="mailto:contact@metamorphex.tech">contact@metamorphex.tech</a></li>
+      </ul>
+    </div>
+  -->
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Metamorphex. All rights reserved.</p>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="about.html">About Us</a>
+    </div>
+    <p>IT Consulting & Implementation Services · Noida, India</p>
+  </div>
+</footer>
+
+<script>
+/* ── Logo X ── */
+function buildLogoX(t,x){const te=document.getElementById(t),xe=document.getElementById(x);if(!te||!xe)return;const s=getComputedStyle(te),fs=parseFloat(s.fontSize),ls=parseFloat(s.letterSpacing)||0,cH=Math.round(fs*.73),xW=Math.round(fs*.64),sw=Math.max(1.6,fs*.055);xe.style.cssText=`display:inline-block;position:relative;width:${xW+ls}px;height:${cH}px;vertical-align:baseline;`;xe.innerHTML=`<svg viewBox="0 0 ${xW} ${cH}" width="${xW}" height="${cH}" style="display:block;overflow:visible;position:absolute;bottom:0;left:0;"><line x1="1" y1="1" x2="${xW-1}" y2="${cH-1}" stroke="rgba(220,232,245,0.88)" stroke-width="${sw}" stroke-linecap="round"/><line x1="1" y1="${cH-1}" x2="${xW-1}" y2="1" stroke="#3EC9E8" stroke-width="${sw}" stroke-linecap="round"/><circle cx="${xW/2}" cy="${cH/2}" r="${sw*.85}" fill="#3EC9E8" opacity=".55"/></svg>`;}
+if(document.fonts){document.fonts.ready.then(()=>{buildLogoX('nav-wt','nav-wx');buildLogoX('footer-wt','footer-wx');});}else{window.addEventListener('load',()=>{buildLogoX('nav-wt','nav-wx');buildLogoX('footer-wt','footer-wx');});}
+
+/* ── Nav dropdowns ── */
+document.querySelectorAll('.nav-item').forEach(item=>{const link=item.querySelector('.nav-link'),menu=item.querySelector('.mega-menu');if(!menu)return;link.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();document.querySelectorAll('.nav-item').forEach(o=>{if(o!==item)o.classList.remove('open');});item.classList.toggle('open');});});
+document.addEventListener('click',e=>{if(!e.target.closest('.nav-item'))document.querySelectorAll('.nav-item').forEach(i=>i.classList.remove('open'));});
+
+/* ── PARTICLE CANVAS ── */
+(function(){
+  const canvas = document.getElementById('particle-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, particles, mouse = {x:-999,y:-999};
+
+  function resize(){
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  window.addEventListener('resize', ()=>{ resize(); initParticles(); });
+
+  function initParticles(){
+    const count = Math.floor((W * H) / 14000);
+    particles = Array.from({length: count}, ()=>({
+      x: Math.random()*W,
+      y: Math.random()*H,
+      vx: (Math.random()-.5)*.35,
+      vy: (Math.random()-.5)*.35,
+      r: Math.random()*1.8+.6,
+      alpha: Math.random()*.5+.2
+    }));
+  }
+
+  canvas.addEventListener('mousemove', e=>{
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+  });
+  canvas.addEventListener('mouseleave', ()=>{ mouse.x=-999; mouse.y=-999; });
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    const CONN = 130, MOUSE_CONN = 160;
+
+    particles.forEach((p,i)=>{
+      // mouse repulsion
+      const dx = p.x - mouse.x, dy = p.y - mouse.y;
+      const dist = Math.sqrt(dx*dx+dy*dy);
+      if(dist < 80){
+        const force = (80-dist)/80 * .8;
+        p.vx += (dx/dist)*force;
+        p.vy += (dy/dist)*force;
+      }
+      // velocity damping
+      p.vx *= .98; p.vy *= .98;
+      p.x += p.vx; p.y += p.vy;
+      if(p.x<0)p.x=W; if(p.x>W)p.x=0;
+      if(p.y<0)p.y=H; if(p.y>H)p.y=0;
+
+      // draw node
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle = `rgba(62,201,232,${p.alpha})`;
+      ctx.fill();
+
+      // connections between particles
+      for(let j=i+1; j<particles.length; j++){
+        const q=particles[j];
+        const ex=p.x-q.x, ey=p.y-q.y, ed=Math.sqrt(ex*ex+ey*ey);
+        if(ed<CONN){
+          ctx.beginPath();
+          ctx.moveTo(p.x,p.y); ctx.lineTo(q.x,q.y);
+          ctx.strokeStyle = `rgba(62,201,232,${.18*(1-ed/CONN)})`;
+          ctx.lineWidth = .6;
+          ctx.stroke();
+        }
+      }
+
+      // mouse-to-particle connection
+      const mdx=p.x-mouse.x, mdy=p.y-mouse.y, md=Math.sqrt(mdx*mdx+mdy*mdy);
+      if(md < MOUSE_CONN){
+        ctx.beginPath();
+        ctx.moveTo(p.x,p.y); ctx.lineTo(mouse.x,mouse.y);
+        ctx.strokeStyle = `rgba(62,201,232,${.35*(1-md/MOUSE_CONN)})`;
+        ctx.lineWidth = .8;
+        ctx.stroke();
+      }
+    });
+    requestAnimationFrame(draw);
+  }
+
+  resize(); initParticles(); draw();
+})();
+
+/* ── COUNT-UP STATS ── */
+function countUp(el){
+  const target = parseInt(el.dataset.target);
+  const suffix = el.dataset.suffix || '';
+  const duration = 1600;
+  const start = performance.now();
+  function step(now){
+    const t = Math.min((now-start)/duration, 1);
+    const ease = 1-Math.pow(1-t,3);
+    el.textContent = Math.floor(ease*target) + suffix;
+    if(t<1) requestAnimationFrame(step);
+    else el.textContent = target + suffix;
+  }
+  requestAnimationFrame(step);
+}
+const statsObserver = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){countUp(e.target);statsObserver.unobserve(e.target);}});
+},{threshold:.5});
+document.querySelectorAll('.stat-num[data-target]').forEach(el=>statsObserver.observe(el));
+
+/* ── STAGGERED BELIEF ITEMS ── */
+const beliefObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const items = e.target.querySelectorAll('.belief-item');
+      items.forEach((item,i)=>{
+        setTimeout(()=>{ item.classList.add('visible'); item.style.animationDelay='0s'; },i*120);
+      });
+      beliefObs.unobserve(e.target);
+    }
+  });
+},{threshold:.1});
+const beliefList = document.querySelector('.belief-list');
+if(beliefList) beliefObs.observe(beliefList);
+
+/* ── STAGGERED TIMELINE STEPS ── */
+const stepObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const steps = e.target.querySelectorAll('.how-step');
+      steps.forEach((s,i)=>setTimeout(()=>s.classList.add('visible'),i*150));
+      stepObs.unobserve(e.target);
+    }
+  });
+},{threshold:.1});
+const howSteps = document.querySelector('.how-steps');
+if(howSteps) stepObs.observe(howSteps);
+
+/* ── GENERIC SCROLL REVEAL ── */
+const revealObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);} });
+},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
+</script>
+</body>
+</html>

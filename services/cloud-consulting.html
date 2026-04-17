@@ -411,7 +411,8 @@ body::before {
         </div>
       </li>
       <li class="nav-item"><a href="../index.html#case-studies" class="nav-link">Insights</a></li>
-      <li class="nav-item"><a href="../index.html#contact" class="nav-link">Contact</a></li>
+    <!--  <li class="nav-item"><a href="../about.html" class="nav-link">About</a></li>
+      <li class="nav-item"><a href="../index.html#contact" class="nav-link">Contact</a></li> -->
     </ul>
     <a href="../index.html#contact" class="nav-cta">Get Started</a>
   </div>
@@ -444,13 +445,14 @@ body::before {
     </div>
 
     <div class="hero-panel reveal">
-      <div class="hero-panel-header">
+      <!--<div class="hero-panel-header">
         <div class="service-icon-lg">☁️</div>
         <div>
           <h3>Service Overview</h3>
           <p>Cloud Consulting & Implementation</p>
         </div>
       </div>
+      -->
       <div class="panel-stats">
         <div class="panel-stat">
           <span class="panel-stat-num">40%</span>
@@ -952,33 +954,48 @@ body::before {
       <p>Expert IT consulting and implementation services for enterprise digital transformation.</p>
     </div>
     <div class="footer-col">
-      <h4>Services</h4>
+      <h4>Product and Services</h4>
       <ul>
-        <li><a href="cloud-consulting.html">Cloud Consulting</a></li>
-        <li><a href="ai-ml.html">AI & ML Advisory</a></li>
-        <li><a href="compliance-risk.html">Compliance & Risk</a></li>
-        <li><a href="digital-transformation.html">Digital Transformation</a></li>
+    <li><a href="products/MetaPolicyPlus.html">MetaPolicyPlus</a></li>
+        <li><a href="services/cloud-consulting.html">Cloud Consulting</a></li>
+        <li><a href="services/ai-ml.html">AI & ML Advisory</a></li>
+        <li><a href="services/compliance-risk.html">Compliance & Risk</a></li>
+        <li><a href="services/digital-transformation.html">Digital Transformation</a></li>
       </ul>
     </div>
+    
     <div class="footer-col">
       <h4>Company</h4>
       <ul>
-        <li><a href="../index.html#expertise">Expertise</a></li>
-        <li><a href="../index.html#case-studies">Case Studies</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="#case-studies">Case Studies</a></li>
         <li><a href="careers.html">Careers</a></li>
-        <li><a href="../index.html#contact">Contact</a></li>
       </ul>
     </div>
-    <div class="footer-col">
+  
+  <div class="footer-col">
       <h4>Connect</h4>
       <ul>
         <li><a href="https://www.linkedin.com/company/metamorphex/">LinkedIn</a></li>
         <li><a href="mailto:contact@metamorphex.tech">Email</a></li>
       </ul>
     </div>
+<!--
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="mailto:contact@metamorphex.tech">contact@metamorphex.tech</a></li>
+      </ul>
+    </div>
+  -->
   </div>
   <div class="footer-bottom">
     <p>© 2026 Metamorphex. All rights reserved.</p>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="privacy-policy.html" style="color:inherit;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#3EC9E8'" onmouseout="this.style.color='inherit'">Privacy Policy</a>
+      <a href="about.html" style="color:inherit;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#3EC9E8'" onmouseout="this.style.color='inherit'">About Us</a>
+    </div>
     <p>IT Consulting & Implementation Services · Noida, India</p>
   </div>
 </footer>
@@ -1023,5 +1040,6 @@ const obs = new IntersectionObserver(entries => {
 }, { threshold: 0.08 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
+<script src="../mx-fx.js"></script>
 </body>
 </html>

@@ -193,7 +193,8 @@ body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(
         </div>
       </li>
       <li class="nav-item"><a href="../index.html#case-studies" class="nav-link">Insights</a></li>
-      <li class="nav-item"><a href="../index.html#contact" class="nav-link">Contact</a></li>
+     <!-- <li class="nav-item"><a href="../about.html" class="nav-link">About</a></li>
+      <li class="nav-item"><a href="../index.html#contact" class="nav-link">Contact</a></li> -->
     </ul>
     <a href="../index.html#contact" class="nav-cta">Get Started</a>
   </div>
@@ -217,10 +218,11 @@ body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(
       </div>
     </div>
     <div class="hero-panel reveal">
-      <div class="hero-panel-header">
+     <!-- <div class="hero-panel-header">
         <div class="service-icon-lg">📊</div>
         <div><h3>Service Overview</h3><p>Data Analytics & Business Intelligence</p></div>
       </div>
+    	-->
       <div class="panel-stats">
         <div class="panel-stat"><span class="panel-stat-num">73%</span><span class="panel-stat-label">Of enterprise data goes unanalysed — the opportunity is in the data you already have</span></div>
         <div class="panel-stat"><span class="panel-stat-num">3×</span><span class="panel-stat-label">Faster decision cycles in organisations with self-service BI vs centralised reporting</span></div>
@@ -546,20 +548,62 @@ body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(
   <div class="footer-container">
     <div class="footer-brand">
       <div style="display:flex;align-items:center;gap:0;margin-bottom:1.2rem;">
-        <img src="../metamorphex-logo.png" alt="Metamorphex" style="height:38px;width:auto;">
+        <img src="metamorphex-logo.png" alt="Metamorphex Logo" style="height:38px;width:auto;">
         <div style="width:1px;height:22px;background:rgba(255,255,255,0.1);margin:0 16px;"></div>
-        <div style="display:flex;align-items:baseline;">
-          <span id="footer-wt" style="font-family:'Exo 2',sans-serif;font-weight:200;font-size:16px;letter-spacing:0.20em;text-transform:uppercase;color:rgba(255,255,255,0.85);">METAMORPHE</span>
-          <span id="footer-wx" style="display:inline-block;position:relative;"></span>
+        <div class="logo-wordmark" id="footer-logo-wrap">
+          <span class="logo-wordmark-text" id="footer-wt" style="font-size:16px;letter-spacing:0.20em;">METAMORPHE</span>
+          <span class="logo-wordmark-x" id="footer-wx"></span>
         </div>
       </div>
       <p>Expert IT consulting and implementation services for enterprise digital transformation.</p>
     </div>
-    <div class="footer-col"><h4>Services</h4><ul><li><a href="cloud-consulting.html">Cloud Consulting</a></li><li><a href="ai-ml.html">AI & ML Advisory</a></li><li><a href="compliance-risk.html">Compliance & Risk</a></li><li><a href="digital-transformation.html">Digital Transformation</a></li></ul></div>
-    <div class="footer-col"><h4>Company</h4><ul><li><a href="../index.html#expertise">Expertise</a></li><li><a href="../index.html#case-studies">Case Studies</a></li><li><a href="careers.html">Careers</a></li><li><a href="../index.html#contact">Contact</a></li></ul></div>
-    <div class="footer-col"><h4>Connect</h4><ul><li><a href="https://www.linkedin.com/company/metamorphex/">LinkedIn</a></li><li><a href="mailto:contact@metamorphex.tech">Email</a></li></ul></div>
+    
+    <div class="footer-col">
+      <h4>Product and Services</h4>
+      <ul>
+		<li><a href="products/MetaPolicyPlus.html">MetaPolicyPlus</a></li>
+        <li><a href="services/cloud-consulting.html">Cloud Consulting</a></li>
+        <li><a href="services/ai-ml.html">AI & ML Advisory</a></li>
+        <li><a href="services/compliance-risk.html">Compliance & Risk</a></li>
+        <li><a href="services/digital-transformation.html">Digital Transformation</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="#case-studies">Case Studies</a></li>
+        <li><a href="careers.html">Careers</a></li>
+      </ul>
+    </div>
+	
+	<div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="https://www.linkedin.com/company/metamorphex/">LinkedIn</a></li>
+        <li><a href="mailto:contact@metamorphex.tech">Email</a></li>
+      </ul>
+    </div>
+<!--
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="mailto:contact@metamorphex.tech">contact@metamorphex.tech</a></li>
+      </ul>
+    </div>
+	-->
   </div>
-  <div class="footer-bottom"><p>© 2026 Metamorphex. All rights reserved.</p><p>IT Consulting & Implementation Services · Noida, India</p></div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Metamorphex. All rights reserved.</p>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="privacy-policy.html" style="color:inherit;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#3EC9E8'" onmouseout="this.style.color='inherit'">Privacy Policy</a>
+      <a href="about.html" style="color:inherit;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#3EC9E8'" onmouseout="this.style.color='inherit'">About Us</a>
+    </div>
+    <p>IT Consulting & Implementation Services · Noida, India</p>
+  </div>
 </footer>
 <script>
 function buildLogoX(t,x){const el=document.getElementById(t),xel=document.getElementById(x);if(!el||!xel)return;const fs=parseFloat(getComputedStyle(el).fontSize),ls=parseFloat(getComputedStyle(el).letterSpacing)||0,capH=Math.round(fs*0.73),xW=Math.round(fs*0.64),thin=Math.max(1.2,fs*0.042),thick=Math.max(3.5,fs*0.134);xel.style.cssText=`display:inline-block;position:relative;width:${xW+ls}px;height:${capH}px;vertical-align:baseline;`;xel.innerHTML=`<svg viewBox="0 0 ${xW} ${capH}" width="${xW}" height="${capH}" style="display:block;overflow:visible;position:absolute;bottom:0;left:0;"><line x1="1" y1="1" x2="${xW-1}" y2="${capH-1}" stroke="rgba(220,232,245,0.75)" stroke-width="${thin}" stroke-linecap="round"/><line x1="1" y1="${capH-1}" x2="${xW-1}" y2="1" stroke="#3EC9E8" stroke-width="${thick}" stroke-linecap="round"/></svg>`;}
@@ -569,5 +613,6 @@ document.addEventListener('click',e=>{if(!e.target.closest('.nav-item'))document
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('active');obs.unobserve(e.target);}});},{threshold:0.08});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
+<script src="../mx-fx.js"></script>
 </body>
 </html>
