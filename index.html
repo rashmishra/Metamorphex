@@ -1058,20 +1058,26 @@ body::before {
 .form-success p { color: var(--text-dim); }
 
 /* ── FOOTER ── */
+
+/*
+
 .footer {
   background: var(--bg-surface);
   border-top: 1px solid var(--border);
   color: white;
   padding: 5rem 2.5rem 2.5rem;
 }
+
 .footer-container {
-  max-width: 1400px;
+  max-width: var(--max); 
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 4rem;
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 4rem; 
   margin-bottom: 3rem;
 }
+
+
 .footer-brand p {
   color: var(--text-dim);
   font-size: 0.9rem;
@@ -1110,6 +1116,20 @@ body::before {
   font-size: 0.8rem;
   letter-spacing: 0.04em;
 }
+
+
+*/
+
+
+.footer{background:var(--bg-surface);border-top:1px solid var(--border);color:white;padding:5rem 2.5rem 2.5rem;position:relative;z-index:1;}
+.footer-container{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;margin-bottom:3rem;}
+.footer-brand p{color:var(--text-dim);font-size:0.9rem;line-height:1.7;font-weight:300;max-width:280px;}
+.footer-col h4{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-dimmer);margin-bottom:1.2rem;}
+.footer-col ul{list-style:none;}.footer-col ul li{margin-bottom:0.7rem;}
+.footer-col ul li a{color:var(--text-dim);text-decoration:none;font-size:0.88rem;font-weight:300;transition:color 0.2s;}.footer-col ul li a:hover{color:var(--text);}
+.footer-bottom{max-width:var(--max);margin:0 auto;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;color:var(--text-dimmer);font-size:0.8rem;letter-spacing:0.04em;}
+
+
 
 /* ── UTILITY ── */
 .gradient-text {
